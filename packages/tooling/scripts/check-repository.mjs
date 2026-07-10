@@ -27,6 +27,8 @@ const required = [
   'packages/schema/json-schema/contribution-submission.schema.json',
   'data/categories.json',
   'docs/README.md',
+  'docs/development/build-directive.md',
+  'docs/development/agent-guide.md',
   '.github/workflows/ci.yml',
   '.github/workflows/validate-contribution.yml',
 ]
