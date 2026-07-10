@@ -1,0 +1,81 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "notion",
+  "name": "Notion",
+  "aliases": [
+    "Notion Labs"
+  ],
+  "domains": [
+    "notion.so"
+  ],
+  "status": "active",
+  "categories": [
+    "technology",
+    "software"
+  ],
+  "tags": [
+    "productivity",
+    "notes",
+    "collaboration"
+  ],
+  "colors": [
+    {
+      "id": "black",
+      "name": "Notion Black",
+      "value": "#000000",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "gray",
+      "name": "Notion Gray",
+      "value": "#9B9A97",
+      "role": "neutral",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "symbol-mono",
+      "file": "assets/symbol-mono.svg",
+      "type": "symbol",
+      "variant": "monochrome",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": true,
+      "current": true,
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "official",
+      "type": "official-website",
+      "url": "https://www.notion.so/press",
+      "title": "Notion Press",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}
