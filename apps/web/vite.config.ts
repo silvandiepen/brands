@@ -15,4 +15,12 @@ export default defineConfig({
       }),
     }),
   ],
+  server: {
+    fs: {
+      allow: ['..', '../..'],
+    },
+  },
+  build: {
+    target: 'es2022',
+  },
 })

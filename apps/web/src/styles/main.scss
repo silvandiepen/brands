@@ -1,0 +1,104 @@
+:root {
+  --ob-bg: #ffffff;
+  --ob-bg-alt: #f8f9fa;
+  --ob-text: #1a1a2e;
+  --ob-text-muted: #6b7280;
+  --ob-border: #e5e7eb;
+  --ob-primary: #2563eb;
+  --ob-primary-hover: #1d4ed8;
+  --ob-radius: 8px;
+  --ob-max-width: 1200px;
+}
+
+[data-theme="dark"] {
+  --ob-bg: #101114;
+  --ob-bg-alt: #1a1a2e;
+  --ob-text: #e5e7eb;
+  --ob-text-muted: #9ca3af;
+  --ob-border: #374151;
+  --ob-primary: #3b82f6;
+  --ob-primary-hover: #60a5fa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--ob-bg);
+  color: var(--ob-text);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--ob-primary);
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+.container {
+  max-width: var(--ob-max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--ob-radius);
+  border: 1px solid var(--ob-border);
+  background: var(--ob-bg);
+  color: var(--ob-text);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.15s;
+
+  &:hover { border-color: var(--ob-primary); }
+  &--primary {
+    background: var(--ob-primary);
+    color: #fff;
+    border-color: var(--ob-primary);
+    &:hover { background: var(--ob-primary-hover); }
+  }
+}
+
+.card {
+  background: var(--ob-bg-alt);
+  border: 1px solid var(--ob-border);
+  border-radius: var(--ob-radius);
+  padding: 1.25rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  &--brands { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  &--colors { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--ob-bg-alt);
+  border: 1px solid var(--ob-border);
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--ob-border);
+  border-radius: var(--ob-radius);
+  font-size: 1rem;
+  background: var(--ob-bg);
+  color: var(--ob-text);
+  &:focus { outline: 2px solid var(--ob-primary); }
+}
