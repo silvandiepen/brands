@@ -344,7 +344,7 @@ async function submit() {
       </div>
 
       <button class="btn btn--primary" @click="submit" :disabled="submitting || !canProceed">
-        {{ submitting ? 'Submitting...'' : 'Submit contribution' }}
+        {{ submitting ? 'Submitting...' : 'Submit contribution' }}
       </button>
     </div>
 
