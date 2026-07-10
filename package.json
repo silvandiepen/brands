@@ -1,0 +1,22 @@
+{
+  "name": "open-brands-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.13.1",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node packages/tooling/scripts/check-repository.mjs",
+    "check:contribution": "node packages/tooling/scripts/check-contribution-pr.mjs",
+    "test:contribution-guard": "node packages/tooling/scripts/test-contribution-guard.mjs",
+    "lint": "pnpm -r --if-present lint",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "pnpm -r --if-present test",
+    "build": "pnpm -r --if-present build"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  }
+}

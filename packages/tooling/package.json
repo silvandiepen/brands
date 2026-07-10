@@ -1,0 +1,10 @@
+{
+  "name": "@open-brands/tooling",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/check-repository.mjs",
+    "test": "node scripts/test-contribution-guard.mjs"
+  }
+}

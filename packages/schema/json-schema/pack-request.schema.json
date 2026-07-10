@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-brands.org/schemas/pack-request.schema.json",
+  "title": "Open Brands pack request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["assetTypes", "themes", "formats", "metadata", "folderLayout", "filenameStrategy", "includeHistorical", "missingPolicy"],
+  "properties": {
+    "datasetVersion": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "brandIds": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+      "minItems": 1,
+      "maxItems": 100,
+      "uniqueItems": true
+    },
+    "collectionId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "assetTypes": {
+      "type": "array",
+      "items": {
+        "enum": ["recommended", "symbol", "icon", "wordmark", "logo", "lockup", "badge", "all-current"]
+      },
+      "minItems": 1,
+      "maxItems": 8,
+      "uniqueItems": true
+    },
+    "themes": {
+      "type": "array",
+      "items": { "enum": ["light", "dark", "any"] },
+      "minItems": 1,
+      "maxItems": 3,
+      "uniqueItems": true
+    },
+    "formats": {
+      "type": "array",
+      "items": { "enum": ["svg", "png", "webp"] },
+      "minItems": 1,
+      "maxItems": 3,
+      "uniqueItems": true
+    },
+    "raster": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sizes": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 16, "maximum": 2048 },
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true
+        },
+        "padding": { "type": "integer", "minimum": 0, "maximum": 512 },
+        "background": {
+          "type": "string",
+          "pattern": "^(transparent|#[0-9A-Fa-f]{6}(?:[0-9A-Fa-f]{2})?)$"
+        }
+      }
+    },
+    "metadata": { "enum": ["none", "compact", "complete"] },
+    "tokens": {
+      "type": "array",
+      "items": { "enum": ["css", "scss", "json", "dtcg"] },
+      "maxItems": 4,
+      "uniqueItems": true
+    },
+    "snippets": {
+      "type": "array",
+      "items": { "enum": ["html", "vue", "react", "markdown", "css-mask"] },
+      "maxItems": 5,
+      "uniqueItems": true
+    },
+    "folderLayout": { "enum": ["flat", "by-brand"] },
+    "filenameStrategy": { "enum": ["stable-id", "descriptive"] },
+    "includeHistorical": { "type": "boolean" },
+    "includeProvenance": { "type": "boolean", "default": true },
+    "missingPolicy": { "enum": ["strict", "recommended-fallback", "skip"] }
+  },
+  "oneOf": [
+    {
+      "required": ["brandIds"],
+      "not": { "required": ["collectionId"] }
+    },
+    {
+      "required": ["collectionId"],
+      "not": { "required": ["brandIds"] }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-brands.org/schemas/contribution-submission.schema.json",
+  "title": "Open Brands guided contribution submission",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "brandId", "baseDatasetVersion", "manifest", "uploads", "declarations"],
+  "properties": {
+    "type": {
+      "enum": ["new-brand", "edit-brand", "add-asset", "correct-colors", "add-historical"]
+    },
+    "brandId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "baseDatasetVersion": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "manifest": {
+      "$ref": "./brand.schema.json"
+    },
+    "uploads": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["uploadId", "filename", "size", "sha256", "assetId"],
+        "properties": {
+          "uploadId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{16,128}$"
+          },
+          "filename": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*\\.svg$",
+            "maxLength": 150
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 524288
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "assetId": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "acknowledgedWarnings": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 100 },
+      "maxItems": 50,
+      "uniqueItems": true
+    },
+    "declarations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourcesPublic", "noConfidentialMaterial", "noOwnershipClaim", "termsVersion"],
+      "properties": {
+        "sourcesPublic": { "const": true },
+        "noConfidentialMaterial": { "const": true },
+        "noOwnershipClaim": { "const": true },
+        "termsVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50
+        }
+      }
+    }
+  }
+}
