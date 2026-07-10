@@ -35,6 +35,9 @@ jobs:
       - name: Check repository structure
         run: pnpm check
 
+      - name: Lint
+        run: pnpm lint
+
       - name: Check contribution tooling syntax
         run: |
           node --check packages/tooling/scripts/check-contribution-pr.mjs
