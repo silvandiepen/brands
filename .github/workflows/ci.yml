@@ -46,5 +46,16 @@ jobs:
       - name: Test
         run: pnpm test
 
+      - name: Generate dataset
+        run: pnpm generate
+
       - name: Build
         run: pnpm build
+
+      - name: Verify clean working tree
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Working tree is dirty after build. Generated output may not be deterministic."
+            git diff --stat
+            exit 1
+          fi

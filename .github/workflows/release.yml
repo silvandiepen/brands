@@ -1,0 +1,77 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Dry run (skip publication)'
+        required: false
+        default: 'true'
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: release
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Install workspace
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Check repository structure
+        run: pnpm check
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test
+
+      - name: Generate dataset
+        run: pnpm generate
+
+      - name: Build
+        run: pnpm build
+
+      - name: Verify clean working tree
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Working tree is dirty after build."
+            git diff --stat
+            exit 1
+          fi
+
+      - name: Publish npm package
+        if: github.event.inputs.dry-run != 'true'
+        run: pnpm --filter open-brands publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create release artifact
+        run: |
+          tar czf open-brands-dataset.tar.gz packages/data/generated/
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: open-brands-release
+          path: open-brands-dataset.tar.gz
+          retention-days: 30

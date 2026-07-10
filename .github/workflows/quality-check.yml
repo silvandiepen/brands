@@ -1,0 +1,63 @@
+name: Quality Check
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Install workspace
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Generate and validate dataset
+        run: |
+          pnpm generate 2>&1 | tee quality-report.txt
+
+      - name: Check source URL structure
+        run: |
+          echo "Checking source URL structure for all brands..."
+          npx tsx -e "
+            import { loadDataset } from './packages/tooling/src/validate.ts'
+            const ds = loadDataset('.')
+            let warnings = 0
+            for (const [id, brand] of ds.brands) {
+              for (const source of brand.manifest.sources) {
+                if (!source.url.startsWith('https://')) {
+                  console.warn('WARN: ' + id + ' source ' + source.id + ' does not use HTTPS')
+                  warnings++
+                }
+              }
+            }
+            console.log('Source URL check complete. ' + warnings + ' warning(s).')
+          " 2>&1 | tee -a quality-report.txt
+
+      - name: Create issue if warnings
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Scheduled quality check found issues',
+              body: 'The scheduled quality check detected issues. See the workflow run for details.',
+              labels: ['quality', 'automated']
+            })
