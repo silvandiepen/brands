@@ -9,7 +9,12 @@
     "build": "tsc --noEmit",
     "deploy": "wrangler deploy --config wrangler.jsonc"
   },
+  "dependencies": {
+    "@open-brands/schema": "workspace:*",
+    "@open-brands/core": "workspace:*"
+  },
   "devDependencies": {
+    "@types/node": "^22.0.0",
     "wrangler": "^4.0.0"
   }
 }

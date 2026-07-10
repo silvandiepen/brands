@@ -1,8 +1,84 @@
+import {
+  handleMeta,
+  handleBrands,
+  handleBrandDetail,
+  handleBrandColors,
+  handleBrandAssets,
+  handleBrandImage,
+  handleResolve,
+  handleSearch,
+  handleCategories,
+  handleCollections,
+  handlePackCreate,
+  handlePackStatus,
+} from './routes.js'
+import { handleOpenApi } from './openapi.js'
+import { errorResponse, generateRequestId, corsHeaders } from './http.js'
+import type { Env } from './http.js'
+
 export default {
-  async fetch(): Promise<Response> {
-    return Response.json(
-      { error: { code: 'NOT_IMPLEMENTED', message: 'Open Brands API is not implemented yet.' } },
-      { status: 501 },
-    )
+  async fetch(request: Request, _env: Env): Promise<Response> {
+    const url = new URL(request.url)
+    const requestId = generateRequestId()
+    const method = request.method
+    const path = url.pathname
+
+    if (method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers: corsHeaders() })
+    }
+
+    try {
+      const response = route(method, path, request, requestId, url)
+      const headers = new Headers(response.headers)
+      headers.set('X-Request-Id', requestId)
+      return new Response(response.body, { status: response.status, headers })
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Internal server error'
+      return errorResponse('INTERNAL_ERROR', message, 500, requestId)
+    }
   },
+}
+
+function route(method: string, path: string, request: Request, requestId: string, url: URL): Response {
+  if (path === '/' && method === 'GET') {
+    return new Response(
+      JSON.stringify({ name: 'Open Brands API', version: '1.0.0', docs: '/v1/meta', openapi: '/openapi.json' }),
+      { headers: { 'Content-Type': 'application/json' } },
+    )
+  }
+  if (path === '/openapi.json' && method === 'GET') return handleOpenApi()
+
+  if (!path.startsWith('/v1/')) {
+    return errorResponse('NOT_FOUND', `Route ${method} ${path} not found`, 404, requestId)
+  }
+
+  const rest = path.slice(4)
+  const parts = rest.split('/').filter(Boolean)
+
+  if (parts.length === 1) {
+    const r = parts[0]!
+    if (r === 'meta' && method === 'GET') return handleMeta(request, requestId)
+    if (r === 'brands' && method === 'GET') return handleBrands(request, requestId, url)
+    if (r === 'search' && method === 'GET') return handleSearch(request, requestId, url)
+    if (r === 'categories' && method === 'GET') return handleCategories(request, requestId)
+    if (r === 'collections' && method === 'GET') return handleCollections(request, requestId)
+    if (r === 'packs' && method === 'POST') return handlePackCreate(request, requestId)
+  }
+
+  if (parts.length === 2) {
+    const [resource, id] = parts
+    if (resource === 'brands' && method === 'GET') return handleBrandDetail(request, requestId, id!)
+    if (resource === 'resolve' && method === 'GET') return handleResolve(request, requestId, id!)
+    if (resource === 'packs' && method === 'GET') return handlePackStatus(request, requestId, id!)
+  }
+
+  if (parts.length === 3 && parts[0] === 'brands') {
+    const brandId = parts[1]!
+    const sub = parts[2]!
+    if (sub === 'colors' && method === 'GET') return handleBrandColors(request, requestId, brandId)
+    if (sub === 'assets' && method === 'GET') return handleBrandAssets(request, requestId, brandId, url)
+    if (sub === 'image' && method === 'GET') return handleBrandImage(request, requestId, brandId, url)
+  }
+
+  return errorResponse('NOT_FOUND', `Route ${method} ${path} not found`, 404, requestId)
 }

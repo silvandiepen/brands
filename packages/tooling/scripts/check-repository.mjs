@@ -77,6 +77,7 @@ const allowedRootFiles = new Set([
   'LICENSE',
   'README.md',
   'package.json',
+  'pnpm-lock.yaml',
   'pnpm-workspace.yaml',
   'tsconfig.base.json',
 ])

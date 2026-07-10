@@ -198,15 +198,21 @@ export function generateRelease(
   mkdirSync(brandsDir, { recursive: true })
 
   const brandsIndex: Record<string, { name: string; checksum: string }> = {}
+  const allBrands: GeneratedBrand[] = []
 
   for (const [id, brand] of dataset.brands) {
     const detail = generateBrandDetail(brand)
+    allBrands.push(detail)
     const detailPath = join(brandsDir, `${id}.json`)
     const detailJson = deterministicJsonStringify(detail)
     writeFileSync(detailPath, detailJson)
     writtenFiles.push(detailPath)
     brandsIndex[id] = { name: brand.manifest.name, checksum: sha256Hex(detailJson) }
   }
+
+  const allBrandsPath = join(outputDir, 'all-brands.json')
+  writeFileSync(allBrandsPath, deterministicJsonStringify(allBrands))
+  writtenFiles.push(allBrandsPath)
 
   const categoriesPath = join(outputDir, 'categories.json')
   writeFileSync(categoriesPath, deterministicJsonStringify(dataset.categories))
