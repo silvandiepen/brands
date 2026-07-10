@@ -13,6 +13,7 @@ This directory is the implementation contract for Open Brands.
 - [Migration](./MIGRATION.md): preservation and normalization of both legacy projects.
 - [Legal and provenance](./LEGAL.md): trademark, licensing, sourcing, and takedown requirements.
 - [Testing](./TESTING.md): data, asset, API, package, web, and release validation.
+- [Contributing](./CONTRIBUTING.md): contribution structure and review requirements.
 - [Implementation plan](./IMPLEMENTATION_PLAN.md): phased agent execution and PR sequence.
 
 ## Decisions
