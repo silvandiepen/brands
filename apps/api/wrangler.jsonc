@@ -4,7 +4,89 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-07-10",
   "compatibility_flags": ["nodejs_compat"],
+  "account_id": "8cef251b5fdcf6c6f63db98b7aa49f9a",
+
   "observability": {
-    "enabled": true
-  }
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+
+  "vars": {
+    "ENVIRONMENT": "production",
+    "PUBLIC_API_ORIGIN": "https://api.open-brands.org",
+    "PUBLIC_CDN_ORIGIN": "https://cdn.open-brands.org",
+    "PUBLIC_WEB_ORIGIN": "https://open-brands.org",
+    "GITHUB_REPOSITORY": "silvandiepen/brands",
+    "PACK_MAX_BRANDS": "100",
+    "PACK_MAX_FILES": "500",
+    "PACK_MAX_ESTIMATED_BYTES": "26214400",
+    "CONTRIBUTION_MAX_SVGS": "5",
+    "CONTRIBUTION_MAX_SVG_BYTES": "524288",
+    "CONTRIBUTION_MAX_TOTAL_BYTES": "2097152"
+  },
+
+  "r2_buckets": [
+    {
+      "binding": "PUBLIC_ASSETS",
+      "bucket_name": "open-brands-public"
+    },
+    {
+      "binding": "QUARANTINE_ASSETS",
+      "bucket_name": "open-brands-quarantine"
+    }
+  ],
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "open-brands-operations",
+      "database_id": "658ec9d8-1b51-47c3-92d5-3d86d3861cdc",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  "queues": {
+    "producers": [
+      {
+        "binding": "PACK_QUEUE",
+        "queue": "open-brands-pack-jobs"
+      },
+      {
+        "binding": "VALIDATION_QUEUE",
+        "queue": "open-brands-validation-jobs"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "open-brands-pack-jobs",
+        "max_batch_size": 5,
+        "max_batch_timeout": 10,
+        "max_retries": 3,
+        "dead_letter_queue": "open-brands-pack-jobs-dead"
+      },
+      {
+        "queue": "open-brands-validation-jobs",
+        "max_batch_size": 2,
+        "max_batch_timeout": 5,
+        "max_retries": 2,
+        "dead_letter_queue": "open-brands-validation-jobs-dead"
+      }
+    ]
+  },
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "QUOTA_COORDINATOR",
+        "class_name": "QuotaCoordinator"
+      }
+    ]
+  },
+
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["QuotaCoordinator"]
+    }
+  ]
 }
