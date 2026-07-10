@@ -25,9 +25,12 @@
 
 ## Development
 
+- [Autonomous build directive](./development/build-directive.md)
 - [Testing](./development/testing.md)
 - [Roadmap](./development/roadmap.md)
 - [Agent guide](./development/agent-guide.md)
+
+The build directive is the entry point for an autonomous implementation agent asked to build the complete product.
 
 ## Decisions
 
