@@ -1,0 +1,108 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "microsoft",
+  "name": "Microsoft",
+  "aliases": [
+    "Microsoft Corporation"
+  ],
+  "domains": [
+    "microsoft.com"
+  ],
+  "status": "active",
+  "categories": [
+    "technology",
+    "cloud",
+    "software"
+  ],
+  "tags": [
+    "azure",
+    "office",
+    "windows"
+  ],
+  "colors": [
+    {
+      "id": "blue",
+      "name": "Microsoft Blue",
+      "value": "#0078D4",
+      "role": "primary",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "green",
+      "name": "Microsoft Green",
+      "value": "#107C10",
+      "role": "secondary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "yellow",
+      "name": "Microsoft Yellow",
+      "value": "#FFB900",
+      "role": "secondary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "red",
+      "name": "Microsoft Red",
+      "value": "#E81123",
+      "role": "secondary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "logo-color",
+      "file": "assets/logo-color.svg",
+      "type": "logo",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": true,
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "official",
+      "type": "official-website",
+      "url": "https://brand.microsoft.com/",
+      "title": "Microsoft Brand Central",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "discord",
+  "name": "Discord",
+  "aliases": [
+    "Discord Inc"
+  ],
+  "domains": [
+    "discord.com"
+  ],
+  "status": "active",
+  "categories": [
+    "internet-services",
+    "messaging"
+  ],
+  "tags": [
+    "chat",
+    "voice",
+    "community"
+  ],
+  "colors": [
+    {
+      "id": "blurple",
+      "name": "Discord Blurple",
+      "value": "#5865F2",
+      "role": "primary",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "symbol-color",
+      "file": "assets/symbol-color.svg",
+      "type": "symbol",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": true,
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "official",
+      "type": "official-website",
+      "url": "https://discord.com/branding",
+      "title": "Discord Branding",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

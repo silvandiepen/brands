@@ -1,0 +1,123 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "github",
+  "name": "GitHub",
+  "aliases": [
+    "GitHub Inc"
+  ],
+  "domains": [
+    "github.com"
+  ],
+  "status": "active",
+  "categories": [
+    "technology",
+    "developer-tools"
+  ],
+  "tags": [
+    "git",
+    "version-control",
+    "collaboration"
+  ],
+  "colors": [
+    {
+      "id": "black",
+      "name": "GitHub Black",
+      "value": "#181717",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "white",
+      "name": "GitHub White",
+      "value": "#FFFFFF",
+      "role": "primary",
+      "themes": [
+        "dark"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "blue",
+      "name": "GitHub Blue",
+      "value": "#0969DA",
+      "role": "accent",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "logo-black",
+      "file": "assets/logo-black.svg",
+      "type": "logo",
+      "variant": "monochrome",
+      "themes": [
+        "light"
+      ],
+      "monochrome": true,
+      "current": false,
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "logo-white",
+      "file": "assets/logo-white.svg",
+      "type": "logo",
+      "variant": "white",
+      "themes": [
+        "dark"
+      ],
+      "monochrome": true,
+      "current": false,
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "mark-black",
+      "file": "assets/mark-black.svg",
+      "type": "symbol",
+      "variant": "monochrome",
+      "themes": [
+        "light"
+      ],
+      "monochrome": true,
+      "current": true,
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "official",
+      "type": "official-website",
+      "url": "https://github.com/logos",
+      "title": "GitHub Logos",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

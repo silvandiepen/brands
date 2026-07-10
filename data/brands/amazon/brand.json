@@ -1,0 +1,81 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "amazon",
+  "name": "Amazon",
+  "aliases": [
+    "Amazon.com"
+  ],
+  "domains": [
+    "amazon.com"
+  ],
+  "status": "active",
+  "categories": [
+    "retail",
+    "e-commerce",
+    "cloud"
+  ],
+  "tags": [
+    "aws",
+    "marketplace",
+    "logistics"
+  ],
+  "colors": [
+    {
+      "id": "orange",
+      "name": "Amazon Orange",
+      "value": "#FF9900",
+      "role": "primary",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "darkblue",
+      "name": "Amazon Dark Blue",
+      "value": "#232F3E",
+      "role": "secondary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "logo-color",
+      "file": "assets/logo-color.svg",
+      "type": "logo",
+      "variant": "color",
+      "themes": [
+        "light"
+      ],
+      "monochrome": false,
+      "current": true,
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "official",
+      "type": "official-website",
+      "url": "https://developer.amazon.com/apps-and-games/new-brand-assets",
+      "title": "Amazon Brand Assets",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

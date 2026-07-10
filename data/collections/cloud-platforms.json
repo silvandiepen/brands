@@ -1,0 +1,11 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "cloud-platforms",
+  "name": "Cloud Platforms",
+  "description": "Major cloud computing platforms",
+  "brandIds": [
+    "google",
+    "microsoft",
+    "amazon"
+  ]
+}

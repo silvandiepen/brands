@@ -1,0 +1,81 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "stripe",
+  "name": "Stripe",
+  "aliases": [
+    "Stripe Inc"
+  ],
+  "domains": [
+    "stripe.com"
+  ],
+  "status": "active",
+  "categories": [
+    "finance",
+    "payments"
+  ],
+  "tags": [
+    "payments",
+    "fintech",
+    "api"
+  ],
+  "colors": [
+    {
+      "id": "purple",
+      "name": "Stripe Purple",
+      "value": "#635BFF",
+      "role": "primary",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "indigo",
+      "name": "Stripe Indigo",
+      "value": "#7A73FF",
+      "role": "accent",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "logo-color",
+      "file": "assets/logo-color.svg",
+      "type": "logo",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": true,
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "official",
+      "type": "official-website",
+      "url": "https://stripe.com/newsroom",
+      "title": "Stripe Newsroom Brand Resources",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

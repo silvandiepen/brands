@@ -11,12 +11,14 @@
     "check": "node packages/tooling/scripts/check-repository.mjs",
     "check:contribution": "node packages/tooling/scripts/check-contribution-pr.mjs",
     "test:contribution-guard": "node packages/tooling/scripts/test-contribution-guard.mjs",
+    "generate": "tsx packages/tooling/scripts/generate-data.mjs",
     "lint": "pnpm -r --if-present lint",
     "typecheck": "pnpm -r --if-present typecheck",
     "test": "pnpm -r --if-present test",
     "build": "pnpm -r --if-present build"
   },
   "devDependencies": {
+    "tsx": "^4.23.0",
     "typescript": "^5.8.0"
   }
 }

@@ -1,0 +1,13 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "developer-tools",
+  "name": "Developer Tools",
+  "description": "Popular tools and platforms for developers",
+  "brandIds": [
+    "github",
+    "docker",
+    "nodejs",
+    "python",
+    "figma"
+  ]
+}

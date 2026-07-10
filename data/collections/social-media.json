@@ -1,0 +1,11 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "social-media",
+  "name": "Social Media",
+  "description": "Leading social media platforms",
+  "brandIds": [
+    "x-formerly-twitter",
+    "meta",
+    "discord"
+  ]
+}

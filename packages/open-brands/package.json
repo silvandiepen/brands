@@ -6,7 +6,19 @@
   "type": "module",
   "sideEffects": false,
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./data": "./src/data.ts",
+    "./colors": "./src/colors.ts",
+    "./resolve": "./src/resolve.ts",
+    "./search": "./src/search.ts",
+    "./types": "./src/types.ts"
+  },
+  "dependencies": {
+    "@open-brands/schema": "workspace:*",
+    "@open-brands/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",

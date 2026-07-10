@@ -1,0 +1,97 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "meta",
+  "name": "Meta",
+  "aliases": [
+    "Facebook",
+    "Meta Platforms"
+  ],
+  "domains": [
+    "meta.com",
+    "facebook.com"
+  ],
+  "status": "active",
+  "categories": [
+    "technology",
+    "internet-services",
+    "social-media"
+  ],
+  "tags": [
+    "social",
+    "vr",
+    "ai"
+  ],
+  "colors": [
+    {
+      "id": "blue",
+      "name": "Meta Blue",
+      "value": "#0866FF",
+      "role": "primary",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "gradient-blue",
+      "name": "Meta Gradient Blue",
+      "value": "#0081FB",
+      "role": "accent",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "gradient-purple",
+      "name": "Meta Gradient Purple",
+      "value": "#A033FF",
+      "role": "accent",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "symbol-color",
+      "file": "assets/symbol-color.svg",
+      "type": "symbol",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": true,
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "official",
+      "type": "official-website",
+      "url": "https://brand.fb.com/",
+      "title": "Meta Brand Center",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

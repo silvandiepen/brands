@@ -4,9 +4,17 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./generated/*": "./generated/*"
+  },
+  "dependencies": {
+    "@open-brands/schema": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0"
   },
   "scripts": {
+    "generate": "tsx ../../packages/tooling/scripts/generate-data.mjs",
     "typecheck": "tsc --noEmit",
     "build": "tsc --noEmit"
   }

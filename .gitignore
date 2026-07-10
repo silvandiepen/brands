@@ -11,3 +11,5 @@ coverage/
 *.tgz
 *.log
 .wrangler/
+.opencode/
+packages/data/generated/

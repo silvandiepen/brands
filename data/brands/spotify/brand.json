@@ -1,0 +1,81 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "spotify",
+  "name": "Spotify",
+  "aliases": [
+    "Spotify AB"
+  ],
+  "domains": [
+    "spotify.com"
+  ],
+  "status": "active",
+  "categories": [
+    "media-entertainment",
+    "streaming"
+  ],
+  "tags": [
+    "music",
+    "podcast",
+    "audio"
+  ],
+  "colors": [
+    {
+      "id": "green",
+      "name": "Spotify Green",
+      "value": "#1DB954",
+      "role": "primary",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "black",
+      "name": "Spotify Black",
+      "value": "#191414",
+      "role": "background",
+      "themes": [
+        "dark"
+      ],
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "symbol-color",
+      "file": "assets/symbol-color.svg",
+      "type": "symbol",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": true,
+      "sourceIds": [
+        "official"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "official",
+      "type": "official-website",
+      "url": "https://developer.spotify.com/documentation/web-api",
+      "title": "Spotify Developer Brand Guidelines",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

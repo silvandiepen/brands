@@ -3,8 +3,20 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@open-brands/schema": "workspace:*",
+    "@open-brands/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0"
+  },
   "scripts": {
     "check": "node scripts/check-repository.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit",
     "test": "node scripts/test-contribution-guard.mjs"
   }
 }
