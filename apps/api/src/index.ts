@@ -11,6 +11,7 @@ import {
   handleCollections,
   handlePackCreate,
   handlePackStatus,
+  handlePackDownload,
 } from './routes.js'
 import { handleOpenApi } from './openapi.js'
 import { errorResponse, generateRequestId, corsHeaders } from './http.js'
@@ -91,6 +92,11 @@ async function route(method: string, path: string, request: Request, requestId: 
     if (resource === 'brands' && method === 'GET') return handleBrandDetail(request, requestId, id!)
     if (resource === 'resolve' && method === 'GET') return handleResolve(request, requestId, id!)
     if (resource === 'packs' && method === 'GET') return handlePackStatus(request, requestId, id!)
+  }
+
+  if (parts.length === 3 && parts[0] === 'packs' && parts[2] === 'download') {
+    const packId = parts[1]!
+    if (method === 'GET') return handlePackDownload(request, requestId, packId)
   }
 
   if (parts.length === 3 && parts[0] === 'brands') {

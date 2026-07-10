@@ -1,6 +1,6 @@
 import { getIndex, getManifest, getCategories, getCollections, getBrand, getAllBrands } from './data.js'
 import type { GeneratedBrand } from './types.js'
-import { jsonResponse, errorResponse, redirectResponse, makeEtag, checkNotModified } from './http.js'
+import { jsonResponse, errorResponse, redirectResponse, makeEtag, checkNotModified, corsHeaders } from './http.js'
 
 const CDN_ORIGIN = 'https://cdn.open-brands.org'
 
@@ -172,14 +172,86 @@ export function handleCollections(request: Request, _requestId: string): Respons
   return jsonResponse({ collections: Object.values(collections) }, { etag })
 }
 
-export function handlePackCreate(request: Request, requestId: string): Response {
+const packCache = new Map<string, { zipBuffer: Uint8Array; sha256: string; createdAt: string }>()
+
+export async function handlePackCreate(request: Request, requestId: string): Promise<Response> {
+  let body: Record<string, unknown>
+  try {
+    body = await request.json() as Record<string, unknown>
+  } catch {
+    return errorResponse('INVALID_BODY', 'Request body must be valid JSON', 400, requestId)
+  }
+
+  const brandIds = Array.isArray(body.brandIds) ? body.brandIds as string[] : []
+  const collectionId = body.collectionId as string | undefined
+  if (!brandIds.length && !collectionId) {
+    return errorResponse('MISSING_TARGET', 'Either brandIds or collectionId is required', 400, requestId)
+  }
+
+  const resolvedBrandIds = brandIds.length ? brandIds : (getCollections()[collectionId!]?.brandIds ?? [])
+  const config = {
+    brandIds: resolvedBrandIds,
+    assetTypes: (body.assetTypes as string[]) ?? ['recommended'],
+    metadata: (body.metadata as string) ?? 'compact',
+    folderLayout: (body.folderLayout as string) ?? 'by-brand',
+    datasetVersion: getManifest().datasetVersion,
+  }
+
+  if (!config.brandIds.length) {
+    return errorResponse('NO_BRANDS', 'No valid brands found', 400, requestId)
+  }
+
+  const { computePackKey, buildLocalPack } = await import('./pack-local.js')
+  const packKey = computePackKey(config)
+
+  const cached = packCache.get(packKey)
+  if (cached) {
+    return jsonResponse({
+      packId: packKey,
+      status: 'ready',
+      downloadUrl: `/v1/packs/${packKey}/download`,
+      sha256: cached.sha256,
+      cached: true,
+    })
+  }
+
+  const result = await buildLocalPack(config)
+  packCache.set(packKey, {
+    zipBuffer: new Uint8Array(result.zipBuffer),
+    sha256: result.sha256,
+    createdAt: new Date().toISOString(),
+  })
+
   return jsonResponse({
-    requestId,
-    message: 'Pack creation requires R2 and Queue bindings. Configure wrangler with production bindings.',
-    code: 'NOT_CONFIGURED',
-  }, { status: 503 })
+    packId: packKey,
+    status: 'ready',
+    downloadUrl: `/v1/packs/${packKey}/download`,
+    sha256: result.sha256,
+    size: result.size,
+    fileCount: result.fileCount,
+    brands: result.brands,
+  }, { status: 201 })
 }
 
-export function handlePackStatus(request: Request, requestId: string, packId: string): Response {
-  return errorResponse('NOT_FOUND', `Pack '${packId}' not found`, 404, requestId)
+export function handlePackStatus(request: Request, _requestId: string, packId: string): Response {
+  const cached = packCache.get(packId)
+  if (!cached) return errorResponse('NOT_FOUND', `Pack '${packId}' not found`, 404, _requestId)
+  return jsonResponse({
+    packId,
+    status: 'ready',
+    downloadUrl: `/v1/packs/${packId}/download`,
+    sha256: cached.sha256,
+  })
+}
+
+export function handlePackDownload(_request: Request, requestId: string, packId: string): Response {
+  const cached = packCache.get(packId)
+  if (!cached) return errorResponse('NOT_FOUND', `Pack '${packId}' not found`, 404, requestId)
+  return new Response(new Uint8Array(cached.zipBuffer), {
+    headers: {
+      'Content-Type': 'application/zip',
+      'Content-Disposition': `attachment; filename="open-brands-pack-${packId.slice(0, 8)}.zip"`,
+      ...corsHeaders(),
+    },
+  })
 }

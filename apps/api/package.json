@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@open-brands/schema": "workspace:*",
-    "@open-brands/core": "workspace:*"
+    "@open-brands/core": "workspace:*",
+    "@open-brands/tooling": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
