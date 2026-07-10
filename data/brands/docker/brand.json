@@ -2,44 +2,47 @@
   "$schema": "../../../packages/schema/json-schema/brand.schema.json",
   "id": "docker",
   "name": "Docker",
-  "aliases": [
-    "Docker Inc"
-  ],
-  "domains": [
-    "docker.com"
-  ],
+  "aliases": [],
+  "domains": [],
   "status": "active",
   "categories": [
     "technology",
-    "developer-tools",
-    "cloud"
+    "software"
   ],
-  "tags": [
-    "containers",
-    "devops",
-    "kubernetes"
-  ],
+  "tags": [],
   "colors": [
     {
-      "id": "blue",
-      "name": "Docker Blue",
+      "id": "primary",
+      "name": null,
       "value": "#2496ED",
       "role": "primary",
       "themes": [
-        "light",
-        "dark"
+        "light"
       ],
       "sourceIds": [
-        "official"
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "color-1",
+      "name": null,
+      "value": "#FFFFFF",
+      "role": "secondary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
       ],
       "reviewStatus": "community-sourced"
     }
   ],
   "assets": [
     {
-      "id": "symbol-color",
-      "file": "assets/symbol-color.svg",
-      "type": "symbol",
+      "id": "icon",
+      "file": "assets/docker_icon.svg",
+      "type": "icon",
       "variant": "color",
       "themes": [
         "light",
@@ -48,17 +51,17 @@
       "monochrome": false,
       "current": true,
       "sourceIds": [
-        "official"
+        "src-1"
       ],
       "reviewStatus": "community-sourced"
     }
   ],
   "sources": [
     {
-      "id": "official",
-      "type": "official-website",
-      "url": "https://www.docker.com/company/newsroom/",
-      "title": "Docker Newsroom",
+      "id": "src-1",
+      "type": "community-reference",
+      "url": "https://github.com/silvandiepen/brand-colors/blob/main/lib/svg/docker_icon.svg",
+      "title": "Docker (brand-colors)",
       "accessedAt": "2026-07-10"
     }
   ],

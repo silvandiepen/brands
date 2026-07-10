@@ -2,10 +2,13 @@
   "$schema": "../../packages/schema/json-schema/categories.schema.json",
   "id": "social-media",
   "name": "Social Media",
-  "description": "Leading social media platforms",
+  "description": "Social networks and platforms",
   "brandIds": [
-    "x-formerly-twitter",
-    "meta",
-    "discord"
+    "facebook",
+    "instagram",
+    "linkedin",
+    "tumblr",
+    "twitter",
+    "x"
   ]
 }

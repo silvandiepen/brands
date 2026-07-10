@@ -2,94 +2,47 @@
   "$schema": "../../../packages/schema/json-schema/brand.schema.json",
   "id": "slack",
   "name": "Slack",
-  "aliases": [
-    "Slack Technologies"
-  ],
-  "domains": [
-    "slack.com"
-  ],
+  "aliases": [],
+  "domains": [],
   "status": "active",
   "categories": [
     "internet-services",
     "messaging"
   ],
-  "tags": [
-    "collaboration",
-    "workplace"
-  ],
+  "tags": [],
   "colors": [
     {
-      "id": "aubergine",
-      "name": "Slack Aubergine",
+      "id": "primary",
+      "name": null,
       "value": "#4A154B",
       "role": "primary",
       "themes": [
-        "light",
-        "dark"
+        "light"
       ],
       "sourceIds": [
-        "official"
+        "src-1"
       ],
       "reviewStatus": "community-sourced"
     },
     {
-      "id": "blue",
-      "name": "Slack Blue",
-      "value": "#36C5F0",
+      "id": "color-1",
+      "name": null,
+      "value": "#FFFFFF",
       "role": "secondary",
       "themes": [
         "light"
       ],
       "sourceIds": [
-        "official"
-      ],
-      "reviewStatus": "community-sourced"
-    },
-    {
-      "id": "green",
-      "name": "Slack Green",
-      "value": "#2EB67D",
-      "role": "secondary",
-      "themes": [
-        "light"
-      ],
-      "sourceIds": [
-        "official"
-      ],
-      "reviewStatus": "community-sourced"
-    },
-    {
-      "id": "yellow",
-      "name": "Slack Yellow",
-      "value": "#ECB22E",
-      "role": "secondary",
-      "themes": [
-        "light"
-      ],
-      "sourceIds": [
-        "official"
-      ],
-      "reviewStatus": "community-sourced"
-    },
-    {
-      "id": "red",
-      "name": "Slack Red",
-      "value": "#E01E5A",
-      "role": "secondary",
-      "themes": [
-        "light"
-      ],
-      "sourceIds": [
-        "official"
+        "src-1"
       ],
       "reviewStatus": "community-sourced"
     }
   ],
   "assets": [
     {
-      "id": "symbol-color",
-      "file": "assets/symbol-color.svg",
-      "type": "symbol",
+      "id": "icon",
+      "file": "assets/slack_icon.svg",
+      "type": "icon",
       "variant": "color",
       "themes": [
         "light",
@@ -98,17 +51,17 @@
       "monochrome": false,
       "current": true,
       "sourceIds": [
-        "official"
+        "src-1"
       ],
       "reviewStatus": "community-sourced"
     }
   ],
   "sources": [
     {
-      "id": "official",
-      "type": "official-website",
-      "url": "https://slack.com/brand-guidelines",
-      "title": "Slack Brand Guidelines",
+      "id": "src-1",
+      "type": "community-reference",
+      "url": "https://github.com/silvandiepen/brand-colors/blob/main/lib/svg/slack_icon.svg",
+      "title": "Slack (brand-colors)",
       "accessedAt": "2026-07-10"
     }
   ],

@@ -1,0 +1,92 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "adidasoriginals",
+  "name": "Adidas Originals",
+  "aliases": [],
+  "domains": [],
+  "status": "active",
+  "categories": [
+    "retail",
+    "fashion",
+    "sportswear"
+  ],
+  "tags": [],
+  "colors": [
+    {
+      "id": "primary",
+      "name": null,
+      "value": "#0076C0",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "symbol",
+      "file": "assets/adidasoriginals.svg",
+      "type": "symbol",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": true,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "icon",
+      "file": "assets/adidasoriginals_icon.svg",
+      "type": "icon",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": false,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "wordmark",
+      "file": "assets/adidasoriginals_wordmark.svg",
+      "type": "wordmark",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": false,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "type": "community-reference",
+      "url": "https://github.com/silvandiepen/brand-colors/blob/main/lib/svg/adidasoriginals_wordmark.svg",
+      "title": "Adidas Originals (brand-colors)",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

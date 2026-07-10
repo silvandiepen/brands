@@ -1,0 +1,59 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "dior",
+  "name": "Dior",
+  "aliases": [],
+  "domains": [],
+  "status": "active",
+  "categories": [
+    "retail",
+    "fashion"
+  ],
+  "tags": [],
+  "colors": [
+    {
+      "id": "primary",
+      "name": null,
+      "value": "#FFFFF0",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "wordmark",
+      "file": "assets/dior_wordmark.svg",
+      "type": "wordmark",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": true,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "type": "community-reference",
+      "url": "https://github.com/silvandiepen/brand-colors/blob/main/lib/svg/dior_wordmark.svg",
+      "title": "Dior (brand-colors)",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

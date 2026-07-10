@@ -1,0 +1,98 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "lego",
+  "name": "Lego",
+  "aliases": [],
+  "domains": [],
+  "status": "active",
+  "categories": [
+    "consumer-goods",
+    "toys"
+  ],
+  "tags": [],
+  "colors": [
+    {
+      "id": "primary",
+      "name": null,
+      "value": "#DA291C",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "color-1",
+      "name": null,
+      "value": "#FFD700",
+      "role": "secondary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "color-2",
+      "name": null,
+      "value": "#000000",
+      "role": "accent",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "color-3",
+      "name": null,
+      "value": "#FFFFFF",
+      "role": "accent",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "symbol",
+      "file": "assets/lego.svg",
+      "type": "symbol",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": true,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "type": "community-reference",
+      "url": "https://github.com/silvandiepen/brand-colors/blob/main/lib/svg/lego.svg",
+      "title": "Lego (brand-colors)",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

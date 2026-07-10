@@ -1,0 +1,111 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "instagram",
+  "name": "Instagram",
+  "aliases": [],
+  "domains": [],
+  "status": "active",
+  "categories": [
+    "internet-services",
+    "social-media"
+  ],
+  "tags": [],
+  "colors": [
+    {
+      "id": "primary",
+      "name": null,
+      "value": "#FFD600",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "color-1",
+      "name": null,
+      "value": "#FF7A00",
+      "role": "secondary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "color-2",
+      "name": null,
+      "value": "#FF0069",
+      "role": "accent",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "color-3",
+      "name": null,
+      "value": "#D300C5",
+      "role": "accent",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "color-4",
+      "name": null,
+      "value": "#7638FA",
+      "role": "accent",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "icon",
+      "file": "assets/instagram_icon.svg",
+      "type": "icon",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": true,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "type": "community-reference",
+      "url": "https://github.com/silvandiepen/brand-colors/blob/main/lib/svg/instagram_icon.svg",
+      "title": "Instagram (brand-colors)",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "gaming",
+  "name": "Gaming",
+  "description": "Video game companies",
+  "brandIds": [
+    "nintendo",
+    "sega",
+    "unity"
+  ]
+}

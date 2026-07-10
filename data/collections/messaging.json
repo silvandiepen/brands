@@ -1,0 +1,19 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "messaging",
+  "name": "Messaging",
+  "description": "Chat and messaging platforms",
+  "brandIds": [
+    "discord",
+    "kik",
+    "line",
+    "messenger",
+    "signal",
+    "slack",
+    "snapchat",
+    "telegram",
+    "viber",
+    "wechat",
+    "whatsapp"
+  ]
+}

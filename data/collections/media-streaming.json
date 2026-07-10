@@ -1,10 +1,18 @@
 {
   "$schema": "../../packages/schema/json-schema/categories.schema.json",
   "id": "media-streaming",
-  "name": "Media and Streaming",
+  "name": "Media & Streaming",
   "description": "Entertainment and streaming services",
   "brandIds": [
+    "flickr",
     "netflix",
-    "spotify"
+    "nintendo",
+    "sega",
+    "soundcloud",
+    "spotify",
+    "storyblocks",
+    "tiktok",
+    "unity",
+    "youtube"
   ]
 }

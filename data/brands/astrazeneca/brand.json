@@ -1,0 +1,104 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "astrazeneca",
+  "name": "AstraZeneca",
+  "aliases": [],
+  "domains": [],
+  "status": "active",
+  "categories": [
+    "healthcare",
+    "pharmaceuticals"
+  ],
+  "tags": [],
+  "colors": [
+    {
+      "id": "primary",
+      "name": null,
+      "value": "#003087",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "color-1",
+      "name": null,
+      "value": "#FAAB18",
+      "role": "secondary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "symbol",
+      "file": "assets/astrazeneca.svg",
+      "type": "symbol",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": true,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "icon",
+      "file": "assets/astrazeneca_icon.svg",
+      "type": "icon",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": false,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "wordmark",
+      "file": "assets/astrazeneca_wordmark.svg",
+      "type": "wordmark",
+      "variant": "color",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": false,
+      "current": false,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "type": "community-reference",
+      "url": "https://github.com/silvandiepen/brand-colors/blob/main/lib/svg/astrazeneca_wordmark.svg",
+      "title": "AstraZeneca (brand-colors)",
+      "accessedAt": "2026-07-10"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

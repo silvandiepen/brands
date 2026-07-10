@@ -1,0 +1,33 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "fashion",
+  "name": "Fashion & Luxury",
+  "description": "Fashion and luxury brands",
+  "brandIds": [
+    "adidas",
+    "adidasoriginals",
+    "burberry",
+    "cartier",
+    "chanel",
+    "converse",
+    "dior",
+    "gap",
+    "givenchy",
+    "gucci",
+    "hermes",
+    "hm",
+    "loreal",
+    "louisvuitton",
+    "newbalance",
+    "nike",
+    "prada",
+    "puma",
+    "ralphlauren",
+    "reebok",
+    "underarmour",
+    "uniqlo",
+    "versace",
+    "yvessaintlaurent",
+    "zara"
+  ]
+}

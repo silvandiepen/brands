@@ -2,56 +2,34 @@
   "$schema": "../../../packages/schema/json-schema/brand.schema.json",
   "id": "spotify",
   "name": "Spotify",
-  "aliases": [
-    "Spotify AB"
-  ],
-  "domains": [
-    "spotify.com"
-  ],
+  "aliases": [],
+  "domains": [],
   "status": "active",
   "categories": [
     "media-entertainment",
     "streaming"
   ],
-  "tags": [
-    "music",
-    "podcast",
-    "audio"
-  ],
+  "tags": [],
   "colors": [
     {
-      "id": "green",
-      "name": "Spotify Green",
+      "id": "primary",
+      "name": null,
       "value": "#1DB954",
       "role": "primary",
       "themes": [
-        "light",
-        "dark"
+        "light"
       ],
       "sourceIds": [
-        "official"
-      ],
-      "reviewStatus": "community-sourced"
-    },
-    {
-      "id": "black",
-      "name": "Spotify Black",
-      "value": "#191414",
-      "role": "background",
-      "themes": [
-        "dark"
-      ],
-      "sourceIds": [
-        "official"
+        "src-1"
       ],
       "reviewStatus": "community-sourced"
     }
   ],
   "assets": [
     {
-      "id": "symbol-color",
-      "file": "assets/symbol-color.svg",
-      "type": "symbol",
+      "id": "icon",
+      "file": "assets/spotify_icon.svg",
+      "type": "icon",
       "variant": "color",
       "themes": [
         "light",
@@ -60,17 +38,17 @@
       "monochrome": false,
       "current": true,
       "sourceIds": [
-        "official"
+        "src-1"
       ],
       "reviewStatus": "community-sourced"
     }
   ],
   "sources": [
     {
-      "id": "official",
-      "type": "official-website",
-      "url": "https://developer.spotify.com/documentation/web-api",
-      "title": "Spotify Developer Brand Guidelines",
+      "id": "src-1",
+      "type": "community-reference",
+      "url": "https://github.com/silvandiepen/brand-colors/blob/main/lib/svg/spotify_icon.svg",
+      "title": "Spotify (brand-colors)",
       "accessedAt": "2026-07-10"
     }
   ],

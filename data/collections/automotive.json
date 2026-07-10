@@ -1,0 +1,22 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "automotive",
+  "name": "Automotive",
+  "description": "Car manufacturers",
+  "brandIds": [
+    "audi",
+    "bmw",
+    "ford",
+    "honda",
+    "isuzu",
+    "lada",
+    "mazda",
+    "mercedesbenz",
+    "nissan",
+    "subaru",
+    "suzuki",
+    "tesla",
+    "toyota",
+    "volkswagen"
+  ]
+}

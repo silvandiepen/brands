@@ -2,43 +2,47 @@
   "$schema": "../../../packages/schema/json-schema/brand.schema.json",
   "id": "discord",
   "name": "Discord",
-  "aliases": [
-    "Discord Inc"
-  ],
-  "domains": [
-    "discord.com"
-  ],
+  "aliases": [],
+  "domains": [],
   "status": "active",
   "categories": [
     "internet-services",
     "messaging"
   ],
-  "tags": [
-    "chat",
-    "voice",
-    "community"
-  ],
+  "tags": [],
   "colors": [
     {
-      "id": "blurple",
-      "name": "Discord Blurple",
+      "id": "primary",
+      "name": null,
       "value": "#5865F2",
       "role": "primary",
       "themes": [
-        "light",
-        "dark"
+        "light"
       ],
       "sourceIds": [
-        "official"
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    },
+    {
+      "id": "color-1",
+      "name": null,
+      "value": "#FFFFFF",
+      "role": "secondary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
       ],
       "reviewStatus": "community-sourced"
     }
   ],
   "assets": [
     {
-      "id": "symbol-color",
-      "file": "assets/symbol-color.svg",
-      "type": "symbol",
+      "id": "icon",
+      "file": "assets/discord_icon.svg",
+      "type": "icon",
       "variant": "color",
       "themes": [
         "light",
@@ -47,17 +51,17 @@
       "monochrome": false,
       "current": true,
       "sourceIds": [
-        "official"
+        "src-1"
       ],
       "reviewStatus": "community-sourced"
     }
   ],
   "sources": [
     {
-      "id": "official",
-      "type": "official-website",
-      "url": "https://discord.com/branding",
-      "title": "Discord Branding",
+      "id": "src-1",
+      "type": "community-reference",
+      "url": "https://github.com/silvandiepen/brand-colors/blob/main/lib/svg/discord_icon.svg",
+      "title": "Discord (brand-colors)",
       "accessedAt": "2026-07-10"
     }
   ],

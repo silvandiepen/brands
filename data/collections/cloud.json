@@ -1,0 +1,14 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "cloud",
+  "name": "Cloud Platforms",
+  "description": "Cloud computing platforms",
+  "brandIds": [
+    "aws",
+    "digitalocean",
+    "dropbox",
+    "heroku",
+    "netlify",
+    "vercel"
+  ]
+}

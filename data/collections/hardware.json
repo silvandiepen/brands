@@ -1,0 +1,21 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "hardware",
+  "name": "Hardware & Electronics",
+  "description": "Electronics and hardware companies",
+  "brandIds": [
+    "android",
+    "asml",
+    "canon",
+    "daikin",
+    "nikon",
+    "panasonic",
+    "philips",
+    "raspberrypi",
+    "sanyo",
+    "sharp",
+    "sony",
+    "toshiba",
+    "yamaha"
+  ]
+}

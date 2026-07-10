@@ -1,0 +1,29 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "cryptocurrency",
+  "name": "Cryptocurrency & Web3",
+  "description": "Crypto exchanges, wallets, and coins",
+  "brandIds": [
+    "aave",
+    "avalanche",
+    "binance",
+    "binancecoin",
+    "bitcoin",
+    "bitfinex",
+    "blockfi",
+    "cardano",
+    "chainlink",
+    "coinbase",
+    "ethereum",
+    "gemini",
+    "kraken",
+    "ledger",
+    "litecoin",
+    "metamask",
+    "polkadot",
+    "ripple",
+    "solana",
+    "trezor",
+    "uniswap"
+  ]
+}

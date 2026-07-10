@@ -1,0 +1,22 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "pharma",
+  "name": "Pharmaceuticals",
+  "description": "Pharma and healthcare",
+  "brandIds": [
+    "abbvie",
+    "amgen",
+    "astrazeneca",
+    "bayer",
+    "bristolmyerssquibb",
+    "elilillyandcompany",
+    "glaxosmithkline",
+    "johnsonjohnson",
+    "merckco",
+    "novartis",
+    "pfizer",
+    "roche",
+    "sanofi",
+    "takeda"
+  ]
+}
