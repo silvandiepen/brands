@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { createZip, type ZipEntry } from '../zip.js'
 import { buildPack, computePackKey } from '../pack.js'
+import type { PackConfig } from '../pack.js'
 import type { LoadedDataset, LoadedBrand } from '../validate.js'
 import { extractSvgMetadata } from '../svg.js'
 
@@ -112,7 +113,7 @@ describe('buildPack', () => {
   })
 
   it('is deterministic for same config', () => {
-    const config = {
+    const config: PackConfig = {
       brandIds: ['brand-a'],
       assetTypes: ['recommended'],
       themes: ['light'],
