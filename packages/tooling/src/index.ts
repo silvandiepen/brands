@@ -26,3 +26,6 @@ export type {
   GeneratedBrand,
   GeneratedRelease,
 } from './generate.js'
+
+export { createZip } from './zip.js'
+export type { ZipEntry } from './zip.js'
