@@ -15,9 +15,26 @@ import {
 import { handleOpenApi } from './openapi.js'
 import { errorResponse, generateRequestId, corsHeaders } from './http.js'
 import type { Env } from './http.js'
+import { createGitHubAdapter, type GitHubAdapter } from './github-adapter.js'
+import {
+  handleContributionLogin,
+  handleContributionCallback,
+  handleContributionValidate,
+  handleContributionSubmit,
+  handleContributionStatus,
+} from './contributions.js'
+
+let githubAdapter: GitHubAdapter | null = null
+
+function getAdapter(env: Env): GitHubAdapter {
+  if (!githubAdapter) {
+    githubAdapter = createGitHubAdapter(null)
+  }
+  return githubAdapter
+}
 
 export default {
-  async fetch(request: Request, _env: Env): Promise<Response> {
+  async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url)
     const requestId = generateRequestId()
     const method = request.method
@@ -28,7 +45,7 @@ export default {
     }
 
     try {
-      const response = route(method, path, request, requestId, url)
+      const response = await route(method, path, request, requestId, url, env)
       const headers = new Headers(response.headers)
       headers.set('X-Request-Id', requestId)
       return new Response(response.body, { status: response.status, headers })
@@ -39,7 +56,7 @@ export default {
   },
 }
 
-function route(method: string, path: string, request: Request, requestId: string, url: URL): Response {
+async function route(method: string, path: string, request: Request, requestId: string, url: URL, env: Env): Promise<Response> {
   if (path === '/' && method === 'GET') {
     return new Response(
       JSON.stringify({ name: 'Open Brands API', version: '1.0.0', docs: '/v1/meta', openapi: '/openapi.json' }),
@@ -47,6 +64,10 @@ function route(method: string, path: string, request: Request, requestId: string
     )
   }
   if (path === '/openapi.json' && method === 'GET') return handleOpenApi()
+
+  if (path.startsWith('/api/contributions')) {
+    return handleContributionRoutes(method, path, request, requestId, url, env)
+  }
 
   if (!path.startsWith('/v1/')) {
     return errorResponse('NOT_FOUND', `Route ${method} ${path} not found`, 404, requestId)
@@ -78,6 +99,37 @@ function route(method: string, path: string, request: Request, requestId: string
     if (sub === 'colors' && method === 'GET') return handleBrandColors(request, requestId, brandId)
     if (sub === 'assets' && method === 'GET') return handleBrandAssets(request, requestId, brandId, url)
     if (sub === 'image' && method === 'GET') return handleBrandImage(request, requestId, brandId, url)
+  }
+
+  return errorResponse('NOT_FOUND', `Route ${method} ${path} not found`, 404, requestId)
+}
+
+async function handleContributionRoutes(method: string, path: string, request: Request, requestId: string, url: URL, env: Env): Promise<Response> {
+  const adapter = getAdapter(env)
+  const redirectUri = `${url.origin}/api/contributions/callback`
+
+  if (path === '/api/contributions/login' && method === 'GET') {
+    return handleContributionLogin(request, requestId, redirectUri)
+  }
+
+  if (path === '/api/contributions/callback' && method === 'GET') {
+    const code = url.searchParams.get('code') ?? ''
+    return handleContributionCallback(request, requestId, code, adapter)
+  }
+
+  if (path === '/api/contributions/validate' && method === 'POST') {
+    const body = await request.json().catch(() => ({}))
+    return handleContributionValidate(request, requestId, body)
+  }
+
+  if (path === '/api/contributions/submit' && method === 'POST') {
+    const body = await request.json().catch(() => ({}))
+    return handleContributionSubmit(request, requestId, body, adapter)
+  }
+
+  if (path.startsWith('/api/contributions/') && method === 'GET') {
+    const submissionId = path.split('/').pop()!
+    return handleContributionStatus(request, requestId, submissionId)
   }
 
   return errorResponse('NOT_FOUND', `Route ${method} ${path} not found`, 404, requestId)

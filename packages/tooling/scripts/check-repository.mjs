@@ -72,6 +72,7 @@ const tracked = execFileSync('git', ['ls-files'], { encoding: 'utf8' })
 
 const allowedRootFiles = new Set([
   '.editorconfig',
+  '.env.example',
   '.gitignore',
   '.npmrc',
   'LICENSE',
