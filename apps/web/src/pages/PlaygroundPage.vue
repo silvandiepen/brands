@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 
 const method = ref('GET')
 const endpoint = ref('/v1/search?q=google')
-const apiOrigin = 'https://api.open-brands.org'
+const apiOrigin = 'https://open-brands-api.vandipyan.workers.dev'
 const response = ref<string>('')
 const loading = ref(false)
 const error = ref('')

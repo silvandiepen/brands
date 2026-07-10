@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { releaseManifest } from '../data/loader'
-const apiOrigin = 'https://api.open-brands.org'
+const apiOrigin = 'https://open-brands-api.vandipyan.workers.dev'
 </script>
 
 <template>
