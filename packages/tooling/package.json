@@ -17,6 +17,6 @@
     "check": "node scripts/check-repository.mjs",
     "typecheck": "tsc --noEmit",
     "build": "tsc --noEmit",
-    "test": "node scripts/test-contribution-guard.mjs"
+    "test": "vitest run && node scripts/test-contribution-guard.mjs"
   }
 }
