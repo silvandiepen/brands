@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-brands.org/schemas/brand.schema.json",
+  "title": "Open Brands canonical brand manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "aliases", "domains", "status", "categories", "tags", "colors", "assets", "sources", "review"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "aliases": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "domains": { "type": "array", "items": { "type": "string", "pattern": "^(?!https?://)(?!www\\.)[a-z0-9.-]+\\.[a-z]{2,}$" }, "uniqueItems": true },
+    "status": { "enum": ["active", "discontinued", "historical", "merged", "needs-review", "disputed"] },
+    "organization": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "parentBrandId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "ownerName": { "type": "string" },
+        "countryCode": { "type": "string", "pattern": "^[A-Z]{2}$" }
+      }
+    },
+    "categories": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }, "uniqueItems": true },
+    "tags": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }, "uniqueItems": true },
+    "colors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "value", "role", "themes", "sourceIds", "reviewStatus"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "name": { "type": ["string", "null"] },
+          "value": { "type": "string", "pattern": "^#[0-9A-F]{6}(?:[0-9A-F]{2})?$" },
+          "role": { "enum": ["primary", "secondary", "accent", "neutral", "background", "legacy"] },
+          "themes": { "type": "array", "items": { "enum": ["light", "dark", "any", "custom"] }, "uniqueItems": true, "minItems": 1 },
+          "usage": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+          "sourceIds": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+          "reviewStatus": { "enum": ["verified", "community-sourced", "legacy-import", "disputed"] }
+        }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "file", "type", "variant", "themes", "monochrome", "current", "sourceIds", "reviewStatus"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "file": { "type": "string", "pattern": "^assets/[A-Za-z0-9._/-]+\\.svg$" },
+          "type": { "enum": ["symbol", "icon", "wordmark", "logo", "lockup", "badge", "legacy"] },
+          "variant": { "enum": ["color", "monochrome", "black", "white", "positive", "negative", "outline", "legacy"] },
+          "themes": { "type": "array", "items": { "enum": ["light", "dark", "any", "custom"] }, "uniqueItems": true, "minItems": 1 },
+          "orientation": { "enum": ["square", "horizontal", "vertical", "free"] },
+          "monochrome": { "type": "boolean" },
+          "transformable": { "type": "boolean" },
+          "current": { "type": "boolean" },
+          "sourceIds": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+          "reviewStatus": { "enum": ["verified", "community-sourced", "legacy-import", "disputed"] },
+          "usageNotes": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "url", "title", "accessedAt"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "type": { "enum": ["official-guidelines", "official-download", "official-website", "trademark-registry", "repository", "community-reference", "legacy-repository"] },
+          "url": { "type": "string", "format": "uri" },
+          "title": { "type": "string", "minLength": 1 },
+          "publisher": { "type": ["string", "null"] },
+          "accessedAt": { "type": "string", "format": "date" },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "method"],
+      "properties": {
+        "status": { "enum": ["verified", "partial", "needs-review", "disputed"] },
+        "verifiedAt": { "type": ["string", "null"], "format": "date" },
+        "method": { "enum": ["official-guidelines", "official-download", "official-website", "cross-reference", "legacy-import"] },
+        "reviewer": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

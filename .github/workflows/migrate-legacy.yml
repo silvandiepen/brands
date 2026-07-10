@@ -1,0 +1,43 @@
+name: Import legacy packages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - foundation/open-brands-platform
+    paths:
+      - .github/workflows/migrate-legacy.yml
+      - scripts/migrate-legacy.mjs
+      - package.json
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Import fixed legacy package snapshots
+        run: node scripts/migrate-legacy.mjs
+
+      - name: Commit generated migration material
+        run: |
+          git config user.name "open-brands-bot"
+          git config user.email "open-brands-bot@users.noreply.github.com"
+          git add data legacy
+          if git diff --cached --quiet; then
+            echo "Legacy migration is already current."
+          else
+            git commit -m "chore(data): import legacy Open Brands snapshots"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
