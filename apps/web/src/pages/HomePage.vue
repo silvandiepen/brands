@@ -1,135 +1,132 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { searchBrandsLocal, allBrands, categories, releaseManifest, getCategoryLabel } from '../data/loader'
+import { allBrands, releaseManifest } from '../data/loader'
+import allSvgs from '../../../../packages/data/generated/all-svgs.json'
 
 const router = useRouter()
 const searchQuery = ref('')
 
-const searchResults = computed(() => {
-  if (!searchQuery.value.trim()) return []
-  return searchBrandsLocal(searchQuery.value, 8)
+const svgs = allSvgs as Record<string, string>
+
+function getLogo(brandId: string): string {
+  const symbolKey = `${brandId}/symbol`
+  const iconKey = `${brandId}/icon`
+  const wordmarkKey = `${brandId}/wordmark`
+  return svgs[symbolKey] ?? svgs[iconKey] ?? svgs[wordmarkKey] ?? ''
+}
+
+function bgColor(brand: { hasColors: boolean }): string {
+  return 'transparent'
+}
+
+const filtered = computed(() => {
+  if (!searchQuery.value.trim()) return allBrands
+  const q = searchQuery.value.toLowerCase()
+  return allBrands.filter((b) =>
+    b.name.toLowerCase().includes(q) ||
+    b.id.includes(q) ||
+    b.aliases.some((a) => a.toLowerCase().includes(q)),
+  )
 })
+
+const visibleBrands = computed(() => filtered.value.slice(0, 60))
 
 function submitSearch() {
   if (searchQuery.value.trim()) {
     router.push({ path: '/brands', query: { q: searchQuery.value } })
   }
 }
-
-const featuredCategories = categories.categories.filter((c) => c.parentId === null).slice(0, 6)
 </script>
 
 <template>
   <div class="container home">
     <section class="hero">
       <h1>Open Brands</h1>
-      <p class="hero-tagline">Reviewed brand logos, colors, metadata, and sources.</p>
+      <p class="hero-tagline">{{ releaseManifest.brandCount }} brand logos, colors, and metadata.</p>
       <form @submit.prevent="submitSearch" class="search-form">
         <input
           v-model="searchQuery"
           type="search"
           class="search-input"
-          placeholder="Search brands, domains, or aliases..."
+          placeholder="Search brands..."
           aria-label="Search brands"
         />
-        <button type="submit" class="btn btn--primary">Search</button>
       </form>
-      <div v-if="searchResults.length" class="search-preview">
-        <RouterLink
-          v-for="brand in searchResults"
-          :key="brand.id"
-          :to="`/brands/${brand.id}`"
-          class="search-result-item"
-        >
-          <span class="brand-name">{{ brand.name }}</span>
-          <span v-if="brand.domains.length" class="brand-domain">{{ brand.domains[0] }}</span>
-        </RouterLink>
-      </div>
     </section>
 
-    <section class="stats">
-      <div class="card stat">
-        <span class="stat-value">{{ releaseManifest.brandCount }}</span>
-        <span class="stat-label">Brands</span>
-      </div>
-      <div class="card stat">
-        <span class="stat-value">{{ releaseManifest.assetCount }}</span>
-        <span class="stat-label">Assets</span>
-      </div>
-      <div class="card stat">
-        <span class="stat-value">{{ categories.categories.length }}</span>
-        <span class="stat-label">Categories</span>
-      </div>
-    </section>
+    <div class="logo-wall">
+      <RouterLink
+        v-for="brand in visibleBrands"
+        :key="brand.id"
+        :to="`/brands/${brand.id}`"
+        class="logo-tile"
+        :title="brand.name"
+      >
+        <span class="logo-svg" v-html="getLogo(brand.id)"></span>
+      </RouterLink>
+    </div>
 
-    <section>
-      <h2>Browse by category</h2>
-      <div class="grid grid--brands">
-        <RouterLink
-          v-for="cat in featuredCategories"
-          :key="cat.id"
-          :to="{ path: '/brands', query: { category: cat.id } }"
-          class="card category-card"
-        >
-          <span class="category-label">{{ cat.label }}</span>
-          <span class="category-count">{{ allBrands.filter((b) => b.categories.includes(cat.id)).length }} brands</span>
-        </RouterLink>
-      </div>
-    </section>
+    <div v-if="visibleBrands.length < filtered.length" class="show-more">
+      <button class="btn btn--primary" @click="() => { }">
+        Showing 60 of {{ filtered.length }} — <RouterLink to="/brands">view all</RouterLink>
+      </button>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.home { padding: 2rem 0 4rem; }
+.home { padding: 1rem 0 4rem; }
 .hero {
   text-align: center;
-  padding: 4rem 0 3rem;
-  h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  padding: 2rem 0 2rem;
+  h1 { font-size: 2.5rem; margin-bottom: 0.25rem; }
 }
-.hero-tagline { font-size: 1.25rem; color: var(--ob-text-muted); margin-bottom: 2rem; }
+.hero-tagline { font-size: 1.1rem; color: var(--ob-text-muted); margin-bottom: 1.5rem; }
 .search-form {
-  display: flex;
-  gap: 0.5rem;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 500px;
+  margin: 0 auto 2rem;
 }
-.search-preview {
-  max-width: 600px;
-  margin: 1rem auto 0;
-  text-align: left;
-}
-.search-result-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
+.logo-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 1px;
+  background: var(--ob-border);
   border: 1px solid var(--ob-border);
   border-radius: var(--ob-radius);
-  margin-bottom: 0.5rem;
-  color: var(--ob-text);
-  &:hover { background: var(--ob-bg-alt); text-decoration: none; }
+  overflow: hidden;
 }
-.brand-domain { color: var(--ob-text-muted); font-size: 0.875rem; }
-.stats {
+.logo-tile {
+  background: var(--ob-bg-alt);
+  aspect-ratio: 1;
   display: flex;
-  gap: 1rem;
+  align-items: center;
   justify-content: center;
-  margin: 2rem 0 3rem;
+  padding: 1.25rem;
+  transition: background 0.15s, transform 0.1s;
+  &:hover {
+    background: var(--ob-bg);
+    transform: scale(1.03);
+    z-index: 1;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
 }
-.stat {
-  text-align: center;
-  min-width: 120px;
-  &-value { display: block; font-size: 2rem; font-weight: 700; color: var(--ob-primary); }
-  &-label { font-size: 0.875rem; color: var(--ob-text-muted); }
-}
-.category-card {
+.logo-svg {
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  color: var(--ob-text);
-  &:hover { border-color: var(--ob-primary); text-decoration: none; }
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  :deep(svg) {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
 }
-.category-label { font-weight: 600; }
-.category-count { font-size: 0.75rem; color: var(--ob-text-muted); }
-h2 { margin-bottom: 1rem; font-size: 1.5rem; }
+.show-more {
+  text-align: center;
+  margin-top: 1.5rem;
+  a { color: var(--ob-primary); }
+}
 </style>
