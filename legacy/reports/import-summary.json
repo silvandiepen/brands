@@ -1,0 +1,1869 @@
+{
+  "sources": [
+    {
+      "key": "open-brands",
+      "package": "open-brands@0.0.7",
+      "brandCount": 269,
+      "svgCount": 328,
+      "warningCount": 0
+    },
+    {
+      "key": "brand-colors",
+      "package": "@sil/brands@0.0.6",
+      "brandCount": 264,
+      "svgCount": 319,
+      "warningCount": 0
+    }
+  ],
+  "mergedBrandCount": 269,
+  "collisions": [
+    {
+      "id": "3m",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "aave",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "abb",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "abbvie",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "adidas",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "adidasoriginals",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "adyen",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "aholddelhaize",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "airbnb",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "akzonobel",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "algolia",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "amazon",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "amd",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "amgen",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "amp",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "android",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "angular",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "apple",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "arm",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "asahi",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "asml",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "astrazeneca",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "asus",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "audi",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "auth0",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "avalanche",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "aws",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "barbie",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "bayer",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "behance",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "binance",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "binancecoin",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "bitcoin",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "bitfinex",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "blockfi",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "bluetooth",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "bmw",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "bosch",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "bristolmyerssquibb",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "burberry",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "burgerking",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "campbellsoupcompany",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "canon",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "cardano",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "cartier",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "chainlink",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "chanel",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "chickfila",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "chipotle",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "circleci",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "cocacola",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "codepen",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "coinbase",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "conagrabrands",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "converse",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "daikin",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "danone",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "dell",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "deno",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "digitalocean",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "dior",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "discord",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "disqus",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "docker",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "dominospizza",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "dribbble",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "dropbox",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "drupal",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "dunkin",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "ecm",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "elilillyandcompany",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "ethereum",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "facebook",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "fendi",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "ferrero",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "figma",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "fiveguys",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "flickr",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "ford",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "framer",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "fujitsu",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "gap",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "gemini",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "generalelectric",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "generalmills",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "git",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "github",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "gitlab",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "givenchy",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "glaxosmithkline",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "google",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "gradle",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "graphql",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "gravatar",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "gridsome",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "gucci",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "heineken",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "hermes",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "heroku",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "hersheys",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "hitachi",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "hm",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "homedepot",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "honda",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "honeywell",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "hotwheels",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "hp",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "huawei",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "ibm",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "ikea",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "ing",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "innoutburger",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "instagram",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "intel",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "ionic",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "isuzu",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "java",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "johnsonjohnson",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "kelloggs",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "kentuckyfriedchicken",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "kik",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "klm",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "knex",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "kraftheinz",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "kraken",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "lada",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "ledger",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "lego",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "lenovo",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "line",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "linear",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "linkedin",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "litecoin",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "loreal",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "louisvuitton",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "macos",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "mailchimp",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "mapbox",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "markdown",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "mars",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "mastercard",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "mazda",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "mcdonalds",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "medium",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "mercedesbenz",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "merckco",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "messenger",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "meta",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "metamask",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "microsoft",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "midjourney",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "mitsubishi",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "mondelez",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "mozilla",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "nestle",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "netflix",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "netlify",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "newbalance",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "nextjs",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "nike",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "nikon",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "nintendo",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "nissan",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "nodejs",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "notion",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "novartis",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "npm",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "nttdocomo",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "nuxtjs",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "nvidia",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "oneplus",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "openai",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "oppo",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "panasonic",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "paypal",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "pepsi",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "pepsico",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "pfizer",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "philips",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "php",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "pinterest",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "pizzahut",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "playmobil",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "polkadot",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "popeyeslouisianakitchen",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "prada",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "proctergamble",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "puma",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "rabobank",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "ralphlauren",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "randstad",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "raspberrypi",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "reddit",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "reebok",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "ripple",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "roche",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "salesforce",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "samsung",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "sanofi",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "sanyo",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "schneiderelectric",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "sega",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "sharp",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "shell",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "siemens",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "signal",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "sil",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "skype",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "slack",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "snapchat",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "softbank",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "solana",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "sony",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "soundcloud",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "spotify",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "stackoverflow",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "starbucks",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "storyblocks",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "storyblok",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "subaru",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "subway",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "suzuki",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "svelte",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "symfony",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "synology",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "tacobell",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "takeda",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "target",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "telegram",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "tesla",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "tiktok",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "tomtom",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "toshiba",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "toyota",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "trezor",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "tumblr",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "twitter",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "typescript",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "underarmour",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "unilever",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "uniqlo",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "uniswap",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "unity",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "vercel",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "versace",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "viber",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "visa",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "vitejs",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "vivo",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "volkswagen",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "vuejs",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "walmart",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "wechat",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "wendys",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "whatsapp",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "wordpress",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "wwf",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "x",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "xiaomi",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "yamaha",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "youtube",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "yvessaintlaurent",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "zara",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    },
+    {
+      "id": "ziggo",
+      "sources": [
+        "open-brands@0.0.7",
+        "@sil/brands@0.0.6"
+      ]
+    }
+  ]
+}

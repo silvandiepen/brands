@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 72 72" style="enable-background:new 0 0 72 72;" xml:space="preserve">
+<g>
+	<ellipse cx="36" cy="13.2" rx="10.4" ry="6"/>
+	<ellipse cx="36" cy="58.8" rx="10.4" ry="6"/>
+	<ellipse transform="matrix(0.5 -0.866 0.866 0.5 -13.1797 26.4202)" cx="16.3" cy="24.6" rx="10.4" ry="6"/>
+	<ellipse transform="matrix(0.5 -0.866 0.866 0.5 -13.179 71.9347)" cx="55.7" cy="47.4" rx="10.4" ry="6"/>
+	<ellipse transform="matrix(0.866 -0.5 0.5 0.866 -21.5057 14.4938)" cx="16.3" cy="47.4" rx="6" ry="10.4"/>
+	<ellipse transform="matrix(0.866 -0.5 0.5 0.866 -4.8474 31.1552)" cx="55.7" cy="24.6" rx="6" ry="10.4"/>
+</g>
+</svg>

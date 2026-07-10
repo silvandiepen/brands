@@ -1,0 +1,52 @@
+{
+  "name": "open-brands",
+  "version": "0.0.7",
+  "description": "Open Brands, logos and colors",
+  "main": "./lib/brands.umd.cjs",
+  "module": "./lib/brands.js",
+  "types": "./lib/brands.d.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/silvandiepen/open-brands.git"
+  },
+  "homepage": "https://open-brands.org",
+  "files": [
+    "lib/data/",
+    "lib/svg/",
+    "lib/helpers/",
+    "lib/types/",
+    "lib/brands.d.ts",
+    "lib/brands.js",
+    "lib/brands.json",
+    "lib/brands.umd.cjs",
+    "lib/index.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "import": "./lib/brands.js",
+      "require": "./lib/brands.umd.cjs",
+      "types": "./lib/brands.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "npm run build:data && npm run build:lib",
+    "build:data": "npx tsx build/data.ts",
+    "build:lib": "vite build"
+  },
+  "author": "Sil van Diepen",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "cli-block": "^1.4.4",
+    "svgo": "^3.3.2",
+    "vite": "^5.2.8",
+    "vite-plugin-static-copy": "^1.0.2"
+  },
+  "dependencies": {
+    "@sil/case": "^0.3.1",
+    "open-icon": "^0.0.32",
+    "prettier": "^3.2.5",
+    "vite-plugin-dts": "^3.9.0"
+  }
+}
