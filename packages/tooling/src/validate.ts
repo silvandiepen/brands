@@ -89,7 +89,6 @@ export function validateDataset(root: string): DatasetValidationResult {
   dc.merge(DiagnosticCollector.from(catResult.diagnostics))
 
   const validCategoryIds = new Set(categories.categories.map((c) => c.id))
-  const collectionIds = loadCollectionIds(root)
 
   const crossRecordBrands: CrossRecordBrand[] = []
 

@@ -75,6 +75,7 @@ const allowedRootFiles = new Set([
   '.env.example',
   '.gitignore',
   '.npmrc',
+  'eslint.config.js',
   'LICENSE',
   'README.md',
   'package.json',

@@ -1,11 +1,6 @@
 import { createHash } from 'node:crypto'
 import { createZip, type ZipEntry } from './zip.js'
-import { readFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import type { LoadedDataset, LoadedBrand } from './validate.js'
-
-const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export interface PackConfig {
   brandIds: string[]

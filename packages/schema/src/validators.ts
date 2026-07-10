@@ -3,14 +3,10 @@ import {
   BRAND_ID_PATTERN,
   HEX_COLOR_PATTERN,
   DOMAIN_PATTERN,
-  type BrandManifest,
   type BrandColor,
   type BrandAsset,
   type BrandSource,
-  type CategoriesFile,
   type CategoryEntry,
-  type PackRequest,
-  type ContributionSubmission,
   type AssetType,
   type AssetVariant,
   type ColorRole,
@@ -70,7 +66,6 @@ export function validateBrandManifest(
 ): ValidationResult {
   const dc = new DiagnosticCollector()
   const { filePath, strictBot } = opts
-  const fp = (p: string) => (filePath ? `${filePath}:${p}` : p)
   const m = manifest as Record<string, unknown>
 
   if (typeof m !== 'object' || m === null || Array.isArray(m)) {

@@ -99,7 +99,7 @@ export async function handleContributionSubmit(
   })
 
   try {
-    const { sha } = await adapter.createBranch('server-token', {
+    await adapter.createBranch('server-token', {
       branchName,
       baseRef: 'main',
       files,

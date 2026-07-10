@@ -26,7 +26,7 @@ import {
 
 let githubAdapter: GitHubAdapter | null = null
 
-function getAdapter(env: Env): GitHubAdapter {
+function getAdapter(_env: Env): GitHubAdapter {
   if (!githubAdapter) {
     githubAdapter = createGitHubAdapter(null)
   }
@@ -34,7 +34,7 @@ function getAdapter(env: Env): GitHubAdapter {
 }
 
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(request: Request, _env: Env): Promise<Response> {
     const url = new URL(request.url)
     const requestId = generateRequestId()
     const method = request.method
@@ -45,7 +45,7 @@ export default {
     }
 
     try {
-      const response = await route(method, path, request, requestId, url, env)
+      const response = await route(method, path, request, requestId, url, _env)
       const headers = new Headers(response.headers)
       headers.set('X-Request-Id', requestId)
       return new Response(response.body, { status: response.status, headers })
@@ -56,7 +56,7 @@ export default {
   },
 }
 
-async function route(method: string, path: string, request: Request, requestId: string, url: URL, env: Env): Promise<Response> {
+async function route(method: string, path: string, request: Request, requestId: string, url: URL, _env: Env): Promise<Response> {
   if (path === '/' && method === 'GET') {
     return new Response(
       JSON.stringify({ name: 'Open Brands API', version: '1.0.0', docs: '/v1/meta', openapi: '/openapi.json' }),
@@ -66,7 +66,7 @@ async function route(method: string, path: string, request: Request, requestId: 
   if (path === '/openapi.json' && method === 'GET') return handleOpenApi()
 
   if (path.startsWith('/api/contributions')) {
-    return handleContributionRoutes(method, path, request, requestId, url, env)
+    return handleContributionRoutes(method, path, request, requestId, url, _env)
   }
 
   if (!path.startsWith('/v1/')) {

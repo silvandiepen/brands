@@ -1,10 +1,9 @@
 import { writeFileSync, mkdirSync, readFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
+import { join } from 'node:path'
 import { createHash } from 'node:crypto'
-import type { BrandManifest, BrandAsset } from '@open-brands/schema'
+import type { BrandManifest } from '@open-brands/schema'
 import { generateColorFormats } from '@open-brands/core'
 import type { LoadedDataset, LoadedBrand } from './validate.js'
-import { normalizeSvg, extractSvgMetadata } from './svg.js'
 
 export interface CompactBrand {
   id: string

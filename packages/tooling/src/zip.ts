@@ -1,5 +1,4 @@
 import { deflateRawSync } from 'node:zlib'
-import { createHash } from 'node:crypto'
 
 function crc32(data: Buffer): number {
   let crc = 0xffffffff

@@ -1,6 +1,6 @@
 import { getIndex, getManifest, getCategories, getCollections, getBrand, getAllBrands } from './data.js'
 import type { GeneratedBrand } from './types.js'
-import { jsonResponse, errorResponse, redirectResponse, makeEtag, checkNotModified, generateRequestId } from './http.js'
+import { jsonResponse, errorResponse, redirectResponse, makeEtag, checkNotModified } from './http.js'
 
 const CDN_ORIGIN = 'https://cdn.open-brands.org'
 
@@ -17,7 +17,7 @@ function paginate<T>(items: T[], page: number, limit: number): { items: T[]; pag
   }
 }
 
-export function handleMeta(request: Request, requestId: string): Response {
+export function handleMeta(request: Request, _requestId: string): Response {
   const manifest = getManifest()
   const etag = makeEtag(manifest)
   if (checkNotModified(request, etag)) return new Response(null, { status: 304 })
@@ -87,15 +87,12 @@ export function handleBrandImage(request: Request, requestId: string, brandId: s
   if (!brand) return errorResponse('NOT_FOUND', `Brand '${brandId}' not found`, 404, requestId)
 
   const type = url.searchParams.get('type') ?? 'symbol'
-  const theme = url.searchParams.get('theme') ?? 'any'
-  const format = url.searchParams.get('format') ?? 'svg'
 
   const current = brand.assets.filter((a) => a.current)
   let selected = current.find((a) => a.type === type) ?? current[0]
   if (!selected) selected = brand.assets[0]
   if (!selected) return errorResponse('NO_ASSET', `Brand '${brandId}' has no assets`, 404, requestId)
 
-  const manifest = getManifest()
   const file = selected.file.replace(/^assets\//, '')
   const redirectUrl = `${CDN_ORIGIN}/current/brands/${brandId}/${file}`
 
@@ -161,14 +158,14 @@ export function handleSearch(request: Request, requestId: string, url: URL): Res
   return jsonResponse({ query: q, count: results.length, results })
 }
 
-export function handleCategories(request: Request, requestId: string): Response {
+export function handleCategories(request: Request, _requestId: string): Response {
   const categories = getCategories()
   const etag = makeEtag(categories)
   if (checkNotModified(request, etag)) return new Response(null, { status: 304 })
   return jsonResponse(categories, { etag })
 }
 
-export function handleCollections(request: Request, requestId: string): Response {
+export function handleCollections(request: Request, _requestId: string): Response {
   const collections = getCollections()
   const etag = makeEtag(collections)
   if (checkNotModified(request, etag)) return new Response(null, { status: 304 })
