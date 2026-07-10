@@ -213,6 +213,16 @@ export function generateRelease(
   writeFileSync(allBrandsPath, deterministicJsonStringify(allBrands))
   writtenFiles.push(allBrandsPath)
 
+  const allSvgs: Record<string, string> = {}
+  for (const [id, brand] of dataset.brands) {
+    for (const [assetId, assetData] of brand.assets) {
+      allSvgs[`${id}/${assetId}`] = assetData.source
+    }
+  }
+  const allSvgsPath = join(outputDir, 'all-svgs.json')
+  writeFileSync(allSvgsPath, deterministicJsonStringify(allSvgs))
+  writtenFiles.push(allSvgsPath)
+
   const categoriesPath = join(outputDir, 'categories.json')
   writeFileSync(categoriesPath, deterministicJsonStringify(dataset.categories))
   writtenFiles.push(categoriesPath)

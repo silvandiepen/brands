@@ -1,5 +1,7 @@
 import { createHash } from 'node:crypto'
 import { createZip, type ZipEntry } from '@open-brands/tooling'
+import allBrandsData from '../../../packages/data/generated/all-brands.json'
+import allSvgsData from '../../../packages/data/generated/all-svgs.json'
 
 interface AssetMeta {
   id: string
@@ -23,9 +25,8 @@ interface BrandData {
   review: unknown
 }
 
-import allBrandsData from '../../../packages/data/generated/all-brands.json'
-
 const allBrands = allBrandsData as unknown as BrandData[]
+const allSvgs = allSvgsData as Record<string, string>
 const brandMap = new Map(allBrands.map((b) => [b.id, b]))
 
 export interface LocalPackResult {
@@ -41,29 +42,13 @@ export function computePackKey(config: Record<string, unknown>): string {
   return createHash('sha256').update(normalized).digest('hex')
 }
 
-const svgCache = new Map<string, string>()
-
-async function loadSvg(brandId: string, assetFile: string): Promise<string | null> {
-  const fileName = assetFile.replace(/^assets\//, '')
-  const key = `${brandId}/${fileName}`
-  if (svgCache.has(key)) return svgCache.get(key)!
-  try {
-    const mod = await import(`../../../data/brands/${brandId}/assets/${fileName}?raw`)
-    const svg = (mod as { default: string }).default
-    svgCache.set(key, svg)
-    return svg
-  } catch {
-    return null
-  }
-}
-
-export async function buildLocalPack(config: {
+export function buildLocalPack(config: {
   brandIds: string[]
   assetTypes: string[]
   metadata: string
   folderLayout: string
   datasetVersion: string
-}): Promise<LocalPackResult> {
+}): LocalPackResult {
   const entries: ZipEntry[] = []
   const brands: string[] = []
 
@@ -79,7 +64,7 @@ export async function buildLocalPack(config: {
     })
 
     for (const asset of assets) {
-      const svg = await loadSvg(brandId, asset.file)
+      const svg = allSvgs[`${brandId}/${asset.id}`]
       if (!svg) continue
 
       const fileName = asset.file.replace(/^assets\//, '')

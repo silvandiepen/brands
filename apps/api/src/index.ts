@@ -15,7 +15,9 @@ import {
 } from './routes.js'
 import { handleOpenApi } from './openapi.js'
 import { errorResponse, generateRequestId, corsHeaders } from './http.js'
-import type { Env } from './http.js'
+import { QuotaCoordinator, type Env, type QueueMessage } from './env.js'
+
+export { QuotaCoordinator }
 import { createGitHubAdapter, type GitHubAdapter } from './github-adapter.js'
 import {
   handleContributionLogin,
@@ -53,6 +55,16 @@ export default {
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Internal server error'
       return errorResponse('INTERNAL_ERROR', message, 500, requestId)
+    }
+  },
+
+  async queue(batch: MessageBatch<QueueMessage>, _env: Env): Promise<void> {
+    for (const message of batch.messages) {
+      try {
+        message.ack()
+      } catch {
+        message.retry()
+      }
     }
   },
 }
@@ -130,7 +142,7 @@ async function handleContributionRoutes(method: string, path: string, request: R
 
   if (path === '/api/contributions/submit' && method === 'POST') {
     const body = await request.json().catch(() => ({}))
-    return handleContributionSubmit(request, requestId, body, adapter)
+    return handleContributionSubmit(request, requestId, body as Parameters<typeof handleContributionSubmit>[2], adapter)
   }
 
   if (path.startsWith('/api/contributions/') && method === 'GET') {

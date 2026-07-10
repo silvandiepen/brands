@@ -19,6 +19,7 @@
     "build": "pnpm -r --if-present build"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260710.1",
     "@eslint/js": "^10.0.1",
     "eslint": "^10.6.0",
     "tsx": "^4.23.0",

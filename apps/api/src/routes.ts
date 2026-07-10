@@ -215,7 +215,7 @@ export async function handlePackCreate(request: Request, requestId: string): Pro
     })
   }
 
-  const result = await buildLocalPack(config)
+  const result = buildLocalPack(config)
   packCache.set(packKey, {
     zipBuffer: new Uint8Array(result.zipBuffer),
     sha256: result.sha256,
