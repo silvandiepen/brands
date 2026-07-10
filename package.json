@@ -9,6 +9,7 @@
   },
   "scripts": {
     "migrate:legacy": "node scripts/migrate-legacy.mjs",
+    "check:foundation": "node scripts/check-foundation.mjs",
     "lint": "pnpm -r --if-present lint",
     "typecheck": "pnpm -r --if-present typecheck",
     "test": "pnpm -r --if-present test",
