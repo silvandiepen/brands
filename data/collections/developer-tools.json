@@ -8,6 +8,11 @@
     "docker",
     "nodejs",
     "python",
-    "figma"
+    "figma",
+    "react",
+    "vue",
+    "tailwindcss",
+    "rust",
+    "go"
   ]
 }

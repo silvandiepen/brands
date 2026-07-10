@@ -1,0 +1,11 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "productivity",
+  "name": "Productivity and Communication",
+  "description": "Tools for collaboration, notes, and messaging",
+  "brandIds": [
+    "slack",
+    "notion",
+    "discord"
+  ]
+}

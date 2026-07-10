@@ -1,0 +1,12 @@
+{
+  "$schema": "../../packages/schema/json-schema/categories.schema.json",
+  "id": "programming-languages",
+  "name": "Programming Languages",
+  "description": "Major programming languages and runtimes",
+  "brandIds": [
+    "python",
+    "nodejs",
+    "go",
+    "rust"
+  ]
+}
