@@ -50,4 +50,4 @@ pnpm test
 pnpm build
 ```
 
-See [`docs/README.md`](./docs/README.md) for product and architecture documentation.
+For autonomous end-to-end implementation, start with [`docs/development/build-directive.md`](./docs/development/build-directive.md). All other product and architecture documentation is indexed in [`docs/README.md`](./docs/README.md).
