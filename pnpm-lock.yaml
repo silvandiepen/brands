@@ -35,6 +35,9 @@ importers:
       '@open-brands/schema':
         specifier: workspace:*
         version: link:../../packages/schema
+      '@open-brands/tooling':
+        specifier: workspace:*
+        version: link:../../packages/tooling
     devDependencies:
       '@types/node':
         specifier: ^22.0.0
