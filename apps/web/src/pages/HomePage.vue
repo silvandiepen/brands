@@ -2,37 +2,22 @@
 defineOptions({ name: 'HomePage' })
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import { allBrands, releaseManifest, categories } from '../data/loader'
-import allBrandsData from '../../../../packages/data/generated/all-brands.json'
+import { allBrands, releaseManifest, categories, brandIndex } from '../data/loader'
 import { inkOn, shuffle } from '../utils'
 
 const router = useRouter()
+const API = 'https://open-brands-api.vandipyan.workers.dev'
 const searchQuery = ref('')
 const selectedCategory = ref('')
-const svgData = ref<Record<string, string>>({})
-const svgsLoading = ref(true)
 
-const brandColorMap = {} as Record<string, string[]>
-for (const b of allBrandsData as Array<{ id: string; colors: Array<{ value: string }> }>) {
-  brandColorMap[b.id] = (b.colors || []).map(c => c.value)
+function brandBg(brandId: string): string {
+  return brandIndex[brandId]?.primaryColor ?? '#f5f5f5'
 }
 
 const topLevelCategories = categories.categories.filter(c => c.parentId === null)
 
-onMounted(async () => {
-  try {
-    const mod = await import('../../../../packages/data/generated/all-mono-svgs.json')
-    svgData.value = (mod as { default: Record<string, string> }).default
-  } catch { /* noop */ }
-  svgsLoading.value = false
-})
-
-function getLogo(brandId: string): string {
-  return svgData.value[`${brandId}/icon`] ?? svgData.value[`${brandId}/symbol`] ?? svgData.value[`${brandId}/wordmark`] ?? ''
-}
-
-function brandBg(brandId: string): string {
-  return brandColorMap[brandId]?.[0] ?? '#f5f5f5'
+function logoUrl(brandId: string): string {
+  return `${API}/logo/${brandId}.svg`
 }
 
 const displayBrands = ref<typeof allBrands>([])
@@ -105,8 +90,7 @@ function submitSearch() {
         :style="{ background: brandBg(brand.id), '--ink': inkOn(brandBg(brand.id)) }"
         :title="brand.name"
       >
-        <span v-if="svgsLoading" class="logo-placeholder"></span>
-        <span v-else class="logo-svg" v-html="getLogo(brand.id)"></span>
+        <img :src="logoUrl(brand.id)" :alt="brand.name" class="logo-img" loading="lazy" />
         <span class="logo-name">{{ brand.name }}</span>
       </RouterLink>
     </div>
@@ -136,12 +120,11 @@ function submitSearch() {
   gap: 0.5rem; padding: 1.5rem; border-radius: 12px; overflow: hidden; transition: transform 0.15s;
   &:hover { transform: scale(1.05); z-index: 1; box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
 }
-.logo-svg, .logo-placeholder {
-  flex: 1; display: flex; align-items: center; justify-content: center; width: 100%;
-  color: var(--ink, #000);
+.logo-img {
+  flex: 1; max-width: 60px; max-height: 60px; object-fit: contain;
+  filter: var(--logo-filter, none);
+  /* CSS can't auto-recolor raster, but SVGs via API serve currentColor */
 }
-.logo-placeholder { opacity: 0.2; }
-.logo-svg { :deep(svg) { max-width: 100%; max-height: 60px; } }
 .logo-name {
   font-size: 0.7rem; font-weight: 600; color: var(--ink, #000); opacity: 0.8;
   text-overflow: ellipsis; overflow: hidden; white-space: nowrap; max-width: 100%;

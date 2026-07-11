@@ -15,6 +15,7 @@ export interface CompactBrand {
   tags: string[]
   status: string
   hasColors: boolean
+  primaryColor: string | null
   assetCount: number
   reviewStatus: string
 }
@@ -112,6 +113,7 @@ export function generateCompactIndex(dataset: LoadedDataset): Record<string, Com
       tags: brand.manifest.tags,
       status: brand.manifest.status,
       hasColors: brand.manifest.colors.length > 0,
+      primaryColor: brand.manifest.colors[0]?.value ?? null,
       assetCount: brand.manifest.assets.length,
       reviewStatus: brand.manifest.review.status,
     }
