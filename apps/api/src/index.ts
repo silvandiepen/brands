@@ -14,6 +14,7 @@ import {
   handlePackDownload,
 } from './routes.js'
 import { handleOpenApi } from './openapi.js'
+import { handleLogoCdn } from './logo-cdn.js'
 import { errorResponse, generateRequestId, corsHeaders } from './http.js'
 import { QuotaCoordinator, type Env, type QueueMessage } from './env.js'
 
@@ -77,6 +78,11 @@ async function route(method: string, path: string, request: Request, requestId: 
     )
   }
   if (path === '/openapi.json' && method === 'GET') return handleOpenApi()
+
+  // Logo CDN API: /logo/:identifier.svg, /logo/domain/:domain.svg
+  if (path.startsWith('/logo/') && method === 'GET') {
+    return handleLogoCdn(request, path.slice(6), requestId)
+  }
 
   if (path.startsWith('/api/contributions')) {
     return handleContributionRoutes(method, path, request, requestId, url, _env)
