@@ -82,7 +82,7 @@ async function route(method: string, path: string, request: Request, requestId: 
 
   // Logo CDN API: /logo/:identifier.svg, /logo/domain/:domain.svg
   if (path.startsWith('/logo/') && method === 'GET') {
-    return handleLogoCdn(request, path.slice(6), requestId)
+    return handleLogoCdn(request, path.slice(6), url, requestId)
   }
 
   if (path.startsWith('/api/contributions')) {
