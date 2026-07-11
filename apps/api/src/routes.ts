@@ -151,11 +151,17 @@ export function handleSearch(request: Request, requestId: string, url: URL): Res
   const results = scored.slice(0, limit).map((r) => ({
     id: r.brand.id,
     name: r.brand.name,
+    domain: r.brand.domains[0] ?? null,
     score: +r.score.toFixed(2),
     matchType: r.score >= 1 ? 'exact' : r.score >= 0.6 ? 'partial' : 'fuzzy',
+    qualityScore: r.brand.qualityScore,
   }))
 
   return jsonResponse({ query: q, count: results.length, results })
+}
+
+export function handleBrandSearch(request: Request, requestId: string, url: URL): Response {
+  return handleSearch(request, requestId, url)
 }
 
 export function handleCategories(request: Request, _requestId: string): Response {

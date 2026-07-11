@@ -12,6 +12,7 @@ import {
   handlePackCreate,
   handlePackStatus,
   handlePackDownload,
+  handleBrandSearch,
 } from './routes.js'
 import { handleOpenApi } from './openapi.js'
 import { handleLogoCdn } from './logo-cdn.js'
@@ -98,11 +99,13 @@ async function route(method: string, path: string, request: Request, requestId: 
   if (parts.length === 1) {
     const r = parts[0]!
     if (r === 'meta' && method === 'GET') return handleMeta(request, requestId)
-    if (r === 'brands' && method === 'GET') return handleBrands(request, requestId, url)
     if (r === 'search' && method === 'GET') return handleSearch(request, requestId, url)
+    if (r === 'search' && method === 'GET') return handleSearch(request, requestId, url)
+    if (r === 'brands' && method === 'GET') return handleBrands(request, requestId, url)
     if (r === 'categories' && method === 'GET') return handleCategories(request, requestId)
     if (r === 'collections' && method === 'GET') return handleCollections(request, requestId)
     if (r === 'packs' && method === 'POST') return handlePackCreate(request, requestId)
+    if (r === 'brand-search' && method === 'GET') return handleBrandSearch(request, requestId, url)
   }
 
   if (parts.length === 2) {

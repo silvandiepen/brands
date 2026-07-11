@@ -1,5 +1,5 @@
 import { getIndex } from './data.js'
-import { jsonResponse, redirectResponse, errorResponse, corsHeaders } from './http.js'
+import { redirectResponse, corsHeaders } from './http.js'
 
 const CDN_ORIGIN = 'https://cdn.open-brands.org'
 
@@ -35,18 +35,14 @@ export function handleLogoCdn(request: Request, path: string, _requestId: string
   const baseName = last.replace(/\.\w+$/, '')
 
   let brandId: string | null = null
-  let resolvedBy = 'id'
 
   if (parts.length >= 2) {
     if (parts[0] === 'domain') {
       brandId = findBrandByDomain(parts[1]!)
-      resolvedBy = 'domain'
     } else if (parts[0] === 'id' && parts[1]) {
       brandId = findBrandById(parts[1])
-      resolvedBy = 'id'
     } else if (parts[0] === 'name' && parts[1]) {
       brandId = findBrandById(parts[1])
-      resolvedBy = 'name'
     }
   }
 
@@ -61,7 +57,6 @@ export function handleLogoCdn(request: Request, path: string, _requestId: string
     })
   }
 
-  const brand = (indexData as Record<string, { name: string }>)[brandId]
   const redirectUrl = `${CDN_ORIGIN}/current/brands/${brandId}/${baseName === brandId ? 'symbol.svg' : baseName}.${ext}`
 
   return redirectResponse(redirectUrl)

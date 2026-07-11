@@ -68,6 +68,11 @@ export interface GeneratedBrand {
     reviewer?: string | null
     notes?: string | null
   }
+  social?: Array<{ type: string; url: string }>
+  company?: Record<string, unknown> | null
+  fonts?: Array<{ name: string; type: string; origin?: string }>
+  description?: string | null
+  qualityScore?: number
 }
 
 export interface ApiError {
