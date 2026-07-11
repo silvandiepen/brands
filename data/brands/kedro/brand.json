@@ -1,0 +1,58 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "kedro",
+  "name": "Kedro",
+  "aliases": [],
+  "domains": [],
+  "status": "active",
+  "categories": [
+    "technology"
+  ],
+  "tags": [],
+  "colors": [
+    {
+      "id": "primary",
+      "name": null,
+      "value": "#FFC900",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "icon",
+      "file": "assets/icon.svg",
+      "type": "icon",
+      "variant": "monochrome",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": true,
+      "current": true,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "type": "repository",
+      "url": "https://github.com/kedro-org/kedro-brand-identity/blob/7f7b380cb1a2951c06ca292f0d2b442db895f804/icon/black/kedro-icon-svgo-black.svg",
+      "title": "Kedro (Simple Icons)",
+      "accessedAt": "2026-07-11"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

@@ -6,6 +6,8 @@
     { "id": "cloud", "label": "Cloud", "parentId": "technology" },
     { "id": "software", "label": "Software", "parentId": "technology" },
     { "id": "hardware", "label": "Hardware", "parentId": "technology" },
+    { "id": "design", "label": "Design", "parentId": "technology" },
+    { "id": "ai", "label": "Artificial Intelligence", "parentId": "technology" },
     { "id": "internet-services", "label": "Internet services", "parentId": "technology" },
     { "id": "social-media", "label": "Social media", "parentId": "internet-services" },
     { "id": "messaging", "label": "Messaging", "parentId": "internet-services" },

@@ -1,0 +1,58 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "adaway",
+  "name": "AdAway",
+  "aliases": [],
+  "domains": [],
+  "status": "active",
+  "categories": [
+    "technology"
+  ],
+  "tags": [],
+  "colors": [
+    {
+      "id": "primary",
+      "name": null,
+      "value": "#B71C1C",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "icon",
+      "file": "assets/icon.svg",
+      "type": "icon",
+      "variant": "monochrome",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": true,
+      "current": true,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "type": "repository",
+      "url": "https://github.com/AdAway/adaway.github.io/blob/afbe891b58ab5d0207a98a4a2fac410a55710914/assets/img/logo.svg",
+      "title": "AdAway (Simple Icons)",
+      "accessedAt": "2026-07-11"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

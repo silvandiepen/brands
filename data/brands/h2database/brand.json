@@ -1,0 +1,58 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "h2database",
+  "name": "H2 Database",
+  "aliases": [],
+  "domains": [],
+  "status": "active",
+  "categories": [
+    "technology"
+  ],
+  "tags": [],
+  "colors": [
+    {
+      "id": "primary",
+      "name": null,
+      "value": "#09476B",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "icon",
+      "file": "assets/icon.svg",
+      "type": "icon",
+      "variant": "monochrome",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": true,
+      "current": true,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "type": "repository",
+      "url": "https://github.com/h2database/h2database/blob/4472d76fc6a77cb079a8a0c24d80dc05dade56e1/h2/src/docsrc/images/h2_v2_3_7.svg",
+      "title": "H2 Database (Simple Icons)",
+      "accessedAt": "2026-07-11"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

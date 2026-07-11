@@ -1,0 +1,58 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "mpv",
+  "name": "mpv",
+  "aliases": [],
+  "domains": [],
+  "status": "active",
+  "categories": [
+    "technology"
+  ],
+  "tags": [],
+  "colors": [
+    {
+      "id": "primary",
+      "name": null,
+      "value": "#691F69",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "icon",
+      "file": "assets/icon.svg",
+      "type": "icon",
+      "variant": "monochrome",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": true,
+      "current": true,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "type": "repository",
+      "url": "https://github.com/mpv-player/mpv/blob/da400ed3a9b54408d1b5112855a7281380a1ef52/etc/mpv.svg",
+      "title": "mpv (Simple Icons)",
+      "accessedAt": "2026-07-11"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

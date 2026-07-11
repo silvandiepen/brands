@@ -1,0 +1,61 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "airplayvideo",
+  "name": "AirPlay Video",
+  "aliases": [],
+  "domains": [],
+  "status": "active",
+  "categories": [
+    "technology",
+    "media-entertainment",
+    "streaming",
+    "software"
+  ],
+  "tags": [],
+  "colors": [
+    {
+      "id": "primary",
+      "name": null,
+      "value": "#000000",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "icon",
+      "file": "assets/icon.svg",
+      "type": "icon",
+      "variant": "monochrome",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": true,
+      "current": true,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "type": "community-reference",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/airplay/overview/icons/",
+      "title": "AirPlay Video (Simple Icons)",
+      "accessedAt": "2026-07-11"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

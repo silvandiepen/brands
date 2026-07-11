@@ -1,0 +1,60 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "rubyonrails",
+  "name": "Ruby on Rails",
+  "aliases": [],
+  "domains": [],
+  "status": "active",
+  "categories": [
+    "technology",
+    "software",
+    "developer-tools"
+  ],
+  "tags": [],
+  "colors": [
+    {
+      "id": "primary",
+      "name": null,
+      "value": "#D30001",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "icon",
+      "file": "assets/icon.svg",
+      "type": "icon",
+      "variant": "monochrome",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": true,
+      "current": true,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "type": "repository",
+      "url": "https://github.com/simple-icons/simple-icons/issues/9619#issuecomment-1735150580",
+      "title": "Ruby on Rails (Simple Icons)",
+      "accessedAt": "2026-07-11"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}

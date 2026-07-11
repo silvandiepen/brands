@@ -1,0 +1,61 @@
+{
+  "$schema": "../../../packages/schema/json-schema/brand.schema.json",
+  "id": "cryptomator",
+  "name": "Cryptomator",
+  "aliases": [],
+  "domains": [],
+  "status": "active",
+  "categories": [
+    "technology",
+    "finance",
+    "cryptocurrency",
+    "blockchain"
+  ],
+  "tags": [],
+  "colors": [
+    {
+      "id": "primary",
+      "name": null,
+      "value": "#49B04A",
+      "role": "primary",
+      "themes": [
+        "light"
+      ],
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "assets": [
+    {
+      "id": "icon",
+      "file": "assets/icon.svg",
+      "type": "icon",
+      "variant": "monochrome",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "monochrome": true,
+      "current": true,
+      "sourceIds": [
+        "src-1"
+      ],
+      "reviewStatus": "community-sourced"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-1",
+      "type": "repository",
+      "url": "https://github.com/cryptomator/docs/blob/795a5a414b7e848cbfd4502a4ff63cfdb3adfb15/source/img/logo-mono-white.svg",
+      "title": "Cryptomator (Simple Icons)",
+      "accessedAt": "2026-07-11"
+    }
+  ],
+  "review": {
+    "status": "partial",
+    "method": "community-review"
+  }
+}
