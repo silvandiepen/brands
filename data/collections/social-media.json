@@ -5,8 +5,12 @@
   "description": "Social networks and platforms",
   "brandIds": [
     "facebook",
+    "facebookgaming",
+    "facebooklive",
+    "gnusocial",
     "instagram",
     "linkedin",
+    "socialblade",
     "tumblr",
     "twitter",
     "x"

@@ -6,17 +6,27 @@
   "brandIds": [
     "aave",
     "avalanche",
+    "basicattentiontoken",
     "binance",
     "binancecoin",
     "bitcoin",
+    "bitcoincash",
+    "bitcoinsv",
     "bitfinex",
+    "blockchaindotcom",
     "blockfi",
     "cardano",
     "chainlink",
     "coinbase",
+    "coinmarketcap",
+    "cryptomator",
+    "dogecoin",
     "ethereum",
     "gemini",
+    "hiveblockchain",
+    "jsonwebtokens",
     "kraken",
+    "kucoin",
     "ledger",
     "litecoin",
     "metamask",
@@ -24,6 +34,7 @@
     "ripple",
     "solana",
     "trezor",
-    "uniswap"
+    "uniswap",
+    "web3dotjs"
   ]
 }
