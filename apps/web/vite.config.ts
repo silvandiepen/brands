@@ -22,5 +22,14 @@ export default defineConfig({
   },
   build: {
     target: 'es2022',
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('all-mono-svgs.json') || id.includes('all-svgs.json')) return 'svg-data'
+          if (id.includes('all-brands.json')) return 'brands-data'
+        },
+      },
+    },
   },
 })

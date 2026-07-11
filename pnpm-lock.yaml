@@ -51,6 +51,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@sil/color':
+        specifier: ^0.5.1
+        version: 0.5.1
       '@sil/ui':
         specifier: ^2.6.0
         version: 2.6.0(@floating-ui/dom@1.7.6)(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/extension-code-block@3.27.3(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/pm@3.27.3))(@tiptap/extensions@3.27.3(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/pm@3.27.3))(highlight.js@11.11.1)(vue-i18n@11.4.6(vue@3.5.39(typescript@5.9.3)))(vue-router@4.6.4(vue@3.5.39(typescript@5.9.3)))(vue@3.5.39(typescript@5.9.3))
