@@ -83,6 +83,30 @@ export interface BrandReview {
   notes?: string | null
 }
 
+export interface BrandSocialLink {
+  type: 'twitter' | 'github' | 'linkedin' | 'instagram' | 'youtube' | 'facebook' | 'tiktok' | 'discord' | 'website'
+  url: string
+}
+
+export interface BrandCompanyInfo {
+  foundedYear?: number
+  employees?: number
+  kind?: 'PUBLIC_COMPANY' | 'PRIVATELY_HELD' | 'NON_PROFIT' | 'GOVERNMENT_AGENCY' | 'SELF_EMPLOYED' | 'PARTNERSHIP'
+  countryCode?: string
+  city?: string
+  region?: string
+  industries?: string[]
+  ticker?: string
+  isin?: string
+}
+
+export interface BrandFont {
+  name: string
+  type: 'title' | 'body'
+  origin?: 'google' | 'custom' | 'system'
+  weights?: number[]
+}
+
 export interface BrandManifest {
   $schema?: string
   id: string
@@ -97,6 +121,11 @@ export interface BrandManifest {
   assets: BrandAsset[]
   sources: BrandSource[]
   review: BrandReview
+  social?: BrandSocialLink[]
+  company?: BrandCompanyInfo
+  fonts?: BrandFont[]
+  description?: string
+  qualityScore?: number
 }
 
 export interface CategoryEntry {
