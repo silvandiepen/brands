@@ -1,18 +1,14 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { PillHeader, PlatformFooter, type PillHeaderNavItem, type PillHeaderAction } from '@sil/ui'
+import { PillHeader, PlatformFooter, Icons, type PillHeaderNavItem, type PillHeaderAction } from '@sil/ui'
 
 const route = useRoute()
 const router = useRouter()
 const theme = ref<'light' | 'dark'>('light')
 
 const cartCount = computed(() => {
-  try {
-    return JSON.parse(localStorage.getItem('ob-cart') ?? '[]').length
-  } catch {
-    return 0
-  }
+  try { return JSON.parse(localStorage.getItem('ob-cart') ?? '[]').length } catch { return 0 }
 })
 
 const navItems: PillHeaderNavItem[] = [
@@ -27,12 +23,15 @@ const actions = computed<PillHeaderAction[]>(() => {
   const list: PillHeaderAction[] = []
   if (cartCount.value > 0) {
     list.push({
-      label: `Cart (${cartCount.value})`,
+      label: String(cartCount.value),
+      icon: Icons.PRODUCT_SHOPPING_BAG,
+      iconOnly: true,
       handler: () => router.push('/cart'),
     })
   }
   list.push({
-    label: theme.value === 'light' ? 'Dark' : 'Light',
+    label: 'theme',
+    icon: theme.value === 'light' ? Icons.WEATHER_MOON_DARK_MODE : Icons.WEATHER_SUN_LIGHT_MODE,
     iconOnly: true,
     handler: () => {
       theme.value = theme.value === 'light' ? 'dark' : 'light'
@@ -51,7 +50,7 @@ const year = new Date().getFullYear()
     <PillHeader
       brand-to="/"
       brand-aria-label="Open Brands"
-      :color-mode="theme"
+      :color-mode="theme === 'light' ? 'dark' : 'light'"
       :actions="actions"
       :nav-items="navItems"
       :current-path="currentPath"
@@ -70,9 +69,7 @@ const year = new Date().getFullYear()
     </main>
 
     <PlatformFooter max-width="1200px" :color-mode="theme">
-      <template #brand>
-        <strong>Open</strong>Brands
-      </template>
+      <template #brand><strong>Open</strong>Brands</template>
       <template #nav>
         <nav aria-label="Footer">
           <RouterLink to="/brands">Browse</RouterLink>
@@ -83,7 +80,7 @@ const year = new Date().getFullYear()
         </nav>
       </template>
       <template #meta>
-        <p>&copy; {{ year }} Open Brands — MIT licensed. Logos remain property of their owners.</p>
+        <p>&copy; {{ year }} Open Brands — MIT. Logos remain property of their owners.</p>
       </template>
     </PlatformFooter>
   </div>

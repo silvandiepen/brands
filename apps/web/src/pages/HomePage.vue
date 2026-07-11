@@ -4,25 +4,21 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { allBrands, releaseManifest, categories, brandIndex } from '../data/loader'
 import { inkOn, shuffle } from '../utils'
+import LogoInline from '../components/LogoInline.vue'
 
 const router = useRouter()
-const API = 'https://open-brands-api.vandipyan.workers.dev'
 const searchQuery = ref('')
 const selectedCategory = ref('')
+
+const topLevelCategories = categories.categories.filter(c => c.parentId === null)
 
 function brandBg(brandId: string): string {
   return brandIndex[brandId]?.primaryColor ?? '#f5f5f5'
 }
 
-const topLevelCategories = categories.categories.filter(c => c.parentId === null)
-
-function logoUrl(brandId: string): string {
-  return `${API}/logo/${brandId}.svg`
-}
-
 const displayBrands = ref<typeof allBrands>([])
 function reshuffle() {
-  let brands = allBrands
+  let brands = allBrands.filter(b => b.assetCount > 0)
   if (selectedCategory.value) brands = brands.filter(b => b.categories.includes(selectedCategory.value))
   displayBrands.value = shuffle(brands)
 }
@@ -88,9 +84,8 @@ function submitSearch() {
         :to="`/brands/${brand.id}`"
         class="logo-tile"
         :style="{ background: brandBg(brand.id), '--ink': inkOn(brandBg(brand.id)) }"
-        :title="brand.name"
       >
-        <img :src="logoUrl(brand.id)" :alt="brand.name" class="logo-img" loading="lazy" />
+        <LogoInline :brand-id="brand.id" :alt="brand.name" class="logo-svg" />
         <span class="logo-name">{{ brand.name }}</span>
       </RouterLink>
     </div>
@@ -110,24 +105,49 @@ function submitSearch() {
 .pill {
   padding: 0.3rem 0.8rem; border: 1px solid var(--ob-border); border-radius: 999px;
   background: var(--ob-bg); color: var(--ob-text-muted); cursor: pointer; font-size: 0.8rem;
-  transition: all 0.15s;
   &:hover { border-color: var(--ob-primary); color: var(--ob-primary); }
   &.active { background: var(--ob-primary); color: #fff; border-color: var(--ob-primary); }
 }
-.logo-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px; }
-.logo-tile {
-  aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 0.5rem; padding: 1.5rem; border-radius: 12px; overflow: hidden; transition: transform 0.15s;
-  &:hover { transform: scale(1.05); z-index: 1; box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+.logo-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
 }
-.logo-img {
-  flex: 1; max-width: 60px; max-height: 60px; object-fit: contain;
-  filter: var(--logo-filter, none);
-  /* CSS can't auto-recolor raster, but SVGs via API serve currentColor */
+.logo-tile {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.15s, box-shadow 0.15s;
+  &:hover {
+    transform: scale(1.05);
+    z-index: 1;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+}
+.logo-svg {
+  width: 50%;
+  height: 50%;
+  color: var(--ink, #000);
 }
 .logo-name {
-  font-size: 0.7rem; font-weight: 600; color: var(--ink, #000); opacity: 0.8;
-  text-overflow: ellipsis; overflow: hidden; white-space: nowrap; max-width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ink, #000);
+  background: linear-gradient(transparent, rgba(0,0,0,0.1));
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
 }
+.logo-tile:hover .logo-name { opacity: 0.9; }
 .sentinel { text-align: center; padding: 2rem; color: var(--ob-text-muted); }
 </style>
