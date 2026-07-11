@@ -3,6 +3,7 @@ import { ref, watch, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { loadBrandDetail, getCategoryLabel, type BrandDetail } from '../data/loader'
 import allSvgs from '../../../../packages/data/generated/all-svgs.json'
+import allMonoSvgs from '../../../../packages/data/generated/all-mono-svgs.json'
 
 const route = useRoute()
 const brand = ref<BrandDetail | null>(null)
@@ -11,9 +12,14 @@ const error = ref('')
 const copiedColor = ref<string | null>(null)
 
 const svgs = allSvgs as Record<string, string>
+const monoSvgs = allMonoSvgs as Record<string, string>
 
 function getSvg(brandId: string, assetId: string): string {
   return svgs[`${brandId}/${assetId}`] ?? ''
+}
+
+function getMonoSvg(brandId: string, assetId: string): string {
+  return monoSvgs[`${brandId}/${assetId}`] ?? ''
 }
 
 function hexToRgb(hex: string): [number, number, number] {
@@ -71,7 +77,7 @@ const socialIcons: Record<string, string> = {
     <!-- Hero with brand color background + logo -->
     <div class="brand-hero" :style="{ background: primaryColor }">
       <div class="brand-hero-content" :style="{ color: inkColor(primaryColor) }">
-        <div class="hero-logo" v-html="getSvg(brand.id, brand.assets.find(a => a.current)?.id ?? brand.assets[0]?.id ?? '')"></div>
+        <div class="hero-logo" :style="{ color: inkColor(primaryColor) }" v-html="getMonoSvg(brand.id, brand.assets.find(a => a.current)?.id ?? brand.assets[0]?.id ?? '')"></div>
         <h1>{{ brand.name }}</h1>
         <div class="hero-meta">
           <span v-for="domain in brand.domains" :key="domain" class="hero-domain">{{ domain }}</span>
@@ -107,7 +113,8 @@ const socialIcons: Record<string, string> = {
         <div class="asset-grid">
           <div v-for="asset in brand.assets" :key="asset.id" class="asset-card" :class="{ current: asset.current }">
             <div class="asset-preview light" v-html="getSvg(brand.id, asset.id)"></div>
-            <div class="asset-preview dark" v-html="getSvg(brand.id, asset.id)"></div>
+            <div class="asset-preview mono-light" :style="{ color: '#000' }" v-html="getMonoSvg(brand.id, asset.id)"></div>
+            <div class="asset-preview mono-dark" :style="{ color: '#fff' }" v-html="getMonoSvg(brand.id, asset.id)"></div>
             <div class="asset-label">
               <span>{{ asset.type }}</span>
               <span class="asset-variant">{{ asset.variant }}</span>
@@ -242,7 +249,8 @@ h2 { font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600; }
   min-height: 80px;
   :deep(svg) { max-width: 100%; max-height: 60px; }
   &.light { background: #fff; }
-  &.dark { background: #1a1a2e; }
+  &.mono-light { background: #fff; }
+  &.mono-dark { background: #1a1a2e; }
 }
 .asset-label {
   display: flex;
