@@ -72,6 +72,11 @@ export interface BrandDetail {
   assets: BrandAsset[]
   sources: Array<{ id: string; type: string; url: string; title: string; publisher?: string | null; accessedAt: string; notes?: string | null }>
   review: { status: string; verifiedAt?: string | null; method: string; reviewer?: string | null; notes?: string | null }
+  social?: Array<{ type: string; url: string }>
+  company?: Record<string, unknown> | null
+  fonts?: Array<{ name: string; type: string; origin?: string }>
+  description?: string | null
+  qualityScore?: number
 }
 
 export const brandIndex = indexData as Record<string, CompactBrand>
