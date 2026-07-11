@@ -71,6 +71,11 @@ export interface GeneratedBrand {
   }>
   sources: BrandManifest['sources']
   review: BrandManifest['review']
+  social: Array<{ type: string; url: string }>
+  company: { foundedYear?: number; employees?: number; kind?: string; countryCode?: string; city?: string; region?: string; industries?: string[]; ticker?: string; isin?: string } | null
+  fonts: Array<{ name: string; type: string; origin?: string; weights?: number[] }>
+  description: string | null
+  qualityScore: number
 }
 
 export interface GeneratedRelease {
@@ -115,6 +120,8 @@ export function generateCompactIndex(dataset: LoadedDataset): Record<string, Com
 
 export function generateBrandDetail(brand: LoadedBrand): GeneratedBrand {
   const m = brand.manifest
+
+  const qualityScore = computeQualityScore(brand)
 
   return {
     id: m.id,
@@ -171,7 +178,32 @@ export function generateBrandDetail(brand: LoadedBrand): GeneratedBrand {
     }),
     sources: m.sources,
     review: m.review,
+    social: m.social ?? [],
+    company: m.company ?? null,
+    fonts: m.fonts ?? [],
+    description: m.description ?? null,
+    qualityScore,
   }
+}
+
+export function computeQualityScore(brand: LoadedBrand): number {
+  const m = brand.manifest
+  let score = 0
+
+  if (m.name) score += 0.1
+  if (m.aliases.length > 0) score += 0.05
+  if (m.domains.length > 0) score += 0.1
+  if (m.categories.length > 0) score += 0.05
+  if (m.colors.length > 0) score += 0.1
+  if (m.colors.length > 1) score += 0.05
+  if (m.assets.length > 0) score += 0.15
+  if (brand.assets.size > 0) score += 0.1
+  if (m.sources.length > 0) score += 0.1
+  if (m.sources.some(s => s.type.startsWith('official'))) score += 0.1
+  if (m.review.status === 'verified') score += 0.1
+  else if (m.review.status === 'partial') score += 0.05
+
+  return Math.min(1, Math.round(score * 100) / 100)
 }
 
 export function generateRelease(
