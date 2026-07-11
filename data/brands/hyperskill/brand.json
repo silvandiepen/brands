@@ -3,7 +3,9 @@
   "id": "hyperskill",
   "name": "Hyperskill",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "hyperskill.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://hyperskill.org"
+    }
+  ]
 }

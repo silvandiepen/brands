@@ -3,7 +3,9 @@
   "id": "nutanix",
   "name": "Nutanix",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "nutanix.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://www.nutanix.com/content/dam/nutanix/en/cmn/documents/nutanix-brandbook.pdf"
+    },
+    {
+      "type": "website",
+      "url": "https://nutanix.com"
+    }
+  ]
 }

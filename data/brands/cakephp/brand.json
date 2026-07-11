@@ -3,7 +3,9 @@
   "id": "cakephp",
   "name": "CakePHP",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "cakephp.org"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://cakephp.org"
+    }
+  ]
 }

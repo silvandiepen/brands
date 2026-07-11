@@ -3,7 +3,9 @@
   "id": "aircall",
   "name": "Aircall",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "aircall.io"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://aircall.io"
+    }
+  ]
 }

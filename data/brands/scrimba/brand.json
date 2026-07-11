@@ -3,7 +3,9 @@
   "id": "scrimba",
   "name": "Scrimba",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "scrimba.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://scrimba.com"
+    }
+  ]
 }

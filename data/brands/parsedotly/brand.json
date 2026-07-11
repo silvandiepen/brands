@@ -3,7 +3,9 @@
   "id": "parsedotly",
   "name": "Parse.ly",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "parse.ly"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://parse.ly"
+    }
+  ]
 }

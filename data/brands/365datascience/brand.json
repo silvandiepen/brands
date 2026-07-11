@@ -3,7 +3,9 @@
   "id": "365datascience",
   "name": "365 Data Science",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "365datascience.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://365datascience.com"
+    }
+  ]
 }

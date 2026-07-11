@@ -3,7 +3,9 @@
   "id": "sharex",
   "name": "ShareX",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "getsharex.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://getsharex.com/brand-assets"
+    },
+    {
+      "type": "website",
+      "url": "https://getsharex.com"
+    }
+  ]
 }

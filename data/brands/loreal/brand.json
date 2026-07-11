@@ -1,7 +1,7 @@
 {
   "$schema": "../../../packages/schema/json-schema/brand.schema.json",
   "id": "loreal",
-  "name": "L'Or\u00e9al",
+  "name": "L'Oréal",
   "aliases": [],
   "domains": [],
   "status": "active",
@@ -48,12 +48,18 @@
       "id": "src-1",
       "type": "community-reference",
       "url": "https://github.com/silvandiepen/brand-colors/blob/main/lib/svg/loreal_wordmark.svg",
-      "title": "L'Or\u00e9al (brand-colors)",
+      "title": "L'Oréal (brand-colors)",
       "accessedAt": "2026-07-10"
     }
   ],
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "github",
+      "url": "https://github.com/silvandiepen"
+    }
+  ]
 }

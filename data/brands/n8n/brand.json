@@ -3,7 +3,9 @@
   "id": "n8n",
   "name": "n8n",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "n8n.io"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://n8n.io"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "chainguard",
   "name": "Chainguard",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "chainguard.dev"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://chainguard.dev"
+    }
+  ]
 }

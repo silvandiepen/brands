@@ -3,7 +3,9 @@
   "id": "radar",
   "name": "Radar",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "radar.io"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://radar.io"
+    }
+  ]
 }

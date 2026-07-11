@@ -3,7 +3,9 @@
   "id": "infinityfree",
   "name": "InfinityFree",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "dash.infinityfree.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://dash.infinityfree.com"
+    }
+  ]
 }

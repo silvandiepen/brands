@@ -3,7 +3,9 @@
   "id": "zenodo",
   "name": "Zenodo",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "about.zenodo.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://about.zenodo.org"
+    }
+  ]
 }

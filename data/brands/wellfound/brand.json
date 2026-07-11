@@ -3,7 +3,9 @@
   "id": "wellfound",
   "name": "Wellfound",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "wellfound.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://wellfound.com"
+    }
+  ]
 }

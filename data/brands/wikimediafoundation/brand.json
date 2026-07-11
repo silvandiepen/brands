@@ -3,7 +3,9 @@
   "id": "wikimediafoundation",
   "name": "Wikimedia Foundation",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "foundation.wikimedia.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://foundation.wikimedia.org"
+    }
+  ]
 }

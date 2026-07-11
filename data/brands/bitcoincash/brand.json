@@ -3,7 +3,9 @@
   "id": "bitcoincash",
   "name": "Bitcoin Cash",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "bitcoincash.org"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -57,5 +59,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://bitcoincash.org"
+    }
+  ]
 }

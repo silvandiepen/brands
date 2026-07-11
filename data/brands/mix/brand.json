@@ -3,7 +3,9 @@
   "id": "mix",
   "name": "Mix",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "mix.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://mix.com"
+    },
+    {
+      "type": "website",
+      "url": "https://mix.com"
+    }
+  ]
 }

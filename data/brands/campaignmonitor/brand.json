@@ -3,7 +3,9 @@
   "id": "campaignmonitor",
   "name": "Campaign Monitor",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "campaignmonitor.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://campaignmonitor.com"
+    }
+  ]
 }

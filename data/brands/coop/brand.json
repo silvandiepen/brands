@@ -3,7 +3,9 @@
   "id": "coop",
   "name": "Co-op",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "co-operative.coop"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://co-operative.coop"
+    }
+  ]
 }

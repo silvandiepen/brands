@@ -3,7 +3,9 @@
   "id": "wondersharefilmora",
   "name": "Wondershare Filmora",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "filmora.wondershare.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://filmora.wondershare.com"
+    }
+  ]
 }

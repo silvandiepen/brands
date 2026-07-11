@@ -3,7 +3,9 @@
   "id": "modelscope",
   "name": "ModelScope",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "modelscope.cn"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://modelscope.cn"
+    }
+  ]
 }

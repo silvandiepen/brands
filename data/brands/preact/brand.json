@@ -3,7 +3,9 @@
   "id": "preact",
   "name": "Preact",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "preactjs.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://preactjs.com"
+    }
+  ]
 }

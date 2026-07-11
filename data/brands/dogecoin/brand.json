@@ -3,7 +3,9 @@
   "id": "dogecoin",
   "name": "Dogecoin",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "cryptologos.cc"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -57,5 +59,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://cryptologos.cc"
+    }
+  ]
 }

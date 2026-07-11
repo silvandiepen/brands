@@ -3,7 +3,9 @@
   "id": "aidungeon",
   "name": "AI Dungeon",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "commons.wikimedia.org"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://commons.wikimedia.org"
+    }
+  ]
 }

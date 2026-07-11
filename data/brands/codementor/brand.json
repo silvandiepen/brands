@@ -3,7 +3,9 @@
   "id": "codementor",
   "name": "Codementor",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "codementor.io"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://codementor.io"
+    }
+  ]
 }

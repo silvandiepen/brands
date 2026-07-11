@@ -3,7 +3,9 @@
   "id": "yelp",
   "name": "Yelp",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "yelp.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://yelp.com"
+    }
+  ]
 }

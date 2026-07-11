@@ -3,7 +3,9 @@
   "id": "warp",
   "name": "Warp",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "warp.dev"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://warp.dev"
+    }
+  ]
 }

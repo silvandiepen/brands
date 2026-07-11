@@ -3,7 +3,9 @@
   "id": "root",
   "name": "ROOT",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "root.cern"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://root.cern"
+    }
+  ]
 }

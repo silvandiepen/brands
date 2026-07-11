@@ -3,7 +3,9 @@
   "id": "yandexcloud",
   "name": "Yandex Cloud",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "cloud.yandex.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://cloud.yandex.com/en/brandbook"
+    },
+    {
+      "type": "website",
+      "url": "https://cloud.yandex.com"
+    }
+  ]
 }

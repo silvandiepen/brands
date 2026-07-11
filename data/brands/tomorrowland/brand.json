@@ -3,7 +3,9 @@
   "id": "tomorrowland",
   "name": "Tomorrowland",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "tomorrowland.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://tomorrowland.com"
+    }
+  ]
 }

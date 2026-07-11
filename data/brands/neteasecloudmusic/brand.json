@@ -3,7 +3,9 @@
   "id": "neteasecloudmusic",
   "name": "NetEase Cloud Music",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "y.music.163.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -57,5 +59,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://y.music.163.com"
+    }
+  ]
 }

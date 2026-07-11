@@ -3,7 +3,9 @@
   "id": "unitednations",
   "name": "United Nations",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "un.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://un.org"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "caixabank",
   "name": "CaixaBank",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "caixabank.es"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -57,5 +59,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://caixabank.es"
+    }
+  ]
 }

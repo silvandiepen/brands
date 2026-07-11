@@ -3,7 +3,9 @@
   "id": "taipy",
   "name": "Taipy",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "taipy.io"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://taipy.io"
+    }
+  ]
 }

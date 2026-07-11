@@ -3,7 +3,9 @@
   "id": "neovim",
   "name": "Neovim",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "neovim.io"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://neovim.io"
+    }
+  ]
 }

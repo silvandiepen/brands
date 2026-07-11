@@ -3,7 +3,9 @@
   "id": "insta360",
   "name": "Insta360",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "insta360.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://insta360.com"
+    }
+  ]
 }

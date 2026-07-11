@@ -3,7 +3,9 @@
   "id": "cloudflareworkers",
   "name": "Cloudflare Workers",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "cloudflare.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://cloudflare.com"
+    }
+  ]
 }

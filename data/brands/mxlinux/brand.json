@@ -3,7 +3,9 @@
   "id": "mxlinux",
   "name": "MX Linux",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "mxlinux.org"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://mxlinux.org"
+    }
+  ]
 }

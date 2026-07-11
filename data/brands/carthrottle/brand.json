@@ -3,7 +3,9 @@
   "id": "carthrottle",
   "name": "Car Throttle",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "carthrottle.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://carthrottle.com"
+    }
+  ]
 }

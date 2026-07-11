@@ -3,7 +3,9 @@
   "id": "rubygems",
   "name": "RubyGems",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "rubygems.org"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://rubygems.org"
+    }
+  ]
 }

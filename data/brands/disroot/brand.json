@@ -3,7 +3,9 @@
   "id": "disroot",
   "name": "Disroot",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "disroot.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://disroot.org"
+    }
+  ]
 }

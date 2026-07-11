@@ -3,7 +3,9 @@
   "id": "monkeytie",
   "name": "monkey tie",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "monkey-tie.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://monkey-tie.com"
+    }
+  ]
 }

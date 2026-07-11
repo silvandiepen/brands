@@ -3,7 +3,9 @@
   "id": "lifx",
   "name": "LIFX",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "lifx.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://www.lifx.com/pages/press-enquiries"
+    },
+    {
+      "type": "website",
+      "url": "https://lifx.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "editorconfig",
   "name": "EditorConfig",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "editorconfig.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://editorconfig.org"
+    }
+  ]
 }

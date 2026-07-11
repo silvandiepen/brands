@@ -3,7 +3,9 @@
   "id": "onlyoffice",
   "name": "ONLYOFFICE",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "onlyoffice.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://onlyoffice.com"
+    }
+  ]
 }

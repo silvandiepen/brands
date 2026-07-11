@@ -3,7 +3,9 @@
   "id": "poetry",
   "name": "Poetry",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "python-poetry.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://python-poetry.org"
+    }
+  ]
 }

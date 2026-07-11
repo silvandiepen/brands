@@ -3,7 +3,9 @@
   "id": "fluxer",
   "name": "Fluxer",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "fluxer.app"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://fluxer.app"
+    }
+  ]
 }

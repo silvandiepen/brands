@@ -3,7 +3,9 @@
   "id": "sencha",
   "name": "Sencha",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "design.sencha.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://design.sencha.com"
+    }
+  ]
 }

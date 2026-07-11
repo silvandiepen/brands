@@ -3,7 +3,9 @@
   "id": "bookbub",
   "name": "BookBub",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "insights.bookbub.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://insights.bookbub.com"
+    }
+  ]
 }

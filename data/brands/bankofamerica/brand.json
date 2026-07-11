@@ -3,7 +3,9 @@
   "id": "bankofamerica",
   "name": "Bank of America",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "bankofamerica.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -56,5 +58,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://bankofamerica.com"
+    }
+  ]
 }

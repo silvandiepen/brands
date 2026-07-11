@@ -3,7 +3,9 @@
   "id": "seagate",
   "name": "Seagate",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "branding.seagate.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://branding.seagate.com"
+    }
+  ]
 }

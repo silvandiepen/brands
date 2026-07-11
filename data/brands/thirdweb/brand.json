@@ -3,7 +3,9 @@
   "id": "thirdweb",
   "name": "thirdweb",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "thirdweb.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://thirdweb.com"
+    }
+  ]
 }

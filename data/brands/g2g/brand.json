@@ -3,7 +3,9 @@
   "id": "g2g",
   "name": "G2G",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "hydron.holdings"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://hydron.holdings"
+    }
+  ]
 }

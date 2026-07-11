@@ -3,7 +3,9 @@
   "id": "speedypage",
   "name": "SpeedyPage",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "speedypage.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://speedypage.com"
+    }
+  ]
 }

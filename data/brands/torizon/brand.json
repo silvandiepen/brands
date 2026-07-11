@@ -3,7 +3,9 @@
   "id": "torizon",
   "name": "Torizon",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "toradex.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://toradex.com/torizon"
+    },
+    {
+      "type": "website",
+      "url": "https://toradex.com"
+    }
+  ]
 }

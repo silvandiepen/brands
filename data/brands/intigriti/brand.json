@@ -3,7 +3,9 @@
   "id": "intigriti",
   "name": "Intigriti",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "intigriti.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://intigriti.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "steem",
   "name": "Steem",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "steem.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://steem.com"
+    }
+  ]
 }

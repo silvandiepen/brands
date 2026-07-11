@@ -3,7 +3,9 @@
   "id": "v8",
   "name": "V8",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "v8.dev"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://v8.dev"
+    }
+  ]
 }

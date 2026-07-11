@@ -3,7 +3,9 @@
   "id": "maildotru",
   "name": "Mail.Ru",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "my.mail.ru"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://my.mail.ru"
+    }
+  ]
 }

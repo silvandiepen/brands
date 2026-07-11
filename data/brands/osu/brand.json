@@ -3,7 +3,9 @@
   "id": "osu",
   "name": "osu!",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "osu.ppy.sh"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://osu.ppy.sh"
+    }
+  ]
 }

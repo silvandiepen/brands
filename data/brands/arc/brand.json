@@ -3,7 +3,9 @@
   "id": "arc",
   "name": "Arc",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "arc.net"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://arc.net"
+    }
+  ]
 }

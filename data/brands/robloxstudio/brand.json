@@ -3,7 +3,9 @@
   "id": "robloxstudio",
   "name": "Roblox Studio",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "create.roblox.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://create.roblox.com"
+    },
+    {
+      "type": "website",
+      "url": "https://create.roblox.com"
+    }
+  ]
 }

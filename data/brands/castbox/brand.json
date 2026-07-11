@@ -3,7 +3,9 @@
   "id": "castbox",
   "name": "Castbox",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "castbox.fm"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://castbox.fm"
+    }
+  ]
 }

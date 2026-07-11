@@ -3,7 +3,9 @@
   "id": "khanacademy",
   "name": "Khan Academy",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "khanacademy.zendesk.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://khanacademy.zendesk.com"
+    }
+  ]
 }

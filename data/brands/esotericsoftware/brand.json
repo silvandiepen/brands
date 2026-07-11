@@ -3,7 +3,9 @@
   "id": "esotericsoftware",
   "name": "Esoteric Software",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "esotericsoftware.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://esotericsoftware.com"
+    }
+  ]
 }

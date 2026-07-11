@@ -3,7 +3,9 @@
   "id": "ufc",
   "name": "UFC",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "ufc.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://ufc.com"
+    }
+  ]
 }

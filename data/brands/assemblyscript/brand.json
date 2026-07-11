@@ -3,7 +3,9 @@
   "id": "assemblyscript",
   "name": "AssemblyScript",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "assemblyscript.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://assemblyscript.org"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "googlechronicle",
   "name": "Google Chronicle",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "chronicle.security"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://chronicle.security"
+    }
+  ]
 }

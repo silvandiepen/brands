@@ -3,7 +3,9 @@
   "id": "wazirx",
   "name": "WazirX",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "wazirx.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://wazirx.com"
+    },
+    {
+      "type": "website",
+      "url": "https://wazirx.com"
+    }
+  ]
 }

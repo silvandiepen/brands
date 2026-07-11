@@ -3,7 +3,9 @@
   "id": "blockchaindotcom",
   "name": "Blockchain.com",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "blockchain.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -58,5 +60,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://blockchain.com"
+    }
+  ]
 }

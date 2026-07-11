@@ -3,7 +3,9 @@
   "id": "boat",
   "name": "boAt",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "boat-lifestyle.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://boat-lifestyle.com"
+    }
+  ]
 }

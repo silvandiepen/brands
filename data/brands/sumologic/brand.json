@@ -3,7 +3,9 @@
   "id": "sumologic",
   "name": "Sumo Logic",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "sites.google.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://sites.google.com"
+    }
+  ]
 }

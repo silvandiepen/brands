@@ -3,7 +3,9 @@
   "id": "bitcoinsv",
   "name": "Bitcoin SV",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "bitcoinsv.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -57,5 +59,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://bitcoinsv.com"
+    }
+  ]
 }

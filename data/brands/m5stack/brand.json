@@ -3,7 +3,9 @@
   "id": "m5stack",
   "name": "M5Stack",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "static-cdn.m5stack.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://static-cdn.m5stack.com"
+    }
+  ]
 }

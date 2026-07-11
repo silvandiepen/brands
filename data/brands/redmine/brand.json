@@ -3,7 +3,9 @@
   "id": "redmine",
   "name": "Redmine",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "redmine.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://redmine.org"
+    }
+  ]
 }

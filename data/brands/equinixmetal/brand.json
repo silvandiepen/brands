@@ -3,7 +3,9 @@
   "id": "equinixmetal",
   "name": "Equinix Metal",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "metal.equinix.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://metal.equinix.com"
+    },
+    {
+      "type": "website",
+      "url": "https://metal.equinix.com"
+    }
+  ]
 }

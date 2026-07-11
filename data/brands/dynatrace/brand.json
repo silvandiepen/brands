@@ -3,7 +3,9 @@
   "id": "dynatrace",
   "name": "Dynatrace",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "dynatrace.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://dynatrace.com"
+    }
+  ]
 }

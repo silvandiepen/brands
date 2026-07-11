@@ -3,7 +3,9 @@
   "id": "frigate",
   "name": "Frigate",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "frigate.video"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://frigate.video"
+    }
+  ]
 }

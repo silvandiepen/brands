@@ -3,7 +3,9 @@
   "id": "paddlepaddle",
   "name": "PaddlePaddle",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "paddlepaddle.org.cn"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://paddlepaddle.org.cn"
+    }
+  ]
 }

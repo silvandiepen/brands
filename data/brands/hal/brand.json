@@ -3,7 +3,9 @@
   "id": "hal",
   "name": "HAL",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "ccsd.cnrs.fr"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://ccsd.cnrs.fr"
+    }
+  ]
 }

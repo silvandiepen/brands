@@ -3,7 +3,9 @@
   "id": "redsys",
   "name": "Redsys",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "redsys.es"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://redsys.es"
+    }
+  ]
 }

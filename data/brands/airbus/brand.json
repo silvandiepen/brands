@@ -3,7 +3,9 @@
   "id": "airbus",
   "name": "Airbus",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "brand.airbus.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://brand.airbus.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "samsungpay",
   "name": "Samsung Pay",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "pay.samsung.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -56,5 +58,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://pay.samsung.com"
+    }
+  ]
 }

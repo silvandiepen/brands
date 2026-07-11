@@ -3,7 +3,9 @@
   "id": "datastax",
   "name": "DataStax",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "docs.datastax.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://docs.datastax.com/en/astra/astra-db-vector"
+    },
+    {
+      "type": "website",
+      "url": "https://docs.datastax.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "westernunion",
   "name": "Western Union",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "westernunion.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://westernunion.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "jsonwebtokens",
   "name": "JSON Web Tokens",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "jwt.io"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -57,5 +59,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://jwt.io"
+    }
+  ]
 }

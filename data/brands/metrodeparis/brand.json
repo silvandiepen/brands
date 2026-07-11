@@ -3,7 +3,9 @@
   "id": "metrodeparis",
   "name": "Métro de Paris",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "ratp.fr"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://ratp.fr"
+    }
+  ]
 }

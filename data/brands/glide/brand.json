@@ -3,7 +3,9 @@
   "id": "glide",
   "name": "Glide",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "brand.glide.page"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://brand.glide.page"
+    }
+  ]
 }

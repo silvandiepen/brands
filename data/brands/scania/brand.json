@@ -3,7 +3,9 @@
   "id": "scania",
   "name": "Scania",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "digitaldesign.scania.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://digitaldesign.scania.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "w3schools",
   "name": "W3Schools",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "profile.w3schools.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://profile.w3schools.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "guitarpro",
   "name": "Guitar Pro",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "guitar-pro.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://guitar-pro.com"
+    }
+  ]
 }

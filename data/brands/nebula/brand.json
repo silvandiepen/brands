@@ -3,7 +3,9 @@
   "id": "nebula",
   "name": "Nebula",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "nebula.tv"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://nebula.tv"
+    }
+  ]
 }

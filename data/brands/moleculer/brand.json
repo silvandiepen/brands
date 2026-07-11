@@ -3,7 +3,9 @@
   "id": "moleculer",
   "name": "Moleculer",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "moleculer.services"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://moleculer.services"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "digg",
   "name": "Digg",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "digg.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://digg.com"
+    }
+  ]
 }

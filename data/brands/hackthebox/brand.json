@@ -3,7 +3,9 @@
   "id": "hackthebox",
   "name": "Hack The Box",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "hackthebox.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://www.hackthebox.com/contact-us"
+    },
+    {
+      "type": "website",
+      "url": "https://hackthebox.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "thunderbird",
   "name": "Thunderbird",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "design.thunderbird.net"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://design.thunderbird.net"
+    }
+  ]
 }

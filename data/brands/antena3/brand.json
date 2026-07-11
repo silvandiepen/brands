@@ -3,7 +3,9 @@
   "id": "antena3",
   "name": "Antena 3",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "antena3.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://antena3.com"
+    }
+  ]
 }

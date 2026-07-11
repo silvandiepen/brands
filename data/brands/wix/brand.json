@@ -3,7 +3,9 @@
   "id": "wix",
   "name": "Wix",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "wix.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://www.wix.com/about/design-assets"
+    },
+    {
+      "type": "website",
+      "url": "https://wix.com"
+    }
+  ]
 }

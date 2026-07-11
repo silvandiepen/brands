@@ -3,7 +3,9 @@
   "id": "500px",
   "name": "500px",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "500px.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://500px.com"
+    },
+    {
+      "type": "website",
+      "url": "https://500px.com"
+    }
+  ]
 }

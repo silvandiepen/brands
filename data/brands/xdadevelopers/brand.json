@@ -3,7 +3,9 @@
   "id": "xdadevelopers",
   "name": "XDA Developers",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "xda-developers.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://xda-developers.com"
+    }
+  ]
 }

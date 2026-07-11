@@ -3,7 +3,9 @@
   "id": "pinetwork",
   "name": "Pi Network",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "blockexplorer.minepi.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://blockexplorer.minepi.com"
+    }
+  ]
 }

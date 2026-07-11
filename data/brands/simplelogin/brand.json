@@ -3,7 +3,9 @@
   "id": "simplelogin",
   "name": "SimpleLogin",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "simplelogin.io"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://simplelogin.io"
+    }
+  ]
 }

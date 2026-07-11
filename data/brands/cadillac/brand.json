@@ -3,7 +3,9 @@
   "id": "cadillac",
   "name": "Cadillac",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "cadillac.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://cadillac.com"
+    }
+  ]
 }

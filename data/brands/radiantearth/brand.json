@@ -3,7 +3,9 @@
   "id": "radiantearth",
   "name": "Radiant Earth",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "radiant.earth"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://radiant.earth"
+    }
+  ]
 }

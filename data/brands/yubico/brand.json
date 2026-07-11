@@ -3,7 +3,9 @@
   "id": "yubico",
   "name": "Yubico",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "yubico.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://yubico.com"
+    }
+  ]
 }

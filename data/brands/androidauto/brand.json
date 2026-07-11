@@ -3,7 +3,9 @@
   "id": "androidauto",
   "name": "Android Auto",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "thepartnermarketinghub.withgoogle.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -56,5 +58,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://thepartnermarketinghub.withgoogle.com"
+    }
+  ]
 }

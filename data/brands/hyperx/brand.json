@@ -3,7 +3,9 @@
   "id": "hyperx",
   "name": "HyperX",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "ca.hyperx.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://ca.hyperx.com/cdn/shop/files/image_placeholder.svg"
+    },
+    {
+      "type": "website",
+      "url": "https://ca.hyperx.com"
+    }
+  ]
 }

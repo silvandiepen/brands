@@ -3,7 +3,9 @@
   "id": "godotengine",
   "name": "Godot Engine",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "godotengine.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://godotengine.org"
+    }
+  ]
 }

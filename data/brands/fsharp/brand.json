@@ -3,7 +3,9 @@
   "id": "fsharp",
   "name": "F#",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "foundation.fsharp.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://foundation.fsharp.org"
+    }
+  ]
 }

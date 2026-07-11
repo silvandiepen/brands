@@ -3,7 +3,9 @@
   "id": "cloud66",
   "name": "Cloud 66",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "cloud66.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://cloud66.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "uphold",
   "name": "Uphold",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "uphold.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://uphold.com"
+    }
+  ]
 }

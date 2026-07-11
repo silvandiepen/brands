@@ -3,7 +3,9 @@
   "id": "plex",
   "name": "Plex",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "brand.plex.tv"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://brand.plex.tv"
+    }
+  ]
 }

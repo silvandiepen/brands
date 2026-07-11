@@ -3,7 +3,9 @@
   "id": "rootme",
   "name": "Root Me",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "root-me.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://root-me.org"
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "$schema": "../../../packages/schema/json-schema/brand.schema.json",
   "id": "nestle",
-  "name": "Nestl\u00e9",
+  "name": "Nestlé",
   "aliases": [],
   "domains": [],
   "status": "active",
@@ -61,12 +61,18 @@
       "id": "src-1",
       "type": "community-reference",
       "url": "https://github.com/silvandiepen/brand-colors/blob/main/lib/svg/nestle_icon.svg",
-      "title": "Nestl\u00e9 (brand-colors)",
+      "title": "Nestlé (brand-colors)",
       "accessedAt": "2026-07-10"
     }
   ],
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "github",
+      "url": "https://github.com/silvandiepen"
+    }
+  ]
 }

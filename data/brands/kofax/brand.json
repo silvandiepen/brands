@@ -3,7 +3,9 @@
   "id": "kofax",
   "name": "Kofax",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "kofax.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://www.kofax.com"
+    },
+    {
+      "type": "website",
+      "url": "https://kofax.com"
+    }
+  ]
 }

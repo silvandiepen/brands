@@ -94,5 +94,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "github",
+      "url": "https://github.com/silvandiepen"
+    }
+  ]
 }

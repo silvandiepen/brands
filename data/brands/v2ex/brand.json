@@ -3,7 +3,9 @@
   "id": "v2ex",
   "name": "V2EX",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "v2ex.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://www.v2ex.com"
+    },
+    {
+      "type": "website",
+      "url": "https://v2ex.com"
+    }
+  ]
 }

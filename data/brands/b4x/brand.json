@@ -3,7 +3,9 @@
   "id": "b4x",
   "name": "B4X",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "b4x.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://www.b4x.com/android/forum/threads/b4x-svg-icon-for-simpleicons-library.163853/#post-1004900"
+    },
+    {
+      "type": "website",
+      "url": "https://b4x.com"
+    }
+  ]
 }

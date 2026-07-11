@@ -3,7 +3,9 @@
   "id": "deutschebank",
   "name": "Deutsche Bank",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "db.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -56,5 +58,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://db.com"
+    }
+  ]
 }

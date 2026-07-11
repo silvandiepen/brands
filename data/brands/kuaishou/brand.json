@@ -3,7 +3,9 @@
   "id": "kuaishou",
   "name": "Kuaishou",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "kuaishou.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://kuaishou.com"
+    }
+  ]
 }

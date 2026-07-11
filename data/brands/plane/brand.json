@@ -3,7 +3,9 @@
   "id": "plane",
   "name": "Plane",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "plane.so"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://plane.so"
+    }
+  ]
 }

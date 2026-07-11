@@ -3,7 +3,9 @@
   "id": "rezgo",
   "name": "Rezgo",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "rezgo.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://rezgo.com"
+    }
+  ]
 }

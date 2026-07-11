@@ -3,7 +3,9 @@
   "id": "slideshare",
   "name": "SlideShare",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "slideshare.net"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://slideshare.net"
+    }
+  ]
 }

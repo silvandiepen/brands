@@ -3,7 +3,9 @@
   "id": "testinglibrary",
   "name": "Testing Library",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "testing-library.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://testing-library.com"
+    }
+  ]
 }

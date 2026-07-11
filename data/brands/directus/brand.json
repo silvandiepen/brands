@@ -3,7 +3,9 @@
   "id": "directus",
   "name": "Directus",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "directus.io"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://directus.io"
+    }
+  ]
 }

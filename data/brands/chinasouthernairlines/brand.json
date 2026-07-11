@@ -3,7 +3,9 @@
   "id": "chinasouthernairlines",
   "name": "China Southern Airlines",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "csair.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://csair.com"
+    }
+  ]
 }

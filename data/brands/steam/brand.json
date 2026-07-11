@@ -3,7 +3,9 @@
   "id": "steam",
   "name": "Steam",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "partner.steamgames.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -56,5 +58,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://partner.steamgames.com"
+    }
+  ]
 }

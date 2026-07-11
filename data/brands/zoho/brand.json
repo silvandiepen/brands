@@ -3,7 +3,9 @@
   "id": "zoho",
   "name": "Zoho",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "zoho.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://zoho.com"
+    }
+  ]
 }

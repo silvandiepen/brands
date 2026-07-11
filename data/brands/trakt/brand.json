@@ -3,7 +3,9 @@
   "id": "trakt",
   "name": "Trakt",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "trakt.tv"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://trakt.tv"
+    }
+  ]
 }

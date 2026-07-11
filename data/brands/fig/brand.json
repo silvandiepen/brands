@@ -3,7 +3,9 @@
   "id": "fig",
   "name": "Fig",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "fig.io"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://fig.io"
+    }
+  ]
 }

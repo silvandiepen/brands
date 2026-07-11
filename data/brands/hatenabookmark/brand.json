@@ -3,7 +3,9 @@
   "id": "hatenabookmark",
   "name": "Hatena Bookmark",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "hatenacorp.jp"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://hatenacorp.jp"
+    }
+  ]
 }

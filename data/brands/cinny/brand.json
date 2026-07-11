@@ -3,7 +3,9 @@
   "id": "cinny",
   "name": "Cinny",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "cinny.in"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://cinny.in"
+    }
+  ]
 }

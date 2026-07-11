@@ -3,7 +3,9 @@
   "id": "tapas",
   "name": "Tapas",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "tapas.io"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://tapas.io"
+    }
+  ]
 }

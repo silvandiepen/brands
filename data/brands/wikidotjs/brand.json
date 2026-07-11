@@ -3,7 +3,9 @@
   "id": "wikidotjs",
   "name": "Wiki.js",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "cdn.js.wiki"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://cdn.js.wiki"
+    }
+  ]
 }

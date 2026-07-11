@@ -3,7 +3,9 @@
   "id": "powers",
   "name": "POWERS",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "powerswhiskey.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://powerswhiskey.com"
+    }
+  ]
 }

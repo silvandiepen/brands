@@ -3,7 +3,9 @@
   "id": "squareenix",
   "name": "Square Enix",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "square-enix.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://www.square-enix.com"
+    },
+    {
+      "type": "website",
+      "url": "https://square-enix.com"
+    }
+  ]
 }

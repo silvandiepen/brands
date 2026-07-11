@@ -3,7 +3,9 @@
   "id": "houdini",
   "name": "Houdini",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "sidefx.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://www.sidefx.com/products/houdini/"
+    },
+    {
+      "type": "website",
+      "url": "https://sidefx.com"
+    }
+  ]
 }

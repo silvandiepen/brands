@@ -3,7 +3,9 @@
   "id": "tryhackme",
   "name": "TryHackMe",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "tryhackme.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://tryhackme.com"
+    }
+  ]
 }

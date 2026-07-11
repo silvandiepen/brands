@@ -3,7 +3,9 @@
   "id": "vinted",
   "name": "Vinted",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "vinted.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://vinted.com"
+    }
+  ]
 }

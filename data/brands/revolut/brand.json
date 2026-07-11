@@ -3,7 +3,9 @@
   "id": "revolut",
   "name": "Revolut",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "developer.revolut.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://developer.revolut.com"
+    }
+  ]
 }

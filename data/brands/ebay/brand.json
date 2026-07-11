@@ -3,7 +3,9 @@
   "id": "ebay",
   "name": "eBay",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "go.developer.ebay.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -56,5 +58,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://go.developer.ebay.com"
+    }
+  ]
 }

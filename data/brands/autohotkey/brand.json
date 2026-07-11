@@ -3,7 +3,9 @@
   "id": "autohotkey",
   "name": "AutoHotkey",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "autohotkey.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://autohotkey.com"
+    }
+  ]
 }

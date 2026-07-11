@@ -3,7 +3,9 @@
   "id": "derspiegel",
   "name": "Der Spiegel",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "spiegel.de"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://spiegel.de"
+    }
+  ]
 }

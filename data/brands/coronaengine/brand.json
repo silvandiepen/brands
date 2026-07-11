@@ -3,7 +3,9 @@
   "id": "coronaengine",
   "name": "Corona Engine",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "coronalabs.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://coronalabs.com"
+    }
+  ]
 }

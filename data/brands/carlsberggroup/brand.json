@@ -3,7 +3,9 @@
   "id": "carlsberggroup",
   "name": "Carlsberg Group",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "carlsberggroup.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://carlsberggroup.com"
+    }
+  ]
 }

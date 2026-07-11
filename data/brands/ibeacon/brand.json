@@ -3,7 +3,9 @@
   "id": "ibeacon",
   "name": "iBeacon",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "developer.apple.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://developer.apple.com"
+    }
+  ]
 }

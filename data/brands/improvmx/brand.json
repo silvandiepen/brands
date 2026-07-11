@@ -3,7 +3,9 @@
   "id": "improvmx",
   "name": "ImprovMX",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "improvmx.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://improvmx.com"
+    },
+    {
+      "type": "website",
+      "url": "https://improvmx.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "redbubble",
   "name": "Redbubble",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "redbubble.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://redbubble.com"
+    }
+  ]
 }

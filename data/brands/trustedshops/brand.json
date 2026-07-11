@@ -3,7 +3,9 @@
   "id": "trustedshops",
   "name": "Trusted Shops",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "brand.trustedshops.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -57,5 +59,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://brand.trustedshops.com"
+    }
+  ]
 }

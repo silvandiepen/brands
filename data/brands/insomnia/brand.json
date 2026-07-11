@@ -3,7 +3,9 @@
   "id": "insomnia",
   "name": "Insomnia",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "insomnia.rest"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://insomnia.rest"
+    }
+  ]
 }

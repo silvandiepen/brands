@@ -3,7 +3,9 @@
   "id": "gstreamer",
   "name": "GStreamer",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "gstreamer.freedesktop.org"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -56,5 +58,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://gstreamer.freedesktop.org"
+    }
+  ]
 }

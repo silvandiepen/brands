@@ -3,7 +3,9 @@
   "id": "barclays",
   "name": "Barclays",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "home.barclays"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://home.barclays"
+    }
+  ]
 }

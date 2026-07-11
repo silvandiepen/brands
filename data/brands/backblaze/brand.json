@@ -3,7 +3,9 @@
   "id": "backblaze",
   "name": "Backblaze",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "backblaze.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://backblaze.com"
+    }
+  ]
 }

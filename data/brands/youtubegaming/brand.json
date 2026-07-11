@@ -3,7 +3,9 @@
   "id": "youtubegaming",
   "name": "YouTube Gaming",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "gaming.youtube.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -57,5 +59,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://gaming.youtube.com"
+    }
+  ]
 }

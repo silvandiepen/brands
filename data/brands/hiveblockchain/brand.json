@@ -3,7 +3,9 @@
   "id": "hiveblockchain",
   "name": "Hive",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "hive.io"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -58,5 +60,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://hive.io"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "paychex",
   "name": "Paychex",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "paychex.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -56,5 +58,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://www.paychex.com"
+    },
+    {
+      "type": "website",
+      "url": "https://paychex.com"
+    }
+  ]
 }

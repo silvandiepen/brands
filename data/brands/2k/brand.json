@@ -3,7 +3,9 @@
   "id": "2k",
   "name": "2K",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "support.2k.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://support.2k.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "juejin",
   "name": "Juejin",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "juejin.cn"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://juejin.cn"
+    }
+  ]
 }

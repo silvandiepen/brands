@@ -3,7 +3,9 @@
   "id": "librarything",
   "name": "LibraryThing",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "twitter.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://twitter.com/LibraryThing/status/1054466649271656448"
+    },
+    {
+      "type": "website",
+      "url": "https://twitter.com"
+    }
+  ]
 }

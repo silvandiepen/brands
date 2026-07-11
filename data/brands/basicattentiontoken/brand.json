@@ -3,7 +3,9 @@
   "id": "basicattentiontoken",
   "name": "Basic Attention Token",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "brave.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -57,5 +59,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://brave.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "limesurvey",
   "name": "LimeSurvey",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "limesurvey.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://limesurvey.org"
+    }
+  ]
 }

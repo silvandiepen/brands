@@ -3,7 +3,9 @@
   "id": "fcc",
   "name": "FCC",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "fcc.gov"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://fcc.gov"
+    }
+  ]
 }

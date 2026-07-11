@@ -3,7 +3,9 @@
   "id": "qatarairways",
   "name": "Qatar Airways",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "qatarairways.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://qatarairways.com"
+    }
+  ]
 }

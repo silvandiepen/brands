@@ -3,7 +3,9 @@
   "id": "fossilscm",
   "name": "Fossil SCM",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "fossil-scm.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://fossil-scm.org"
+    }
+  ]
 }

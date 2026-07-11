@@ -3,7 +3,9 @@
   "id": "sonarqubecloud",
   "name": "SonarQube Cloud",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "sonarsource.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://sonarsource.com"
+    }
+  ]
 }

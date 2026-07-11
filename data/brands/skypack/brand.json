@@ -3,7 +3,9 @@
   "id": "skypack",
   "name": "Skypack",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "skypack.dev"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://skypack.dev"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "sncf",
   "name": "SNCF",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "sncf.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://sncf.com"
+    }
+  ]
 }

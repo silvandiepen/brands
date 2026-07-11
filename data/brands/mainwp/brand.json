@@ -3,7 +3,9 @@
   "id": "mainwp",
   "name": "MainWP",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "mainwp.com"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://mainwp.com"
+    }
+  ]
 }

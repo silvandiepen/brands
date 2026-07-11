@@ -3,7 +3,9 @@
   "id": "giphy",
   "name": "GIPHY",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "support.giphy.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://support.giphy.com"
+    }
+  ]
 }

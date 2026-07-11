@@ -3,7 +3,9 @@
   "id": "fedex",
   "name": "FedEx",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "newsroom.fedex.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://newsroom.fedex.com"
+    },
+    {
+      "type": "website",
+      "url": "https://newsroom.fedex.com"
+    }
+  ]
 }

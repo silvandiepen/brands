@@ -3,7 +3,9 @@
   "id": "concourse",
   "name": "Concourse",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "concourse-ci.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://concourse-ci.org"
+    }
+  ]
 }

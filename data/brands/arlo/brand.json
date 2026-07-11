@@ -3,7 +3,9 @@
   "id": "arlo",
   "name": "Arlo",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "arlo.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://arlo.com"
+    }
+  ]
 }

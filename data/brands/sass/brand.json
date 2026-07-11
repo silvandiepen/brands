@@ -3,7 +3,9 @@
   "id": "sass",
   "name": "Sass",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "sass-lang.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://sass-lang.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "mangaupdates",
   "name": "MangaUpdates",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "mangaupdates.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://mangaupdates.com"
+    }
+  ]
 }

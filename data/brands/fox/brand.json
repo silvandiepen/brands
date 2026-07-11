@@ -3,7 +3,9 @@
   "id": "fox",
   "name": "FOX",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "fox.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://www.fox.com"
+    },
+    {
+      "type": "website",
+      "url": "https://fox.com"
+    }
+  ]
 }

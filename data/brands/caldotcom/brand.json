@@ -3,7 +3,9 @@
   "id": "caldotcom",
   "name": "Cal.com",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "design.cal.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://design.cal.com"
+    }
+  ]
 }

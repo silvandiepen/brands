@@ -3,7 +3,9 @@
   "id": "datacamp",
   "name": "DataCamp",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "datacamp.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://datacamp.com"
+    }
+  ]
 }

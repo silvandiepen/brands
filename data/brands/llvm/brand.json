@@ -3,7 +3,9 @@
   "id": "llvm",
   "name": "LLVM",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "llvm.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://llvm.org"
+    }
+  ]
 }

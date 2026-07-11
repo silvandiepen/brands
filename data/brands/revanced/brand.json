@@ -3,7 +3,9 @@
   "id": "revanced",
   "name": "ReVanced",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "revanced.app"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://revanced.app"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "uikit",
   "name": "UIkit",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "getuikit.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://getuikit.com"
+    }
+  ]
 }

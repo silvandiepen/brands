@@ -3,7 +3,9 @@
   "id": "mailbox",
   "name": "mailbox",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "mailbox.org"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://mailbox.org"
+    }
+  ]
 }

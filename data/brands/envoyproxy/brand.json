@@ -3,7 +3,9 @@
   "id": "envoyproxy",
   "name": "Envoy Proxy",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "d33wubrfki0l68.cloudfront.net"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://d33wubrfki0l68.cloudfront.net"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "mlb",
   "name": "MLB",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "mlb.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://mlb.com"
+    }
+  ]
 }

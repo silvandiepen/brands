@@ -3,7 +3,9 @@
   "id": "roblox",
   "name": "Roblox",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "roblox.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://www.roblox.com"
+    },
+    {
+      "type": "website",
+      "url": "https://roblox.com"
+    }
+  ]
 }

@@ -3,7 +3,9 @@
   "id": "mingww64",
   "name": "MinGW-w64",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "mingw-w64.org"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://mingw-w64.org"
+    }
+  ]
 }

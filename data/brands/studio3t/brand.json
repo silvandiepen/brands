@@ -3,7 +3,9 @@
   "id": "studio3t",
   "name": "Studio 3T",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "studio3t.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://studio3t.com"
+    }
+  ]
 }

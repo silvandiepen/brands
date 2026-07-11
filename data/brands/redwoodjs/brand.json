@@ -3,7 +3,9 @@
   "id": "redwoodjs",
   "name": "RedwoodJS",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "redwoodjs.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://redwoodjs.com"
+    }
+  ]
 }

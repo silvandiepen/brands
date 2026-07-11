@@ -3,7 +3,9 @@
   "id": "qualtrics",
   "name": "Qualtrics",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "qualtrics.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://qualtrics.com"
+    }
+  ]
 }

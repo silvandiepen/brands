@@ -3,7 +3,9 @@
   "id": "elasticcloud",
   "name": "Elastic Cloud",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "elastic.co"
+  ],
   "status": "active",
   "categories": [
     "technology",
@@ -55,5 +57,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://elastic.co"
+    }
+  ]
 }

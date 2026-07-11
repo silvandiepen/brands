@@ -3,7 +3,9 @@
   "id": "styledcomponents",
   "name": "styled-components",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "styled-components.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://styled-components.com"
+    }
+  ]
 }

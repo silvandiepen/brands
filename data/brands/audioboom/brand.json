@@ -3,7 +3,9 @@
   "id": "audioboom",
   "name": "Audioboom",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "audioboom.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,11 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "website",
+      "url": "https://audioboom.com"
+    }
+  ]
 }

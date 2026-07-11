@@ -3,7 +3,9 @@
   "id": "transifex",
   "name": "Transifex",
   "aliases": [],
-  "domains": [],
+  "domains": [
+    "app.transifex.com"
+  ],
   "status": "active",
   "categories": [
     "technology"
@@ -54,5 +56,15 @@
   "review": {
     "status": "partial",
     "method": "community-review"
-  }
+  },
+  "social": [
+    {
+      "type": "twitter",
+      "url": "https://app.transifex.com/contact/"
+    },
+    {
+      "type": "website",
+      "url": "https://app.transifex.com"
+    }
+  ]
 }
