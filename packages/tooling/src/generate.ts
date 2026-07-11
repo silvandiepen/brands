@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto'
 import type { BrandManifest } from '@open-brands/schema'
 import { generateColorFormats } from '@open-brands/core'
 import type { LoadedDataset, LoadedBrand } from './validate.js'
+import { toMonochrome } from './mono.js'
 
 export interface CompactBrand {
   id: string
@@ -246,14 +247,21 @@ export function generateRelease(
   writtenFiles.push(allBrandsPath)
 
   const allSvgs: Record<string, string> = {}
+  const allMonoSvgs: Record<string, string> = {}
   for (const [id, brand] of dataset.brands) {
     for (const [assetId, assetData] of brand.assets) {
-      allSvgs[`${id}/${assetId}`] = assetData.source
+      const key = `${id}/${assetId}`
+      allSvgs[key] = assetData.source
+      allMonoSvgs[key] = toMonochrome(assetData.source)
     }
   }
   const allSvgsPath = join(outputDir, 'all-svgs.json')
   writeFileSync(allSvgsPath, deterministicJsonStringify(allSvgs))
   writtenFiles.push(allSvgsPath)
+
+  const allMonoSvgsPath = join(outputDir, 'all-mono-svgs.json')
+  writeFileSync(allMonoSvgsPath, deterministicJsonStringify(allMonoSvgs))
+  writtenFiles.push(allMonoSvgsPath)
 
   const categoriesPath = join(outputDir, 'categories.json')
   writeFileSync(categoriesPath, deterministicJsonStringify(dataset.categories))

@@ -79,7 +79,7 @@ export function validateBrandManifest(
   }
 
   for (const key of Object.keys(m)) {
-    if (!['$schema', ...required, 'organization'].includes(key)) {
+    if (!['$schema', ...required, 'organization', 'social', 'company', 'fonts', 'description', 'qualityScore'].includes(key)) {
       dc.error('UNEXPECTED_FIELD', `Unexpected field: ${key}`, { filePath, fieldPath: key })
     }
   }

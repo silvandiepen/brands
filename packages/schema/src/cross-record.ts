@@ -45,7 +45,7 @@ export function validateCrossRecord(brands: CrossRecordBrand[], ctx: CrossRecord
     for (const domain of manifest.domains || []) {
       const lk = domain.toLowerCase()
       if (domains.has(lk) && domains.get(lk) !== id) {
-        dc.error('DOMAIN_COLLISION', `Domain '${domain}' conflicts with brand '${domains.get(lk)}'`, { filePath, brandId: id })
+        dc.warning('DOMAIN_COLLISION', `Domain '${domain}' also used by '${domains.get(lk)}'`, { filePath, brandId: id })
       } else {
         domains.set(lk, id)
       }

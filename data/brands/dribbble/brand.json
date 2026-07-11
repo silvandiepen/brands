@@ -53,7 +53,8 @@
       "sourceIds": [
         "src-1"
       ],
-      "reviewStatus": "community-sourced"
+      "reviewStatus": "community-sourced",
+      "orientation": "square"
     },
     {
       "id": "icon",
@@ -69,7 +70,8 @@
       "sourceIds": [
         "src-1"
       ],
-      "reviewStatus": "community-sourced"
+      "reviewStatus": "community-sourced",
+      "orientation": "square"
     }
   ],
   "sources": [

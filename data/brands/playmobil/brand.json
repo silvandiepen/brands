@@ -53,7 +53,8 @@
       "sourceIds": [
         "src-1"
       ],
-      "reviewStatus": "community-sourced"
+      "reviewStatus": "community-sourced",
+      "orientation": "horizontal"
     },
     {
       "id": "icon",
@@ -69,7 +70,8 @@
       "sourceIds": [
         "src-1"
       ],
-      "reviewStatus": "community-sourced"
+      "reviewStatus": "community-sourced",
+      "orientation": "square"
     },
     {
       "id": "wordmark",
@@ -85,7 +87,8 @@
       "sourceIds": [
         "src-1"
       ],
-      "reviewStatus": "community-sourced"
+      "reviewStatus": "community-sourced",
+      "orientation": "horizontal"
     }
   ],
   "sources": [

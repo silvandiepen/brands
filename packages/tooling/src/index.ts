@@ -30,5 +30,7 @@ export type {
 export { createZip } from './zip.js'
 export type { ZipEntry } from './zip.js'
 
+export { toMonochrome } from './mono.js'
+
 export { buildPack, computePackKey } from './pack.js'
 export type { PackConfig, PackResult } from './pack.js'

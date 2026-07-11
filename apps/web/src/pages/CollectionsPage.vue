@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { collectionsIndex, brandIndex } from '../data/loader'
-import allSvgs from '../../../../packages/data/generated/all-svgs.json'
+import allMonoSvgs from '../../../../packages/data/generated/all-mono-svgs.json'
 import allBrandsData from '../../../../packages/data/generated/all-brands.json'
 
-const svgs = allSvgs as Record<string, string>
+const svgs = allMonoSvgs as Record<string, string>
 const brandColorMap = {} as Record<string, string[]>
 for (const b of allBrandsData as Array<{ id: string; colors: Array<{ value: string }> }>) {
   brandColorMap[b.id] = (b.colors || []).map(c => c.value)
@@ -35,9 +35,8 @@ function brandBg(brandId: string): string {
   return brandColorMap[brandId]?.[0] ?? '#ffffff'
 }
 
-function recolorSvg(svg: string, color: string): string {
-  if (!svg) return ''
-  return svg.replace(/fill\s*=\s*"(?!none|url\()[^"]*"/gi, `fill="${color}"`)
+function recolorSvg(svg: string, _color: string): string {
+  return svg
 }
 
 const collections = computed(() => Object.values(collectionsIndex))
@@ -58,10 +57,10 @@ const collections = computed(() => Object.values(collectionsIndex))
             :key="id"
             :to="`/brands/${id}`"
             class="mini-tile"
-            :style="{ background: brandBg(id) }"
+            :style="{ background: brandBg(id), '--ink': inkColor(id) }"
             :title="brandIndex[id]?.name ?? id"
           >
-            <span class="mini-logo" v-html="recolorSvg(getLogo(id), inkColor(id))"></span>
+            <span class="mini-logo" v-html="getLogo(id)"></span>
           </RouterLink>
         </div>
       </div>
@@ -110,6 +109,7 @@ h1 { margin-bottom: 1.5rem; }
   &:hover { transform: scale(1.08); z-index: 1; }
 }
 .mini-logo {
+  color: var(--ink, #000);
   :deep(svg) { max-width: 100%; max-height: 100%; }
 }
 </style>

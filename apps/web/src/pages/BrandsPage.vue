@@ -2,12 +2,12 @@
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { allBrands } from '../data/loader'
-import allSvgs from '../../../../packages/data/generated/all-svgs.json'
+import allMonoSvgs from '../../../../packages/data/generated/all-mono-svgs.json'
 import allBrandsData from '../../../../packages/data/generated/all-brands.json'
 
 const route = useRoute()
 const router = useRouter()
-const svgs = allSvgs as Record<string, string>
+const svgs = allMonoSvgs as Record<string, string>
 
 const brandColorMap = {} as Record<string, string[]>
 for (const b of allBrandsData as Array<{ id: string; colors: Array<{ value: string }> }>) {
@@ -47,9 +47,8 @@ function brandBg(brandId: string): string {
   return brandColorMap[brandId]?.[0] ?? '#ffffff'
 }
 
-function recolorSvg(svg: string, color: string): string {
-  if (!svg) return ''
-  return svg.replace(/fill\s*=\s*"(?!none|url\()[^"]*"/gi, `fill="${color}"`)
+function recolorSvg(svg: string, _color: string): string {
+  return svg
 }
 
 const filtered = computed(() => {
@@ -121,10 +120,10 @@ function updateUrl() {
         :key="brand.id"
         :to="`/brands/${brand.id}`"
         class="logo-tile"
-        :style="{ background: brandBg(brand.id) }"
+        :style="{ background: brandBg(brand.id), '--ink': inkColor(brand.id) }"
         :title="brand.name"
       >
-        <span class="logo-svg" v-html="recolorSvg(getLogo(brand.id), inkColor(brand.id))"></span>
+        <span class="logo-svg" v-html="getLogo(brand.id)"></span>
       </RouterLink>
     </div>
 
@@ -177,6 +176,7 @@ function updateUrl() {
   justify-content: center;
   width: 100%;
   height: 100%;
+  color: var(--ink, #000);
   :deep(svg) { max-width: 100%; max-height: 100%; }
 }
 .sentinel { text-align: center; padding: 2rem; color: var(--ob-text-muted); font-size: 0.875rem; }

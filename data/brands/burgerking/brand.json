@@ -54,7 +54,8 @@
       "sourceIds": [
         "src-1"
       ],
-      "reviewStatus": "community-sourced"
+      "reviewStatus": "community-sourced",
+      "orientation": "horizontal"
     },
     {
       "id": "wordmark",
@@ -70,7 +71,8 @@
       "sourceIds": [
         "src-1"
       ],
-      "reviewStatus": "community-sourced"
+      "reviewStatus": "community-sourced",
+      "orientation": "horizontal"
     }
   ],
   "sources": [
