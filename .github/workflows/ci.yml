@@ -43,14 +43,14 @@ jobs:
           node --check packages/tooling/scripts/check-contribution-pr.mjs
           node --check packages/tooling/scripts/test-contribution-guard.mjs
 
+      - name: Generate dataset
+        run: pnpm generate
+
       - name: Typecheck
         run: pnpm typecheck
 
       - name: Test
         run: pnpm test
-
-      - name: Generate dataset
-        run: pnpm generate
 
       - name: Build
         run: pnpm build
