@@ -2,11 +2,16 @@
 defineOptions({ name: 'HomePage' })
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useBemm } from 'bemm'
+import { InputSearch, Button } from '@sil/ui'
 import { allBrands, releaseManifest, categories, brandIndex } from '../data/loader'
 import { inkOn, shuffle } from '../utils'
-import LogoInline from '../components/LogoInline.vue'
+import { useBrandApi } from '../stores/api'
+import BrandTile from '../components/BrandTile.vue'
 
+const bemm = useBemm('home')
 const router = useRouter()
+const { logoUrl } = useBrandApi()
 const searchQuery = ref('')
 const selectedCategory = ref('')
 
@@ -56,98 +61,106 @@ function submitSearch() {
   if (searchQuery.value.trim())
     router.push({ path: '/brands', query: { q: searchQuery.value } })
 }
+
+const brandCountLabel = new Intl.NumberFormat('en-US').format(releaseManifest.brandCount)
 </script>
 
 <template>
-  <div class="container home">
-    <section class="hero">
-      <h1>Open Brands</h1>
-      <p class="hero-tagline">{{ releaseManifest.brandCount }} brand logos &amp; colors</p>
-      <form @submit.prevent="submitSearch" class="search-form">
-        <input v-model="searchQuery" type="search" class="search-input" placeholder="Search brands..." aria-label="Search" />
-      </form>
-      <div class="category-pills">
-        <button
+  <div :class="[bemm(), 'container']">
+    <section :class="bemm('hero')">
+      <h1 :class="[bemm('title'), 'fade-up']">The open source<br /><span :class="bemm('title-accent')">brand asset</span> library</h1>
+      <p :class="[bemm('tagline'), 'fade-up']" style="animation-delay: 80ms">{{ brandCountLabel }} brand logos and color palettes. Free, versioned, and one API call away.</p>
+
+      <div :class="[bemm('search'), 'fade-up']" style="animation-delay: 160ms">
+        <InputSearch
+          v-model="searchQuery"
+          placeholder="Search brands, aliases, domains…"
+          block
+          @search="submitSearch"
+        />
+      </div>
+
+      <div :class="[bemm('categories'), 'fade-up']" style="animation-delay: 240ms">
+        <Button
           v-for="cat in topLevelCategories"
           :key="cat.id"
-          class="pill"
-          :class="{ active: selectedCategory === cat.id }"
+          size="small"
+          :variant="selectedCategory === cat.id ? 'primary' : 'outline'"
           @click="selectedCategory = selectedCategory === cat.id ? '' : cat.id"
-        >{{ cat.label }}</button>
+        >{{ cat.label }}</Button>
       </div>
     </section>
 
-    <div class="logo-wall">
-      <RouterLink
+    <div :class="bemm('wall')">
+      <BrandTile
         v-for="brand in filtered.slice(0, visibleCount)"
         :key="brand.id"
-        :to="`/brands/${brand.id}`"
-        class="logo-tile"
-        :style="{ background: brandBg(brand.id), '--ink': inkOn(brandBg(brand.id)) }"
-      >
-        <LogoInline :brand-id="brand.id" :alt="brand.name" class="logo-svg" />
-        <span class="logo-name">{{ brand.name }}</span>
-      </RouterLink>
+        :brand-id="brand.id"
+        :name="brand.name"
+        :bg="brandBg(brand.id)"
+        :ink="inkOn(brandBg(brand.id))"
+        :logo-url="logoUrl(brand.id)"
+      />
     </div>
 
-    <div ref="sentinel" class="sentinel">
-      <span v-if="visibleCount < filtered.length">Loading more...</span>
+    <div ref="sentinel" :class="bemm('sentinel')">
+      <span v-if="visibleCount < filtered.length">Loading more…</span>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.home { padding: 1rem 0 4rem; }
-.hero { text-align: center; padding: 2rem 0 1.5rem; h1 { font-size: 2.5rem; } }
-.hero-tagline { font-size: 1.1rem; color: var(--ob-text-muted); margin-bottom: 1rem; }
-.search-form { max-width: 500px; margin: 0 auto 1rem; }
-.category-pills { display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; }
-.pill {
-  padding: 0.3rem 0.8rem; border: 1px solid var(--ob-border); border-radius: 999px;
-  background: var(--ob-bg); color: var(--ob-text-muted); cursor: pointer; font-size: 0.8rem;
-  &:hover { border-color: var(--ob-primary); color: var(--ob-primary); }
-  &.active { background: var(--ob-primary); color: #fff; border-color: var(--ob-primary); }
-}
-.logo-wall {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 12px;
-}
-.logo-tile {
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.15s, box-shadow 0.15s;
-  &:hover {
-    transform: scale(1.05);
-    z-index: 1;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+<style lang="scss">
+.home {
+  padding-bottom: var(--space-xl);
+
+  &__hero {
+    text-align: center;
+    padding: var(--space-l) 0;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: clamp(var(--font-size-xxl), 5.5vw, calc(var(--font-size) * 3.5));
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-bottom: var(--space);
+  }
+
+  &__title-accent {
+    color: var(--color-primary);
+  }
+
+  &__tagline {
+    font-size: var(--font-size-l);
+    color: color-mix(in srgb, var(--color-foreground), transparent 40%);
+    margin: 0 auto var(--space-l);
+    max-width: 46ch;
+  }
+
+  &__search {
+    max-width: 520px;
+    margin: 0 auto var(--space);
+  }
+
+  &__categories {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
+    gap: var(--space-s);
+  }
+
+  &__sentinel {
+    text-align: center;
+    padding: var(--space-l);
+    color: color-mix(in srgb, var(--color-foreground), transparent 40%);
+    font-size: var(--font-size-s);
   }
 }
-.logo-svg {
-  width: 50%;
-  height: 50%;
-  color: var(--ink, #000);
-}
-.logo-name {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0.5rem;
-  text-align: center;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--ink, #000);
-  background: linear-gradient(transparent, rgba(0,0,0,0.1));
-  opacity: 0;
-  transition: opacity 0.2s;
-  pointer-events: none;
-}
-.logo-tile:hover .logo-name { opacity: 0.9; }
-.sentinel { text-align: center; padding: 2rem; color: var(--ob-text-muted); }
 </style>

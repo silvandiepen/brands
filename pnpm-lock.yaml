@@ -52,11 +52,11 @@ importers:
   apps/web:
     dependencies:
       '@sil/color':
-        specifier: ^0.5.1
-        version: 0.5.1
+        specifier: ^0.6.0
+        version: 0.6.0
       '@sil/ui':
-        specifier: ^2.6.0
-        version: 2.6.0(@floating-ui/dom@1.7.6)(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/extension-code-block@3.27.3(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/pm@3.27.3))(@tiptap/extensions@3.27.3(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/pm@3.27.3))(highlight.js@11.11.1)(vue-i18n@11.4.6(vue@3.5.39(typescript@5.9.3)))(vue-router@4.6.4(vue@3.5.39(typescript@5.9.3)))(vue@3.5.39(typescript@5.9.3))
+        specifier: ^2.6.1
+        version: 2.6.1(@floating-ui/dom@1.7.6)(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/extension-code-block@3.27.3(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/pm@3.27.3))(@tiptap/extensions@3.27.3(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/pm@3.27.3))(highlight.js@11.11.1)(vue-i18n@11.4.6(vue@3.5.39(typescript@5.9.3)))(vue-router@4.6.4(vue@3.5.39(typescript@5.9.3)))(vue@3.5.39(typescript@5.9.3))
       bemm:
         specifier: ^1.2.2
         version: 1.4.0
@@ -965,11 +965,15 @@ packages:
     resolution: {integrity: sha512-2E0hrXN1O3IzpH1DKDTkq6ph1RV7ohz7xaidIdOOb4UE0AFSFkoeQgLrWne4sUsf1bjEYAiObOHZzFkAQnNEGg==}
     engines: {node: '>=18.0.0'}
 
+  '@sil/color@0.6.0':
+    resolution: {integrity: sha512-EwP8iPcWQkW4RGjG6CbFprq9jl61Xx1wBx91UW4elmJ/TajLCT0JJQr8B3V0PmpC8l+6VuFaQe7QOVxtw3IvUg==}
+    engines: {node: '>=18.0.0'}
+
   '@sil/format@0.0.9':
     resolution: {integrity: sha512-/sJ29s+4bY478nkhkkD/vI/6re743y1BHuKg29uIKbMwWOY4GFIeFzCNMUPBfVZO1hmRd4yy3cd1Td8L3CDCxQ==}
 
-  '@sil/ui@2.6.0':
-    resolution: {integrity: sha512-Bj4sl1oHwGA/NN3b/UZIXFAutxNa6YU+I1BcIkE9uqEnarMo75UKflcJ53jTHo4nusK3AHojRXzH0ja6ZbMGSQ==}
+  '@sil/ui@2.6.1':
+    resolution: {integrity: sha512-YFYBwbYGU2OLSHFWGhL4VqSzJ0nh9YPX61s+IuxTns4/EOdc4SJ/HO8dBS10g+0iPmNfAxYbRDVX/9YRrbE9gg==}
     peerDependencies:
       nizel-plugin-shiki: '>=0.1.0'
       vue: ^3.4.0
@@ -2545,9 +2549,11 @@ snapshots:
 
   '@sil/color@0.5.1': {}
 
+  '@sil/color@0.6.0': {}
+
   '@sil/format@0.0.9': {}
 
-  '@sil/ui@2.6.0(@floating-ui/dom@1.7.6)(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/extension-code-block@3.27.3(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/pm@3.27.3))(@tiptap/extensions@3.27.3(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/pm@3.27.3))(highlight.js@11.11.1)(vue-i18n@11.4.6(vue@3.5.39(typescript@5.9.3)))(vue-router@4.6.4(vue@3.5.39(typescript@5.9.3)))(vue@3.5.39(typescript@5.9.3))':
+  '@sil/ui@2.6.1(@floating-ui/dom@1.7.6)(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/extension-code-block@3.27.3(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/pm@3.27.3))(@tiptap/extensions@3.27.3(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/pm@3.27.3))(highlight.js@11.11.1)(vue-i18n@11.4.6(vue@3.5.39(typescript@5.9.3)))(vue-router@4.6.4(vue@3.5.39(typescript@5.9.3)))(vue@3.5.39(typescript@5.9.3))':
     dependencies:
       '@sil/color': 0.5.1
       '@tiptap/extension-code-block-lowlight': 3.27.3(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/extension-code-block@3.27.3(@tiptap/core@3.27.3(@tiptap/pm@3.27.3))(@tiptap/pm@3.27.3))(@tiptap/pm@3.27.3)(highlight.js@11.11.1)(lowlight@3.3.0)

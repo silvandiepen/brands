@@ -1,32 +1,43 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useBemm } from 'bemm'
 import { collectionsIndex, brandIndex } from '../data/loader'
 import { inkOn } from '../utils'
+import { useBrandApi } from '../stores/api'
 
-const API = 'https://open-brands-api.vandipyan.workers.dev'
+const bemm = useBemm('collections-page')
+const { logoUrl } = useBrandApi()
+
 function brandBg(brandId: string): string { return brandIndex[brandId]?.primaryColor ?? '#f5f5f5' }
-function logoUrl(brandId: string): string { return `${API}/logo/${brandId}.svg` }
 
 const collections = computed(() => Object.values(collectionsIndex))
 </script>
 
 <template>
-  <div class="container collections-page">
-    <h1>Collections</h1>
-    <div class="collection-list">
-      <div v-for="col in collections" :key="col.id" class="collection-card">
-        <RouterLink :to="{ path: '/brands', query: { category: col.brandIds[0] } }" class="collection-name">
-          <h2>{{ col.name }}</h2>
-          <span class="collection-count">{{ col.brandIds.length }} brands</span>
+  <div :class="[bemm(), 'container']">
+    <header :class="[bemm('head'), 'fade-up']">
+      <h1 :class="bemm('title')">Collections</h1>
+      <p :class="bemm('sub')">Curated sets of brands, grouped by industry and theme.</p>
+    </header>
+
+    <div :class="bemm('list')">
+      <div v-for="col in collections" :key="col.id" :class="[bemm('card'), 'reveal']">
+        <RouterLink :to="{ path: '/brands', query: { category: col.brandIds[0] } }" :class="bemm('name')">
+          <h2 :class="bemm('name-title')">{{ col.name }}</h2>
+          <span :class="bemm('count')">{{ col.brandIds.length }} brands</span>
         </RouterLink>
-        <div class="collection-logos">
+        <div :class="bemm('logos')">
           <RouterLink
             v-for="id in col.brandIds.slice(0, 12)" :key="id"
-            :to="`/brands/${id}`" class="mini-tile"
-            :style="{ background: brandBg(id), '--ink': inkOn(brandBg(id)) }"
+            :to="`/brands/${id}`" :class="bemm('tile')"
+            :style="{
+              '--collections-page-tile-background': brandBg(id),
+              '--collections-page-tile-ink': inkOn(brandBg(id)),
+              '--collections-page-tile-logo': `url('${logoUrl(id)}')`,
+            }"
             :title="brandIndex[id]?.name ?? id"
           >
-            <img :src="logoUrl(id)" :alt="brandIndex[id]?.name ?? id" class="mini-img" loading="lazy" />
+            <span :class="bemm('tile-logo')" role="img" :aria-label="brandIndex[id]?.name ?? id" />
           </RouterLink>
         </div>
       </div>
@@ -34,22 +45,108 @@ const collections = computed(() => Object.values(collectionsIndex))
   </div>
 </template>
 
-<style lang="scss" scoped>
-.collections-page { padding: 1rem 0 4rem; }
-h1 { margin-bottom: 1.5rem; }
-.collection-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 1.5rem; }
-.collection-card { border: 1px solid var(--ob-border); border-radius: 16px; overflow: hidden; }
-.collection-name {
-  display: flex; align-items: baseline; gap: 0.75rem; padding: 1rem 1.25rem;
-  color: var(--ob-text); &:hover { text-decoration: none; background: var(--ob-bg-alt); }
-  h2 { font-size: 1.1rem; }
+<style lang="scss">
+.collections-page {
+  padding-top: var(--space);
+  padding-bottom: var(--space-xl);
+
+  &__head {
+    padding-bottom: var(--space-l);
+    margin-bottom: var(--space-l);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-foreground), transparent 90%);
+  }
+
+  &__title {
+    font-size: clamp(var(--font-size-xl), 4vw, var(--font-size-xxl));
+    margin-bottom: var(--space-xs);
+  }
+
+  &__sub {
+    color: color-mix(in srgb, var(--color-foreground), transparent 40%);
+    max-width: 60ch;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: var(--space);
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    border: 1px solid color-mix(in srgb, var(--color-foreground), transparent 88%);
+    border-radius: var(--border-radius-xxl);
+    overflow: hidden;
+    background: color-mix(in srgb, var(--color-background), var(--color-foreground) 2%);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
+    &:hover {
+      border-color: color-mix(in srgb, var(--color-foreground), transparent 76%);
+      box-shadow: var(--shadow-s);
+    }
+  }
+
+  &__name {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-s);
+    padding: var(--space) var(--space-l);
+    color: var(--color-foreground);
+
+    &:hover {
+      text-decoration: none;
+
+      .collections-page__name-title {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &__name-title {
+    font-size: var(--font-size-l);
+    transition: color var(--transition-fast);
+  }
+
+  &__count {
+    font-size: var(--font-size-xs);
+    color: color-mix(in srgb, var(--color-foreground), transparent 40%);
+    white-space: nowrap;
+  }
+
+  &__logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+    gap: var(--space-xs);
+    padding: 0 var(--space-xs) var(--space-xs);
+  }
+
+  &__tile {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-s);
+    border-radius: var(--border-radius-l);
+    background: var(--collections-page-tile-background, var(--color-accent));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-dark), transparent 93%);
+    overflow: hidden;
+    transition: transform var(--transition-fast);
+
+    &:hover {
+      transform: scale(1.08);
+      z-index: 1;
+    }
+  }
+
+  &__tile-logo {
+    width: 100%;
+    height: 100%;
+    background-color: var(--collections-page-tile-ink, var(--color-foreground));
+    mask: var(--collections-page-tile-logo) no-repeat center / contain;
+  }
 }
-.collection-count { font-size: 0.8rem; color: var(--ob-text-muted); }
-.collection-logos { display: grid; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); gap: 2px; padding: 2px; }
-.mini-tile {
-  aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
-  padding: 0.75rem; border-radius: 8px; overflow: hidden; transition: transform 0.1s;
-  &:hover { transform: scale(1.08); z-index: 1; }
-}
-.mini-img { max-width: 100%; max-height: 100%; object-fit: contain; }
 </style>

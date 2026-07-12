@@ -9,8 +9,8 @@
     "build": "vue-tsc --noEmit && vite build"
   },
   "dependencies": {
-    "@sil/color": "^0.5.1",
-    "@sil/ui": "^2.6.0",
+    "@sil/color": "^0.6.0",
+    "@sil/ui": "^2.6.1",
     "bemm": "^1.2.2",
     "vue": "^3.5.0",
     "vue-i18n": "^11.0.0",

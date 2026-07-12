@@ -1,16 +1,21 @@
 <script setup lang="ts">
-import { releaseManifest } from '../data/loader'
+import { useBemm } from 'bemm'
+
+const bemm = useBemm('docs-page')
 const apiOrigin = 'https://open-brands-api.vandipyan.workers.dev'
 </script>
 
 <template>
-  <div class="container docs-page">
-    <h1>Documentation</h1>
+  <div :class="[bemm(), 'container']">
+    <header :class="[bemm('head'), 'fade-up']">
+      <h1 :class="bemm('title')">Documentation</h1>
+      <p :class="bemm('sub')">Everything you need to use the Open Brands API and npm package.</p>
+    </header>
 
-    <section class="section">
-      <h2>Public API</h2>
+    <section :class="[bemm('section'), 'reveal']">
+      <h2 :class="bemm('heading')">Public API</h2>
       <p>The API is public, CORS-enabled, and requires no API key.</p>
-      <table class="api-table">
+      <table :class="bemm('table')">
         <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
         <tbody>
           <tr><td>GET</td><td><code>/v1/meta</code></td><td>Release metadata and dataset version</td></tr>
@@ -30,8 +35,8 @@ const apiOrigin = 'https://open-brands-api.vandipyan.workers.dev'
       <p><a :href="`${apiOrigin}/openapi.json`" target="_blank">View OpenAPI spec</a></p>
     </section>
 
-    <section class="section">
-      <h2>npm Package</h2>
+    <section :class="[bemm('section'), 'reveal']">
+      <h2 :class="bemm('heading')">npm Package</h2>
       <pre class="code-block">npm install open-brands</pre>
       <pre class="code-block">import { searchBrands, getBrand, generateColorFormats } from 'open-brands'
 
@@ -46,19 +51,19 @@ const formats = generateColorFormats('#4285F4')
 console.log(formats.oklch) // oklch(0.6217 0.1875 249.21)</pre>
     </section>
 
-    <section class="section">
-      <h2>Quick Examples</h2>
-      <h3>Search</h3>
+    <section :class="[bemm('section'), 'reveal']">
+      <h2 :class="bemm('heading')">Quick Examples</h2>
+      <h3 :class="bemm('subheading')">Search</h3>
       <pre class="code-block">curl "{{ apiOrigin }}/v1/search?q=google"</pre>
-      <h3>Brand Detail</h3>
+      <h3 :class="bemm('subheading')">Brand Detail</h3>
       <pre class="code-block">curl "{{ apiOrigin }}/v1/brands/google"</pre>
-      <h3>Resolve by Domain</h3>
+      <h3 :class="bemm('subheading')">Resolve by Domain</h3>
       <pre class="code-block">curl "{{ apiOrigin }}/v1/resolve/github.com"</pre>
     </section>
 
-    <section class="section">
-      <h2>Rate Limits</h2>
-      <ul>
+    <section :class="[bemm('section'), 'reveal']">
+      <h2 :class="bemm('heading')">Rate Limits</h2>
+      <ul :class="bemm('list')">
         <li>Metadata reads: 600 req/min per IP</li>
         <li>Search and resolve: 120 req/min per IP</li>
         <li>CDN assets: long-lived immutable caching, edge abuse threshold 3000 req/min</li>
@@ -68,28 +73,67 @@ console.log(formats.oklch) // oklch(0.6217 0.1875 249.21)</pre>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.docs-page { padding: 2rem 0 4rem; max-width: 800px; }
-.section { margin-bottom: 2.5rem; }
-h2 { font-size: 1.25rem; margin-bottom: 0.75rem; }
-h3 { font-size: 1rem; margin: 1rem 0 0.5rem; }
-.api-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  th, td { text-align: left; padding: 0.5rem; border-bottom: 1px solid var(--ob-border); }
-  th { font-size: 0.875rem; color: var(--ob-text-muted); }
-  code { font-size: 0.85rem; }
+<style lang="scss">
+.docs-page {
+  padding-top: var(--space);
+  padding-bottom: var(--space-xl);
+  max-width: 800px;
+
+  &__head {
+    padding-bottom: var(--space-l);
+    margin-bottom: var(--space-l);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-foreground), transparent 90%);
+  }
+
+  &__title {
+    font-size: clamp(var(--font-size-xl), 4vw, var(--font-size-xxl));
+    margin-bottom: var(--space-xs);
+  }
+
+  &__sub {
+    color: color-mix(in srgb, var(--color-foreground), transparent 40%);
+    max-width: 60ch;
+  }
+
+  &__section {
+    margin-bottom: var(--space-l);
+  }
+
+  &__heading {
+    font-size: var(--font-size-l);
+    margin-bottom: var(--space-s);
+  }
+
+  &__subheading {
+    font-size: var(--font-size);
+    margin: var(--space) 0 var(--space-s);
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space) 0;
+
+    th,
+    td {
+      text-align: left;
+      padding: var(--space-s);
+      border-bottom: 1px solid color-mix(in srgb, var(--color-foreground), transparent 88%);
+    }
+
+    th {
+      font-size: var(--font-size-s);
+      color: color-mix(in srgb, var(--color-foreground), transparent 40%);
+    }
+
+    code {
+      font-size: var(--font-size-s);
+    }
+  }
+
+  &__list {
+    padding-left: var(--space-l);
+    line-height: 2;
+  }
 }
-.code-block {
-  background: var(--ob-bg-alt);
-  border: 1px solid var(--ob-border);
-  border-radius: var(--ob-radius);
-  padding: 0.75rem;
-  font-family: monospace;
-  font-size: 0.85rem;
-  overflow-x: auto;
-  margin: 0.5rem 0;
-}
-ul { padding-left: 1.5rem; line-height: 2; }
 </style>

@@ -1,104 +1,219 @@
+// Theme: configure @sil/ui tokens, then load its base styles.
+@use '@sil/ui/defaults' with (
+	$project-colors: (
+		'dark': #101114,
+		'light': #ffffff,
+		'primary': #2563eb,
+		'secondary': #9333ea,
+	)
+);
+@use '@sil/ui/styles/main';
+
 :root {
-  --ob-bg: #ffffff;
-  --ob-bg-alt: #f8f9fa;
-  --ob-text: #1a1a2e;
-  --ob-text-muted: #6b7280;
-  --ob-border: #e5e7eb;
-  --ob-primary: #2563eb;
-  --ob-primary-hover: #1d4ed8;
-  --ob-radius: 8px;
-  --ob-max-width: 1200px;
+	--main-max-width: 1200px;
 }
 
-[data-theme="dark"] {
-  --ob-bg: #101114;
-  --ob-bg-alt: #1a1a2e;
-  --ob-text: #e5e7eb;
-  --ob-text-muted: #9ca3af;
-  --ob-border: #374151;
-  --ob-primary: #3b82f6;
-  --ob-primary-hover: #60a5fa;
+// @sil/ui's app.scss ships an app-shell look (radial vignette background,
+// viewport-locked height, scroll snapping) that doesn't fit a content site.
+html,
+body {
+	height: auto;
+	min-height: 100%;
+	scroll-snap-type: none;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-family: system-ui, -apple-system, sans-serif;
-  background: var(--ob-bg);
-  color: var(--ob-text);
-  line-height: 1.6;
-}
-
-a {
-  color: var(--ob-primary);
-  text-decoration: none;
-  &:hover { text-decoration: underline; }
+body {
+	background-color: var(--color-background);
+	background-image: none;
+	font-size: var(--font-size);
 }
 
 .container {
-  max-width: var(--ob-max-width);
-  margin: 0 auto;
-  padding: 0 1.5rem;
+	max-width: var(--main-max-width);
+	margin: 0 auto;
+	padding: 0 var(--space-l);
+
+	@media (max-width: 640px) {
+		padding: 0 var(--space);
+	}
+}
+
+// ── Legacy compat ─────────────────────────────────────────────────────
+// Aliases + helper classes still used by pages that have not been
+// migrated to @sil/ui components yet (cart, contribute, playground, …).
+:root {
+	--ob-bg: var(--color-background);
+	--ob-bg-alt: color-mix(in srgb, var(--color-background), var(--color-foreground) 4%);
+	--ob-text: var(--color-foreground);
+	--ob-text-muted: color-mix(in srgb, var(--color-foreground), transparent 40%);
+	--ob-border: color-mix(in srgb, var(--color-foreground), transparent 88%);
+	--ob-primary: var(--color-primary);
+	--ob-primary-hover: color-mix(in oklab, var(--color-primary), black 12%);
+	--ob-radius: 0.75rem;
+	--ob-max-width: var(--main-max-width);
 }
 
 .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: var(--ob-radius);
-  border: 1px solid var(--ob-border);
-  background: var(--ob-bg);
-  color: var(--ob-text);
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.15s;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-s);
+	padding: var(--space-s) var(--space);
+	border-radius: var(--border-radius-xxl);
+	border: 1px solid color-mix(in srgb, var(--color-foreground), transparent 80%);
+	background: var(--color-background);
+	color: var(--color-foreground);
+	cursor: pointer;
+	font-size: var(--font-size-s);
+	font-weight: var(--font-weight-medium);
+	font-family: var(--font-family);
+	transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
 
-  &:hover { border-color: var(--ob-primary); }
-  &--primary {
-    background: var(--ob-primary);
-    color: #fff;
-    border-color: var(--ob-primary);
-    &:hover { background: var(--ob-primary-hover); }
-  }
+	&:hover {
+		border-color: var(--color-primary);
+		color: var(--color-primary);
+		text-decoration: none;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: default;
+	}
+
+	&--primary {
+		background: var(--color-primary);
+		color: var(--color-primary-text);
+		border-color: var(--color-primary);
+
+		&:hover {
+			background: color-mix(in oklab, var(--color-primary), black 12%);
+			color: var(--color-primary-text);
+		}
+	}
 }
 
 .card {
-  background: var(--ob-bg-alt);
-  border: 1px solid var(--ob-border);
-  border-radius: var(--ob-radius);
-  padding: 1.25rem;
-}
-
-.grid {
-  display: grid;
-  gap: 1rem;
-  &--brands { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
-  &--colors { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+	background: color-mix(in srgb, var(--color-background), var(--color-foreground) 3%);
+	border: 1px solid color-mix(in srgb, var(--color-foreground), transparent 88%);
+	border-radius: var(--border-radius-xl);
+	padding: var(--space-l);
 }
 
 .badge {
-  display: inline-block;
-  padding: 0.125rem 0.5rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  background: var(--ob-bg-alt);
-  border: 1px solid var(--ob-border);
+	display: inline-flex;
+	align-items: center;
+	padding: var(--space-xs) calc(var(--space-s) * 1.5);
+	border-radius: var(--border-radius-xxl);
+	font-size: var(--font-size-xs);
+	font-weight: var(--font-weight-medium);
+	background: color-mix(in srgb, var(--color-background), var(--color-foreground) 4%);
+	border: 1px solid color-mix(in srgb, var(--color-foreground), transparent 88%);
+	color: color-mix(in srgb, var(--color-foreground), transparent 30%);
+}
+
+a.badge:hover {
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+	text-decoration: none;
 }
 
 .search-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--ob-border);
-  border-radius: var(--ob-radius);
-  font-size: 1rem;
-  background: var(--ob-bg);
-  color: var(--ob-text);
-  &:focus { outline: 2px solid var(--ob-primary); }
+	width: 100%;
+	padding: var(--space-s) var(--space);
+	border: 1px solid color-mix(in srgb, var(--color-foreground), transparent 80%);
+	border-radius: var(--border-radius-xxl);
+	font-size: var(--font-size);
+	font-family: var(--font-family);
+	background: var(--color-background);
+	color: var(--color-foreground);
+
+	&:focus {
+		outline: none;
+		border-color: var(--color-primary);
+		box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary), transparent 88%);
+	}
+}
+
+.filter-select {
+	padding: var(--space-s) var(--space);
+	border: 1px solid color-mix(in srgb, var(--color-foreground), transparent 80%);
+	border-radius: var(--border-radius-xxl);
+	background: var(--color-background);
+	color: var(--color-foreground);
+	font-size: var(--font-size-s);
+	font-family: var(--font-family);
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+		border-color: var(--color-primary);
+	}
+}
+
+// ── Motion ────────────────────────────────────────────────────────────
+// CSS-only, signature easing, short and functional. Reveal degrades to
+// fully-visible content wherever scroll-driven animations or motion aren't
+// supported/wanted — never gates access to content.
+:root {
+	--ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.fade-up {
+		animation: fade-up 0.5s var(--ease-out-soft) both;
+	}
+
+	@supports (animation-timeline: view()) {
+		.reveal {
+			animation: fade-up linear both;
+			animation-timeline: view();
+			animation-range: entry 0% cover 25%;
+		}
+	}
+}
+
+// ── Section headings ─────────────────────────────────────────────────
+// Two registers: `.eyebrow` for secondary/meta labels, `.section-title`
+// for primary content headings — hierarchy through scale, not decoration.
+.eyebrow {
+	font-size: var(--font-size-s);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-weight: var(--font-weight-medium);
+	color: color-mix(in srgb, var(--color-foreground), transparent 40%);
+}
+
+.section-title {
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: -0.01em;
+	color: var(--color-foreground);
+}
+
+.divider {
+	border: none;
+	border-top: 1px solid color-mix(in srgb, var(--color-foreground), transparent 90%);
+}
+
+.code-block {
+	background: color-mix(in srgb, var(--color-background), var(--color-foreground) 4%);
+	border: 1px solid color-mix(in srgb, var(--color-foreground), transparent 88%);
+	border-radius: var(--border-radius-xl);
+	padding: var(--space);
+	font-family: var(--font-family-monospace);
+	font-size: var(--font-size-s);
+	line-height: 1.55;
+	overflow-x: auto;
+	margin: var(--space-s) 0;
 }

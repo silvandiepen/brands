@@ -1,4 +1,3 @@
-import { ref, type Ref } from 'vue'
 import type { BrandDetail } from '../data/loader'
 
 const API = 'https://open-brands-api.vandipyan.workers.dev'

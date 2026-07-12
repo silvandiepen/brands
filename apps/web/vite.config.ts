@@ -1,20 +1,10 @@
 import vue from '@vitejs/plugin-vue'
-import { defineTheme, ui } from '@sil/ui/vite'
+import { ui } from '@sil/ui/vite'
 import { defineConfig } from 'vite'
 
+// Theme colors are configured in src/styles/main.scss via `@use '@sil/ui/defaults' with (...)`.
 export default defineConfig({
-  plugins: [
-    vue(),
-    ui({
-      theme: defineTheme({
-        colors: {
-          dark: '#101114',
-          light: '#ffffff',
-          primary: '#2563eb',
-        },
-      }),
-    }),
-  ],
+  plugins: [vue(), ui()],
   server: {
     fs: {
       allow: ['..', '../..'],
