@@ -6,6 +6,7 @@
 - [Website](./product/website.md)
 - [Brand packs](./product/packs.md)
 - [Contributions](./product/contributions.md)
+- [Brandfetch competitive analysis](./product/competitive-brandfetch.md)
 
 ## Architecture
 
@@ -30,8 +31,8 @@
 - [Roadmap](./development/roadmap.md)
 - [Agent guide](./development/agent-guide.md)
 
-The build directive is the entry point for an autonomous implementation agent asked to build the complete product.
-
 ## Decisions
 
 Accepted decisions are recorded in [`decisions/`](./decisions/). Decisions override older descriptive documentation when the two conflict.
+
+ADR 0008 defines the reviewed, claimed, and observed catalog tiers required for global coverage.
