@@ -34,6 +34,66 @@ const form = reactive({
 
 const steps = ['GitHub', 'Brand', 'Colors', 'SVG Assets', 'Sources', 'Review']
 
+const contributionTypes = [
+  {
+    icon: '+',
+    title: 'Add a new brand',
+    copy: 'Submit a brand profile with names, domains, categories, tags, colors, and public source links.',
+  },
+  {
+    icon: '✎',
+    title: 'Improve an existing brand',
+    copy: 'Correct names, domains, aliases, categories, status, sources, and metadata that help search and filtering.',
+  },
+  {
+    icon: '⇧',
+    title: 'Add or replace assets',
+    copy: 'Upload official SVG logos, icons, wordmarks, symbols, or lockups with clear asset type and variant labels.',
+  },
+  {
+    icon: '#',
+    title: 'Correct colors',
+    copy: 'Add brand palettes, fix inaccurate hex values, and mark roles such as primary, secondary, accent, or neutral.',
+  },
+]
+
+const sourceRequirements = [
+  {
+    icon: '◎',
+    title: 'Official sources',
+    copy: 'Link to public, verifiable sources. Official references matter more than perfect completeness.',
+  },
+  {
+    icon: 'A',
+    title: 'Clean SVGs',
+    copy: 'Upload optimized SVGs with accurate names, clear asset types, and no embedded raster images.',
+  },
+  {
+    icon: '◇',
+    title: 'Public and respectful',
+    copy: 'No private, internal, scraped paid, or confidential assets. Logos remain owned by their owners.',
+  },
+]
+
+const workflow = [
+  {
+    title: 'Sign in',
+    copy: 'Use GitHub to securely authenticate and attribute the submission.',
+  },
+  {
+    title: 'Submit details',
+    copy: 'Add brand metadata, domains, categories, tags, and optional colors.',
+  },
+  {
+    title: 'Upload assets',
+    copy: 'Attach and classify each official SVG asset.',
+  },
+  {
+    title: 'Review',
+    copy: 'A pull request or contribution record is created for maintainer review.',
+  },
+]
+
 async function signIn() {
   try {
     const res = await fetch(`${apiBase}/api/contributions/login`)
@@ -167,8 +227,88 @@ async function submit() {
 </script>
 
 <template>
-  <div :class="bemm()" class="container">
-    <h1>Contribute a Brand</h1>
+  <div :class="bemm()">
+    <header :class="[bemm('hero'), 'fade-up']">
+      <div :class="bemm('hero-copy')">
+        <p class="eyebrow">Community contributions</p>
+        <h1>Contribute a Brand</h1>
+        <p :class="bemm('intro')">
+          Help keep Open Brands accurate and complete for everyone. Add missing brands,
+          improve metadata, and attach official SVG assets with public source references.
+        </p>
+        <div :class="bemm('hero-actions')">
+          <button class="btn btn--primary" @click="signIn">
+            <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            Sign in with GitHub
+          </button>
+          <a href="#contribution-form">Learn how it works</a>
+        </div>
+      </div>
+      <div :class="bemm('hero-art')" aria-hidden="true">
+        <div class="art-grid"></div>
+        <div class="art-card art-card--main">
+          <span class="art-logo">A</span>
+        </div>
+        <div class="art-card art-card--tag">◆</div>
+        <div class="art-card art-card--link">⌁</div>
+        <div class="art-card art-card--image">▣</div>
+        <div class="art-card art-card--color">●</div>
+      </div>
+    </header>
+
+    <section :class="[bemm('section'), bemm('section', 'ways'), 'reveal']" aria-label="Contribution options">
+      <div :class="bemm('section-inner')">
+        <p class="eyebrow">Ways to contribute</p>
+        <div :class="bemm('info-grid')">
+          <article v-for="item in contributionTypes" :key="item.title" :class="bemm('info-card')">
+            <span :class="bemm('info-icon')">{{ item.icon }}</span>
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.copy }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section :class="[bemm('section'), bemm('section', 'quality'), 'reveal']">
+      <div :class="bemm('section-inner')">
+        <p class="eyebrow">What makes a good contribution</p>
+        <div :class="bemm('requirements')">
+          <article v-for="item in sourceRequirements" :key="item.title" :class="bemm('requirement')">
+            <span :class="bemm('info-icon')">{{ item.icon }}</span>
+            <div>
+              <h2>{{ item.title }}</h2>
+              <p>{{ item.copy }}</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <main id="contribution-form" class="container" :class="bemm('form-shell')">
+      <section :class="[bemm('workflow'), 'reveal']" aria-label="Contribution workflow">
+        <p class="eyebrow">How it works</p>
+        <ol>
+          <li v-for="(item, index) in workflow" :key="item.title">
+            <span>{{ String(index + 1).padStart(2, '0') }}</span>
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.copy }}</p>
+          </li>
+        </ol>
+      </section>
+
+      <section v-if="step === 0" :class="[bemm('signin-panel'), 'reveal']">
+        <div :class="bemm('github-mark')" aria-hidden="true">
+          <svg viewBox="0 0 16 16" width="56" height="56" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        </div>
+        <div>
+          <h2>Ready to contribute?</h2>
+          <p>Sign in with GitHub to start contributing brand data, assets, and source references to Open Brands.</p>
+        </div>
+        <button class="btn btn--primary" @click="signIn">
+          <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          Sign in with GitHub
+        </button>
+      </section>
 
     <div :class="bemm('progress')" v-if="step > 0">
       <button v-for="(label, i) in steps" :key="i"
@@ -179,19 +319,13 @@ async function submit() {
       </button>
     </div>
 
-    <!-- Step 0: Sign in -->
-    <div v-if="step === 0" class="card step-card">
-      <h2>Sign in with GitHub</h2>
-      <p>We use GitHub for identity only. You don't need to install anything or grant repository access.</p>
-      <button class="btn btn--primary" @click="signIn">
-        <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-        Sign in with GitHub
-      </button>
-    </div>
-
     <!-- Step 1: Brand details -->
     <div v-if="step === 1" class="card step-card">
       <h2>Brand details</h2>
+      <p class="step-help">
+        Use stable, searchable identifiers. Categories describe the brand’s industry; tags describe useful search terms,
+        product areas, or technology names.
+      </p>
       <p v-if="user" class="signed-in">Signed in as @{{ user.login }}</p>
       <div class="form-grid">
         <div class="field">
@@ -225,6 +359,9 @@ async function submit() {
     <!-- Step 2: Colors -->
     <div v-if="step === 2" class="card step-card">
       <h2>Colors</h2>
+      <p class="step-help">
+        Add colors only when you have a reliable source. Use roles to explain how each color is used in the identity.
+      </p>
       <div v-if="form.colors.length === 0" class="empty-inline">
         <p>No colors added yet. Brand colors are optional but recommended.</p>
       </div>
@@ -246,7 +383,9 @@ async function submit() {
     <!-- Step 3: SVG upload -->
     <div v-if="step === 3" class="card step-card">
       <h2>SVG Assets</h2>
-      <p>Upload up to 5 SVG files. Max 512 KiB each.</p>
+      <p>
+        Upload up to 5 SVG files. Max 512 KiB each. Prefer current official assets with simple, scalable vector paths.
+      </p>
       <label class="upload-zone">
         <input type="file" accept=".svg,image/svg+xml" multiple @change="onFileUpload" />
         <span>Click to select SVG files</span>
@@ -279,7 +418,10 @@ async function submit() {
     <!-- Step 4: Sources -->
     <div v-if="step === 4" class="card step-card">
       <h2>Sources</h2>
-      <p>Every asset must reference a public source. Preferred: official brand guidelines or press kit.</p>
+      <p>
+        Every asset must reference a public source. Preferred sources are official brand guidelines, press kits,
+        media kits, or public repositories controlled by the brand owner.
+      </p>
       <div class="form-grid">
         <div class="field">
           <label>Source URL *</label>
@@ -306,6 +448,10 @@ async function submit() {
     <!-- Step 5: Review -->
     <div v-if="step === 5" class="card step-card">
       <h2>Review &amp; Submit</h2>
+      <p class="step-help">
+        Review the generated manifest before submitting. A maintainer still checks source quality, naming,
+        asset type, and trademark-sensitive details before merging.
+      </p>
       <div class="review-summary">
         <p><strong>Brand:</strong> {{ form.name }} ({{ form.brandId }})</p>
         <p><strong>Assets:</strong> {{ form.assets.length }} SVG file(s)</p>
@@ -353,16 +499,317 @@ async function submit() {
       <button class="btn" @click="back">Back</button>
       <button class="btn btn--primary" @click="next" :disabled="!canProceed">Next</button>
     </div>
+    </main>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.contribute { padding: 2rem 0 4rem; max-width: 700px; }
-h1 { margin-bottom: 1.5rem; }
+.contribute {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 78% 12%, color-mix(in srgb, var(--color-primary), transparent 82%), transparent 24rem),
+    linear-gradient(180deg, #070b12 0%, #0b111a 44%, color-mix(in srgb, var(--color-background), #0b111a 18%) 100%);
+}
+h1 {
+  margin: var(--space-xs) 0 var(--space);
+  font-size: clamp(var(--font-size-xl), 5vw, var(--font-size-xxl));
+  letter-spacing: 0;
+}
 h2 { margin-bottom: 1rem; }
-.step-card { margin-bottom: 1rem; }
+.contribute__hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
+  gap: var(--space-xl);
+  align-items: center;
+  max-width: 1180px;
+  min-height: 520px;
+  margin: 0 auto;
+  padding: clamp(5rem, 10vw, 8rem) var(--space-l) clamp(4rem, 8vw, 6rem);
+  color: #f7f9ff;
+
+  @media (max-width: 840px) {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: var(--space-xl);
+  }
+}
+.contribute__hero-copy {
+  max-width: 620px;
+  position: relative;
+  z-index: 1;
+}
+.contribute__intro {
+  max-width: 560px;
+  color: color-mix(in srgb, #f7f9ff, transparent 28%);
+  font-size: var(--font-size-l);
+  line-height: 1.45;
+}
+.contribute__hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space);
+  margin-top: var(--space-l);
+  flex-wrap: wrap;
+
+  a {
+    color: #4d8dff;
+    font-weight: 700;
+    text-decoration: none;
+
+    &::after {
+      content: ' ->';
+    }
+  }
+}
+.contribute__hero-art {
+  position: relative;
+  min-height: 330px;
+
+  @media (max-width: 840px) {
+    min-height: 260px;
+  }
+}
+.art-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.34;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1.5px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 72%);
+}
+.art-card {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035));
+  color: #3f82ff;
+  font-weight: 900;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.24);
+}
+.art-card--main {
+  top: 76px;
+  left: 28%;
+  width: 190px;
+  height: 190px;
+  color: #fff;
+}
+.art-logo {
+  display: grid;
+  place-items: center;
+  width: 110px;
+  height: 110px;
+  border: 1px solid rgba(255,255,255,0.22);
+  font-size: 4rem;
+  line-height: 1;
+}
+.art-card--tag {
+  top: 68px;
+  left: 5%;
+  width: 82px;
+  height: 82px;
+  font-size: 2rem;
+}
+.art-card--link {
+  top: 38px;
+  right: 4%;
+  width: 76px;
+  height: 76px;
+  font-size: 2.1rem;
+}
+.art-card--image {
+  right: 1%;
+  bottom: 54px;
+  width: 82px;
+  height: 82px;
+  font-size: 2rem;
+}
+.art-card--color {
+  left: 18%;
+  bottom: 52px;
+  width: 66px;
+  height: 66px;
+  font-size: 1.7rem;
+}
+.contribute__section {
+  border-top: 1px solid rgba(255,255,255,0.045);
+  background: rgba(255,255,255,0.035);
+  color: #f7f9ff;
+}
+.contribute__section--quality {
+  background: rgba(255,255,255,0.06);
+}
+.contribute__section-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5rem) var(--space-l);
+}
+.contribute__info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(var(--space), 4vw, var(--space-xl));
+
+  @media (max-width: 960px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 560px) { grid-template-columns: 1fr; }
+}
+.contribute__info-card {
+  padding: var(--space-s) 0 0;
+  background: transparent;
+
+  h2 {
+    margin: var(--space) 0 var(--space-xs);
+    font-size: var(--font-size-l);
+    margin-bottom: var(--space-s);
+  }
+
+  p {
+    max-width: 330px;
+    color: color-mix(in srgb, #f7f9ff, transparent 34%);
+    line-height: 1.7;
+  }
+}
+.contribute__info-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 2px solid #3f82ff;
+  border-radius: 10px;
+  color: #4d8dff;
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1;
+}
+.contribute__requirements {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(var(--space), 4vw, var(--space-xl));
+
+  @media (max-width: 820px) { grid-template-columns: 1fr; }
+}
+.contribute__requirement {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space);
+  align-items: start;
+
+  h2 {
+    margin: 0 0 var(--space-xs);
+    font-size: var(--font-size);
+  }
+
+  p {
+    color: color-mix(in srgb, #f7f9ff, transparent 34%);
+    line-height: 1.55;
+  }
+}
+.contribute__form-shell {
+  padding-top: clamp(3rem, 7vw, 5rem);
+  padding-bottom: var(--space-xl);
+}
+.contribute__workflow {
+  margin-bottom: var(--space-l);
+
+  ol {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-l);
+    padding: 0;
+    list-style: none;
+
+    @media (max-width: 900px) { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 560px) { grid-template-columns: 1fr; }
+  }
+
+  li {
+    position: relative;
+    padding-right: var(--space);
+    color: color-mix(in srgb, var(--color-foreground), transparent 28%);
+    line-height: 1.45;
+
+    &:not(:last-child)::after {
+      content: '->';
+      position: absolute;
+      top: 1.35rem;
+      right: 0;
+      color: color-mix(in srgb, var(--color-foreground), transparent 64%);
+
+      @media (max-width: 560px) {
+        display: none;
+      }
+    }
+
+    span {
+      display: block;
+      margin-bottom: var(--space-s);
+      color: var(--color-primary);
+      font-size: var(--font-size-l);
+      font-weight: 800;
+    }
+
+    h2 {
+      margin: 0 0 var(--space-xs);
+      font-size: var(--font-size);
+    }
+  }
+}
+.contribute__signin-panel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: var(--space-l);
+  align-items: center;
+  margin-bottom: var(--space-l);
+  padding: var(--space-l);
+  border: 1px solid color-mix(in srgb, var(--color-foreground), transparent 88%);
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--color-foreground), transparent 94%), transparent),
+    color-mix(in srgb, var(--color-background), var(--color-foreground) 4%);
+
+  h2 {
+    margin: 0 0 var(--space-xs);
+    font-size: var(--font-size-xl);
+  }
+
+  p {
+    color: color-mix(in srgb, var(--color-foreground), transparent 34%);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 760px) {
+    grid-template-columns: 1fr;
+  }
+}
+.contribute__github-mark {
+  display: grid;
+  place-items: center;
+  width: 108px;
+  height: 108px;
+  border-right: 1px solid color-mix(in srgb, var(--color-foreground), transparent 84%);
+  padding-right: var(--space-l);
+  color: var(--color-foreground);
+
+  @media (max-width: 760px) {
+    width: 72px;
+    height: 72px;
+    border-right: 0;
+    padding-right: 0;
+  }
+}
+.step-card {
+  max-width: 760px;
+  margin-bottom: 1rem;
+}
+.step-help {
+  margin-bottom: var(--space);
+  color: color-mix(in srgb, var(--color-foreground), transparent 34%);
+  line-height: 1.5;
+}
 .signed-in { color: var(--ob-primary); font-weight: 600; margin-bottom: 1rem; }
 .progress {
+  max-width: 900px;
   display: flex;
   gap: 0.25rem;
   margin-bottom: 1.5rem;

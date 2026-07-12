@@ -63,12 +63,20 @@ console.log(formats.oklch) // oklch(0.6217 0.1875 249.21)</pre>
 
     <section :class="[bemm('section'), 'reveal']">
       <h2 :class="bemm('heading')">Rate Limits</h2>
+      <p>
+        Anonymous access is intended for development, CI checks, demos, and small build-time integrations.
+        Do not use the public API or CDN as a production logo-serving backend for bulk traffic.
+      </p>
       <ul :class="bemm('list')">
-        <li>Metadata reads: 600 req/min per IP</li>
-        <li>Search and resolve: 120 req/min per IP</li>
-        <li>CDN assets: long-lived immutable caching, edge abuse threshold 3000 req/min</li>
-        <li>Pack generation: 5 attempts/min, 25 packs/day (anonymous)</li>
+        <li>Metadata reads: 60 req/min per IP</li>
+        <li>Search and resolve: 30 req/min per IP</li>
+        <li>Brand detail, colors, and asset metadata: 60 req/min per IP</li>
+        <li>Logo redirects and CDN assets: long-lived immutable caching, public edge abuse threshold 300 req/min per IP</li>
+        <li>Pack generation: 2 attempts/min, 5 packs/day (anonymous)</li>
       </ul>
+      <p>
+        Higher limits and relaxed limits for Open Brands properties require server-side identification.
+      </p>
     </section>
   </div>
 </template>

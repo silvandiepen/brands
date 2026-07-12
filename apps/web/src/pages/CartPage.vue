@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { brandIndex } from '../data/loader'
+import { useCart } from '../stores/cart'
 
-const cart = ref<string[]>(JSON.parse(localStorage.getItem('ob-cart') ?? '[]'))
+const { cart, remove, clear } = useCart()
 
 const cartBrands = computed(() =>
   cart.value
@@ -11,13 +12,11 @@ const cartBrands = computed(() =>
 )
 
 function removeFromCart(id: string) {
-  cart.value = cart.value.filter((b) => b !== id)
-  localStorage.setItem('ob-cart', JSON.stringify(cart.value))
+  remove(id)
 }
 
 function clearCart() {
-  cart.value = []
-  localStorage.setItem('ob-cart', JSON.stringify(cart.value))
+  clear()
 }
 
 const packConfig = ref({

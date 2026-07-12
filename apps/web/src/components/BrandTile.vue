@@ -7,8 +7,6 @@ defineProps<{
   bg: string
   ink: string
   logoUrl: string
-  /** show the name below the logo at all times instead of on hover */
-  showName?: boolean
 }>()
 
 const bemm = useBemm('brand-tile', { return: 'string', includeBaseClass: true })
@@ -17,7 +15,7 @@ const bemm = useBemm('brand-tile', { return: 'string', includeBaseClass: true })
 <template>
   <RouterLink
     :to="`/brands/${brandId}`"
-    :class="[bemm('', { named: showName }), 'reveal']"
+    :class="[bemm(), 'reveal']"
     :style="{
       '--brand-tile-background': bg,
       '--brand-tile-ink': ink,
@@ -95,20 +93,6 @@ const bemm = useBemm('brand-tile', { return: 'string', includeBaseClass: true })
   &:hover &__name {
     opacity: 0.85;
     transform: translateY(0);
-  }
-
-  &--named {
-    .brand-tile__logo {
-      width: 46%;
-      flex: 0 0 46%;
-    }
-
-    .brand-tile__name {
-      position: static;
-      opacity: 0.75;
-      transform: none;
-      max-width: 100%;
-    }
   }
 }
 </style>

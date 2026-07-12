@@ -3,21 +3,19 @@ import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useBemm } from 'bemm'
 import { PillHeader, PlatformFooter, Icons, type PillHeaderNavItem, type PillHeaderAction } from '@sil/ui'
+import { useCart } from './stores/cart'
 
 const bemm = useBemm('app')
 const route = useRoute()
 const router = useRouter()
 const theme = ref<'light' | 'dark'>('light')
+const { count: cartCount } = useCart()
 
 onMounted(() => {
   const saved = localStorage.getItem('ob-theme')
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
   theme.value = saved === 'dark' || saved === 'light' ? saved : prefersDark ? 'dark' : 'light'
   document.documentElement.dataset.theme = theme.value
-})
-
-const cartCount = computed(() => {
-  try { return JSON.parse(localStorage.getItem('ob-cart') ?? '[]').length } catch { return 0 }
 })
 
 const navItems: PillHeaderNavItem[] = [
@@ -60,15 +58,12 @@ const year = new Date().getFullYear()
     <PillHeader
       brand-to="/"
       brand-aria-label="Open Brands"
+      brand-suffix="Open Brands"
       :color-mode="theme === 'light' ? 'dark' : 'light'"
       :actions="actions"
       :nav-items="navItems"
       :current-path="currentPath"
-    >
-      <template #default>
-        <span :class="bemm('brand')"><strong>Open</strong>Brands</span>
-      </template>
-    </PillHeader>
+    />
 
     <main :class="bemm('main')">
       <RouterView v-slot="{ Component }">
@@ -108,12 +103,11 @@ const year = new Date().getFullYear()
     padding-top: var(--app-header-height);
   }
 
-  &__brand {
-    font-size: var(--font-size-l);
-
-    strong {
-      color: var(--color-primary);
-    }
+  .pill-header__brand {
+    white-space: nowrap;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: var(--font-size-s);
   }
 
   &__footer-nav {
