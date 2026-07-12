@@ -10,8 +10,12 @@ const datasetVersion = 'current'
 let uploaded = 0
 let failed = 0
 
-const account = '8cef251b5fdcf6c6f63db98b7aa49f9a'
-const token = '***REMOVED-CF-TOKEN***'
+const account = process.env.CLOUDFLARE_ACCOUNT_ID
+const token = process.env.CLOUDFLARE_API_TOKEN
+
+if (!account || !token) {
+  throw new Error('Set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN before running this script')
+}
 
 for (const brandId of readdirSync(brandsDir)) {
   if (brandId === 'README.md') continue
