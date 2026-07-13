@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useBemm } from 'bemm'
-import { Button, Icon, Badge, Card, InputSelect, InputCheckbox, EmptyState } from '@sil/ui'
+import { Button, Icon, Icons, Badge, Card, InputSelect, InputCheckbox, EmptyState } from '@sil/ui'
 import { brandIndex } from '../data/loader'
 import { useCart } from '../stores/cart'
 import { useBrandApi } from '../stores/api'
 import { inkOn } from '../utils'
 import BrandTile from '../components/BrandTile.vue'
+import HeadingSection from '../components/HeadingSection.vue'
 
 defineOptions({ name: 'CartPage' })
 
@@ -85,18 +86,19 @@ async function createPack() {
 </script>
 
 <template>
-  <div :class="bemm()" class="container">
-    <header :class="bemm('header')">
-      <h1>Brand Cart</h1>
-      <p v-if="cartBrands.length" :class="bemm('summary')">
-        {{ cartBrands.length }} {{ cartBrands.length === 1 ? 'brand' : 'brands' }} · {{ totalAssets }} assets
-      </p>
-    </header>
+  <div :class="bemm()">
+    <HeadingSection
+      eyebrow="Download pack"
+      title="Brand Cart"
+      :description="cartBrands.length ? `${cartBrands.length} ${cartBrands.length === 1 ? 'brand' : 'brands'} · ${totalAssets} assets` : 'Collect brands and prepare a small download pack.'"
+    />
+
+    <div class="container">
 
     <EmptyState
       v-if="!cartBrands.length"
       :class="bemm('empty')"
-      icon="cart"
+      :icon="Icons.PRODUCT_CART"
       title="Your cart is empty"
       description="Browse brands and add the ones you need to build a download pack."
       :action="{ label: 'Browse brands', action: () => $router.push('/brands') }"
@@ -124,7 +126,7 @@ async function createPack() {
                 :aria-label="`Remove ${brand.name} from cart`"
                 @click="remove(brand.id)"
               >
-                <Icon name="trash" size="small" />
+                <Icon :name="Icons.UI_TRASH" size="small" />
               </Button>
             </div>
           </TransitionGroup>
@@ -177,24 +179,13 @@ async function createPack() {
         </Card>
       </div>
     </template>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
 .cart-page {
-  padding: var(--space-l) 0 var(--space-xl);
-
-  &__header {
-    display: flex;
-    align-items: baseline;
-    gap: var(--space);
-    margin-bottom: var(--space-l);
-    flex-wrap: wrap;
-  }
-
-  &__summary {
-    color: color-mix(in srgb, var(--color-foreground), transparent 40%);
-  }
+  padding-bottom: var(--space-xl);
 
   &__empty {
     margin: var(--space-xl) 0;

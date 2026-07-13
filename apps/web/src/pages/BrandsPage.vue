@@ -2,11 +2,12 @@
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useBemm } from 'bemm'
-import { Icon, InputSearch } from '@sil/ui'
+import { Icon, Icons, InputSearch } from '@sil/ui'
 import { allBrands, categories, brandIndex, collectionsIndex, type CompactBrand } from '../data/loader'
 import { inkOn } from '../utils'
 import { useBrandApi } from '../stores/api'
 import BrandTile from '../components/BrandTile.vue'
+import HeadingSection from '../components/HeadingSection.vue'
 
 defineOptions({ name: 'BrandsPage' })
 
@@ -52,19 +53,19 @@ type FilterOption = {
 }
 
 const categoryIcons: Record<string, string> = {
-  [ALL_CATEGORIES]: 'layout-dashboard',
-  technology: 'laptop',
-  finance: 'dollar-sign',
-  retail: 'product-shopping-bag',
-  'consumer-goods': 'box',
-  'media-entertainment': 'playback-play',
-  automotive: 'car',
-  'travel-hospitality': 'airplane',
-  healthcare: 'plaster',
-  energy: 'lightning-flash',
-  industrial: 'factory',
-  education: 'book',
-  nonprofit: 'heart',
+  [ALL_CATEGORIES]: Icons.UI_DASHBOARD,
+  technology: Icons.MEDIA_LAPTOP,
+  finance: Icons.SPECIAL_CHARACTERS_DOLLAR,
+  retail: Icons.PRODUCT_SHOPPING_BAG,
+  'consumer-goods': Icons.UI_BOX,
+  'media-entertainment': Icons.MEDIA_PLAYBACK_PLAY,
+  automotive: Icons.WAYFINDING_CAR,
+  'travel-hospitality': Icons.WAYFINDING_AIRPLANE,
+  healthcare: Icons.WAYFINDING_PLASTER,
+  energy: Icons.WEATHER_LIGHTNING_FLASH,
+  industrial: Icons.MISC_FACTORY,
+  education: Icons.UI_BOOK,
+  nonprofit: Icons.UI_HEART_M,
 }
 
 const colorSwatches: Record<string, string> = {
@@ -93,11 +94,11 @@ const categoryOptions = computed<FilterOption[]>(() => [
 ])
 
 const collectionOptions = computed<FilterOption[]>(() => [
-  { label: 'All curated sets', value: ALL_COLLECTIONS, icon: 'folder', count: allBrands.length },
+  { label: 'All curated sets', value: ALL_COLLECTIONS, icon: Icons.UI_FOLDER, count: allBrands.length },
   ...Object.values(collectionsIndex).map(c => ({
     label: c.name,
     value: c.id,
-    icon: 'star',
+    icon: Icons.UI_STAR_M,
     description: 'Curated set',
     count: c.brandIds.length,
   })),
@@ -114,10 +115,10 @@ const colorOptions = computed<FilterOption[]>(() => [
 ])
 
 const sortOptions: FilterOption[] = [
-  { label: 'Name', value: DEFAULT_SORT, icon: 'text-bold', description: 'Alphabetical' },
-  { label: 'Color hue', value: 'color', icon: 'color-swatches', description: 'Rainbow order' },
-  { label: 'Light to dark', value: 'lightness-desc', icon: 'sun', description: 'Brightest first' },
-  { label: 'Dark to light', value: 'lightness-asc', icon: 'moon', description: 'Deepest first' },
+  { label: 'Name', value: DEFAULT_SORT, icon: Icons.UI_TEXT_BOLD, description: 'Alphabetical' },
+  { label: 'Color hue', value: 'color', icon: Icons.MEDIA_COLOR_SWATCHES, description: 'Rainbow order' },
+  { label: 'Light to dark', value: 'lightness-desc', icon: Icons.WEATHER_SUN, description: 'Brightest first' },
+  { label: 'Dark to light', value: 'lightness-asc', icon: Icons.WEATHER_MOON, description: 'Deepest first' },
 ]
 
 function colorMetrics(hex: string | null): { hue: number; saturation: number; lightness: number } | null {
@@ -278,7 +279,14 @@ watch([searchQuery, selectedCategory, selectedCollection, selectedColor, sortOrd
 </script>
 
 <template>
-  <div :class="[bemm(), 'container']">
+  <div :class="bemm()">
+    <HeadingSection
+      eyebrow="Brand library"
+      title="Browse brands"
+      description="Search, filter, and sort the full Open Brands catalog by industry, curated set, color, and name."
+    />
+
+    <div class="container">
     <div :class="bemm('controls')">
       <div :class="bemm('search')">
         <InputSearch v-model="searchQuery" placeholder="Search brands, aliases, domains…" block :search-on-enter="false" />
@@ -318,7 +326,7 @@ watch([searchQuery, selectedCategory, selectedCollection, selectedColor, sortOrd
               {{ selectedOption(menu.options, menu.value).label }}
             </span>
           </span>
-          <Icon name="chevron-down" :class="bemm('chevron')" />
+          <Icon :name="Icons.ARROWS_CHEVRON_DOWN" :class="bemm('chevron')" />
         </button>
 
         <div v-if="openMenu === menu.kind" :class="bemm('menu-panel')" role="menu">
@@ -343,7 +351,7 @@ watch([searchQuery, selectedCategory, selectedCollection, selectedColor, sortOrd
               <span v-if="option.description" :class="bemm('item-description')">{{ option.description }}</span>
             </span>
             <span v-if="option.count !== undefined" :class="bemm('item-count')">{{ option.count }}</span>
-            <Icon v-if="option.value === menu.value" name="check" :class="bemm('check')" />
+            <Icon v-if="option.value === menu.value" :name="Icons.UI_CHECK_L" :class="bemm('check')" />
           </button>
         </div>
       </div>
@@ -375,12 +383,12 @@ watch([searchQuery, selectedCategory, selectedCollection, selectedColor, sortOrd
     <div ref="sentinel" :class="bemm('sentinel')">
       <span v-if="visibleCount < filtered.length">Loading…</span>
     </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
 .brands-page {
-  padding-top: var(--space);
   padding-bottom: var(--space-xl);
 
   &__controls {
@@ -577,7 +585,7 @@ watch([searchQuery, selectedCategory, selectedCollection, selectedColor, sortOrd
 
   &__wall {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
     gap: var(--space-s);
   }
 

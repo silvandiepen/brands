@@ -4,6 +4,7 @@ import { useBemm } from 'bemm'
 import { collectionsIndex, brandIndex } from '../data/loader'
 import { inkOn } from '../utils'
 import { useBrandApi } from '../stores/api'
+import HeadingSection from '../components/HeadingSection.vue'
 
 const bemm = useBemm('collections-page')
 const { logoUrl } = useBrandApi()
@@ -59,14 +60,11 @@ const collections = computed(() =>
 
 <template>
   <div :class="bemm()">
-    <header :class="[bemm('head'), 'container', 'fade-up']">
-      <p class="eyebrow">Curated sets</p>
-      <h1 :class="bemm('title')">Collections</h1>
-      <p :class="bemm('sub')">
-        Hand-picked groups for browsing by workflow, market, and visual language. Categories classify every brand;
-        collections are editorial shortcuts into the library.
-      </p>
-    </header>
+    <HeadingSection
+      eyebrow="Curated sets"
+      title="Collections"
+      description="Hand-picked groups for browsing by workflow, market, and visual language. Categories classify every brand; collections are editorial shortcuts into the library."
+    />
 
     <div :class="bemm('sections')">
       <section
@@ -119,24 +117,7 @@ const collections = computed(() =>
 
 <style lang="scss">
 .collections-page {
-  padding-top: var(--space);
   padding-bottom: var(--space-xl);
-
-  &__head {
-    padding-bottom: var(--space-xl);
-  }
-
-  &__title {
-    font-size: clamp(var(--font-size-xl), 5vw, var(--font-size-xxl));
-    margin: var(--space-xs) 0;
-  }
-
-  &__sub {
-    color: color-mix(in srgb, var(--color-foreground), transparent 34%);
-    max-width: 68ch;
-    font-size: var(--font-size-l);
-    line-height: 1.45;
-  }
 
   &__sections {
     display: grid;

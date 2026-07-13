@@ -21,8 +21,7 @@ onMounted(() => {
 const navItems: PillHeaderNavItem[] = [
   { label: 'Browse', to: '/brands' },
   { label: 'Collections', to: '/collections' },
-  { label: 'Docs', to: '/docs' },
-  { label: 'Playground', to: '/playground' },
+  { label: 'API', to: '/docs' },
   { label: 'Contribute', to: '/contribute' },
 ]
 
@@ -79,13 +78,13 @@ const year = new Date().getFullYear()
         <nav aria-label="Footer" :class="bemm('footer-nav')">
           <RouterLink to="/brands">Browse</RouterLink>
           <RouterLink to="/collections">Collections</RouterLink>
-          <RouterLink to="/docs">Docs</RouterLink>
+          <RouterLink to="/docs">API</RouterLink>
           <RouterLink to="/contribute">Contribute</RouterLink>
           <RouterLink to="/legal">Legal</RouterLink>
         </nav>
       </template>
       <template #meta>
-        <p>&copy; {{ year }} Open Brands — MIT. Logos remain property of their owners.</p>
+        <p :class="bemm('footer-meta')">&copy; {{ year }} Open Brands — MIT. Logos remain property of their owners.</p>
       </template>
     </PlatformFooter>
   </div>
@@ -97,10 +96,8 @@ const year = new Date().getFullYear()
   display: flex;
   flex-direction: column;
 
-  // PillHeader is position: fixed — offset the page so content never sits underneath it
   &__main {
     flex: 1;
-    padding-top: var(--app-header-height);
   }
 
   .pill-header__brand {
@@ -123,6 +120,12 @@ const year = new Date().getFullYear()
         text-decoration: none;
       }
     }
+  }
+
+  &__footer-meta {
+    font-size: var(--font-size-xs);
+    line-height: 1.4;
+    color: color-mix(in srgb, currentColor, transparent 22%);
   }
 }
 </style>

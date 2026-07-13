@@ -1,10 +1,16 @@
 <script setup lang="ts">
+import HeadingSection from '../components/HeadingSection.vue'
 </script>
 
 <template>
-  <div class="container legal-page">
-    <h1>Legal and Trademarks</h1>
+  <div class="legal-page">
+    <HeadingSection
+      eyebrow="Usage terms"
+      title="Legal and Trademarks"
+      description="How Open Brands treats project code, third-party marks, sources, modifications, and correction requests."
+    />
 
+    <div class="container legal-page__body">
     <section class="section">
       <h2>License</h2>
       <p>Project-authored code is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
@@ -32,11 +38,13 @@
       <p>Brand owners can request removal, replacement, source correction, historical classification, or usage notes through a private process. Credible urgent disputes can disable public delivery while review continues.</p>
       <p>To request a correction or takedown, please open an issue on the <a href="https://github.com/silvandiepen/brands/issues">GitHub repository</a>.</p>
     </section>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.legal-page { padding: 2rem 0 4rem; max-width: 700px; }
+.legal-page { padding-bottom: 4rem; }
+.legal-page__body { max-width: 700px; }
 .section { margin-bottom: 2rem; }
 h2 { font-size: 1.1rem; margin-bottom: 0.75rem; }
 p { margin-bottom: 0.75rem; color: var(--ob-text); }

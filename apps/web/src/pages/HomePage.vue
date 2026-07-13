@@ -115,7 +115,7 @@ const brandCountLabel = new Intl.NumberFormat('en-US').format(releaseManifest.br
 
   &__hero {
     text-align: center;
-    padding: var(--space-l) 0;
+    padding: calc(var(--app-header-height) + var(--space-l)) 0 var(--space-l);
     max-width: 720px;
     margin: 0 auto;
   }

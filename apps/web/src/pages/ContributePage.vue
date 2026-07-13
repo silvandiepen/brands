@@ -527,13 +527,13 @@ h2 { margin-bottom: 1rem; }
   max-width: 1180px;
   min-height: 520px;
   margin: 0 auto;
-  padding: clamp(5rem, 10vw, 8rem) var(--space-l) clamp(4rem, 8vw, 6rem);
+  padding: calc(var(--app-header-height) + clamp(5rem, 10vw, 8rem)) var(--space-l) clamp(4rem, 8vw, 6rem);
   color: #f7f9ff;
 
   @media (max-width: 840px) {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding-top: var(--space-xl);
+    padding-top: calc(var(--app-header-height) + var(--space-xl));
   }
 }
 .contribute__hero-copy {

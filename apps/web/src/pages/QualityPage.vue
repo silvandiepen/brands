@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { releaseManifest, allBrands, categories } from '../data/loader'
+import HeadingSection from '../components/HeadingSection.vue'
 
 const reviewStatusCounts = allBrands.reduce((acc, b) => {
   acc[b.reviewStatus] = (acc[b.reviewStatus] ?? 0) + 1
@@ -13,10 +14,14 @@ const categoryCounts = categories.categories
 </script>
 
 <template>
-  <div class="container quality-page">
-    <h1>Dataset Quality</h1>
-    <p class="subtitle">Coverage and freshness information for the current dataset release.</p>
+  <div class="quality-page">
+    <HeadingSection
+      eyebrow="Dataset health"
+      title="Dataset Quality"
+      description="Coverage and freshness information for the current dataset release."
+    />
 
+    <div class="container quality-page__body">
     <section class="stats-grid">
       <div class="card stat">
         <span class="stat-value">{{ releaseManifest.brandCount }}</span>
@@ -54,12 +59,13 @@ const categoryCounts = categories.categories
         </div>
       </div>
     </section>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.quality-page { padding: 2rem 0 4rem; max-width: 800px; }
-.subtitle { color: var(--ob-text-muted); margin-bottom: 2rem; }
+.quality-page { padding-bottom: 4rem; }
+.quality-page__body { max-width: 800px; }
 .stats-grid { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
 .stat {
   text-align: center;

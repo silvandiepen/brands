@@ -252,7 +252,7 @@ function assetUrl(asset: BrandDetail['assets'][number], opts: { theme?: 'mono' |
   --brand-detail-ink: var(--color-foreground);
 
   &__status {
-    padding: var(--space-xl) 0;
+    padding: calc(var(--app-header-height) + var(--space-xl)) 0 var(--space-xl);
     text-align: center;
     color: color-mix(in srgb, var(--color-foreground), transparent 40%);
   }
@@ -274,7 +274,7 @@ function assetUrl(asset: BrandDetail['assets'][number], opts: { theme?: 'mono' |
     gap: clamp(var(--space-l), 6vw, var(--space-xl));
     align-items: center;
     min-height: min(72vh, 680px);
-    padding-top: clamp(var(--space-xl), 8vw, 7rem);
+    padding-top: calc(var(--app-header-height) + clamp(var(--space-xl), 8vw, 7rem));
     padding-bottom: clamp(var(--space-xl), 8vw, 7rem);
   }
 
