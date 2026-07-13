@@ -31,7 +31,7 @@ type Particle = LogoItem & {
   currentX: number
   currentY: number
   currentSize: number
-  hiddenUntil: number
+  exploded: boolean
 }
 
 type Burst = {
@@ -97,7 +97,7 @@ function buildParticles() {
       currentX: -999,
       currentY: -999,
       currentSize: 0,
-      hiddenUntil: 0,
+      exploded: false,
     }
   }).sort((a, b) => a.depth - b.depth)
 }
@@ -117,6 +117,7 @@ function resize() {
 
 function drawLogo(p: Particle, time: number) {
   if (!ctx) return
+  if (p.exploded) return
   const laneWidth = width + 180
   const rainHeight = height + 260
   const sway = Math.sin(time * 0.0007 + p.phase) * p.drift
@@ -129,8 +130,6 @@ function drawLogo(p: Particle, time: number) {
   p.currentX = x
   p.currentY = y
   p.currentSize = size
-
-  if (time < p.hiddenUntil) return
 
   ctx.save()
   ctx.translate(x, y)
@@ -172,7 +171,7 @@ function createBurst(p: Particle, x: number, y: number, time: number) {
       image: index % 4 === 0 ? p.image : null,
     })),
   })
-  p.hiddenUntil = time + 520
+  p.exploded = true
 }
 
 function drawBursts(time: number) {
@@ -256,6 +255,7 @@ function onClick(event: MouseEvent) {
   const hit = [...particles]
     .reverse()
     .find((particle) => {
+      if (particle.exploded) return false
       const half = particle.currentSize / 2
       return x >= particle.currentX - half
         && x <= particle.currentX + half
