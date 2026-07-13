@@ -94,6 +94,7 @@ async function sendRequest() {
       title="API"
       description="Search brands, resolve domains, inspect colors, fetch metadata, and generate small asset packs from a public, CORS-enabled API."
       tone="dark"
+      align="center"
     >
       <div :class="bemm('hero-actions')">
         <a :href="`${apiOrigin}/openapi.json`" target="_blank">OpenAPI spec</a>
@@ -134,28 +135,30 @@ async function sendRequest() {
       </div>
     </section>
 
-    <section id="playground" :class="[bemm('playground'), 'container', 'reveal']">
-      <div :class="bemm('playground-copy')">
-        <p class="eyebrow">Playground</p>
-        <h2>Try a request</h2>
-        <p>Runs against the public API with the same anonymous limits external consumers get.</p>
-      </div>
+    <section id="playground" :class="[bemm('band'), 'reveal']">
+      <div :class="[bemm('playground'), 'container']">
+        <div :class="bemm('playground-copy')">
+          <p class="eyebrow">Playground</p>
+          <h2>Try a request</h2>
+          <p>Runs against the public API with the same anonymous limits external consumers get.</p>
+        </div>
 
-      <div :class="bemm('console')">
-        <div :class="bemm('request-row')">
-          <div :class="bemm('method')">
-            <InputSelect v-model="method" :options="['GET', 'POST']" />
+        <div :class="bemm('console')">
+          <div :class="bemm('request-row')">
+            <div :class="bemm('method')">
+              <InputSelect v-model="method" :options="['GET', 'POST']" />
+            </div>
+            <input v-model="endpoint" :class="bemm('endpoint')" placeholder="/v1/..." @keydown.enter="sendRequest" />
+            <Button variant="primary" :loading="loading" @click="sendRequest">Send</Button>
           </div>
-          <input v-model="endpoint" :class="bemm('endpoint')" placeholder="/v1/..." @keydown.enter="sendRequest" />
-          <Button variant="primary" :loading="loading" @click="sendRequest">Send</Button>
+          <div :class="bemm('examples')">
+            <Button v-for="ex in examples" :key="ex" size="small" variant="outline" @click="applyExample(ex)">
+              {{ ex }}
+            </Button>
+          </div>
+          <p v-if="error" :class="bemm('error')">{{ error }}</p>
+          <pre v-if="response" :class="bemm('response')">{{ response }}</pre>
         </div>
-        <div :class="bemm('examples')">
-          <Button v-for="ex in examples" :key="ex" size="small" variant="outline" @click="applyExample(ex)">
-            {{ ex }}
-          </Button>
-        </div>
-        <p v-if="error" :class="bemm('error')">{{ error }}</p>
-        <pre v-if="response" :class="bemm('response')">{{ response }}</pre>
       </div>
     </section>
 
@@ -177,37 +180,41 @@ const formats = generateColorFormats('#4285F4')</pre>
       </div>
     </section>
 
-    <section :class="[bemm('endpoints'), 'container', 'reveal']">
-      <div>
-        <p class="eyebrow">Reference</p>
-        <h2>Endpoints</h2>
+    <section :class="[bemm('band'), 'reveal']">
+      <div :class="[bemm('endpoints'), 'container']">
+        <div>
+          <p class="eyebrow">Reference</p>
+          <h2>Endpoints</h2>
+        </div>
+        <table :class="bemm('table')">
+          <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr v-for="row in endpoints" :key="row[1]">
+              <td>{{ row[0] }}</td>
+              <td><code>{{ row[1] }}</code></td>
+              <td>{{ row[2] }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <table :class="bemm('table')">
-        <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
-        <tbody>
-          <tr v-for="row in endpoints" :key="row[1]">
-            <td>{{ row[0] }}</td>
-            <td><code>{{ row[1] }}</code></td>
-            <td>{{ row[2] }}</td>
-          </tr>
-        </tbody>
-      </table>
     </section>
 
-    <section :class="[bemm('limits'), 'container', 'reveal']">
-      <p class="eyebrow">Rate limits</p>
-      <h2>Anonymous access is intentionally small.</h2>
-      <p>
-        The public API is for development, CI checks, demos, and small build-time integrations.
-        Higher limits and relaxed limits for Open Brands properties require server-side identification.
-      </p>
-      <ul>
-        <li>Metadata reads: 60 req/min per IP</li>
-        <li>Search and resolve: 30 req/min per IP</li>
-        <li>Brand detail, colors, and asset metadata: 60 req/min per IP</li>
-        <li>Logo redirects and CDN assets: long-lived immutable caching, public edge abuse threshold 300 req/min per IP</li>
-        <li>Pack generation: 2 attempts/min, 5 packs/day anonymous</li>
-      </ul>
+    <section :class="[bemm('band'), bemm('band', 'split'), 'reveal']">
+      <div :class="[bemm('limits'), 'container']">
+        <p class="eyebrow">Rate limits</p>
+        <h2>Anonymous access is intentionally small.</h2>
+        <p>
+          The public API is for development, CI checks, demos, and small build-time integrations.
+          Higher limits and relaxed limits for Open Brands properties require server-side identification.
+        </p>
+        <ul>
+          <li>Metadata reads: 60 req/min per IP</li>
+          <li>Search and resolve: 30 req/min per IP</li>
+          <li>Brand detail, colors, and asset metadata: 60 req/min per IP</li>
+          <li>Logo redirects and CDN assets: long-lived immutable caching, public edge abuse threshold 300 req/min per IP</li>
+          <li>Pack generation: 2 attempts/min, 5 packs/day anonymous</li>
+        </ul>
+      </div>
     </section>
   </div>
 </template>
@@ -219,6 +226,7 @@ const formats = generateColorFormats('#4285F4')</pre>
   &__hero-actions {
     display: flex;
     gap: var(--space);
+    justify-content: center;
     flex-wrap: wrap;
 
     a {
@@ -413,9 +421,8 @@ const formats = generateColorFormats('#4285F4')</pre>
   }
 
   &__limits {
-    max-width: 900px;
-
     h2 {
+      max-width: 16ch;
       margin-bottom: var(--space-s);
       font-size: var(--font-size-xl);
     }
