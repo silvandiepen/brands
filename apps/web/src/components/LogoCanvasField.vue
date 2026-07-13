@@ -31,7 +31,6 @@ type Particle = LogoItem & {
 }
 
 const reducedMotion = ref(false)
-const pointer = { x: 0, y: 0, active: false }
 let ctx: CanvasRenderingContext2D | null = null
 let frame = 0
 let width = 0
@@ -96,10 +95,8 @@ function drawLogo(p: Particle, time: number) {
   const laneWidth = width + 180
   const rainHeight = height + 260
   const sway = Math.sin(time * 0.0007 + p.phase) * p.drift
-  const parallaxX = pointer.active ? (pointer.x - 0.5) * 24 * p.depth : 0
-  const parallaxY = pointer.active ? (pointer.y - 0.5) * 16 * p.depth : 0
-  const x = (p.x * laneWidth) - 90 + sway + parallaxX
-  const fall = p.y * rainHeight + time * p.speed + scrollY * p.depth * 0.18 + parallaxY
+  const x = (p.x * laneWidth) - 90 + sway
+  const fall = p.y * rainHeight + time * p.speed + scrollY * p.depth * 0.18
   const y = (fall % rainHeight) - 130
   const size = p.size * (0.82 + p.depth * 0.26)
   const radius = Math.max(12, size * 0.18)
@@ -167,18 +164,6 @@ function onScroll() {
   scrollY = window.scrollY
 }
 
-function onPointerMove(event: PointerEvent) {
-  const rect = canvas.value?.getBoundingClientRect()
-  if (!rect) return
-  pointer.active = true
-  pointer.x = (event.clientX - rect.left) / rect.width
-  pointer.y = (event.clientY - rect.top) / rect.height
-}
-
-function onPointerLeave() {
-  pointer.active = false
-}
-
 watch(seedItems, buildParticles, { deep: true })
 
 onMounted(() => {
@@ -203,8 +188,6 @@ onBeforeUnmount(() => {
     ref="canvas"
     :class="bemm()"
     aria-hidden="true"
-    @pointermove="onPointerMove"
-    @pointerleave="onPointerLeave"
   />
 </template>
 
@@ -214,6 +197,6 @@ onBeforeUnmount(() => {
   inset: 0;
   width: 100%;
   height: 100%;
-  pointer-events: auto;
+  pointer-events: none;
 }
 </style>
