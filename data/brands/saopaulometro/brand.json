@@ -1,14 +1,14 @@
 {
   "$schema": "../../../packages/schema/json-schema/brand.schema.json",
   "id": "saopaulometro",
-  "name": "São Paulo Metro",
+  "name": "S\u00e3o Paulo Metro",
   "aliases": [],
   "domains": [
     "commons.wikimedia.org"
   ],
   "status": "active",
   "categories": [
-    "technology"
+    "travel-hospitality"
   ],
   "tags": [],
   "colors": [
@@ -50,7 +50,7 @@
       "id": "src-1",
       "type": "community-reference",
       "url": "https://commons.wikimedia.org/wiki/File:Sao_Paulo_Metro_Logo.svg",
-      "title": "São Paulo Metro (Simple Icons)",
+      "title": "S\u00e3o Paulo Metro (Simple Icons)",
       "accessedAt": "2026-07-11"
     }
   ],

@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useBemm } from 'bemm'
+import { Button, Icon, Badge, Card, InputSelect, InputCheckbox, EmptyState } from '@sil/ui'
 import { brandIndex } from '../data/loader'
 import { useCart } from '../stores/cart'
+import { useBrandApi } from '../stores/api'
+import { inkOn } from '../utils'
+import BrandTile from '../components/BrandTile.vue'
 
+defineOptions({ name: 'CartPage' })
+
+const bemm = useBemm('cart-page', { return: 'string', includeBaseClass: true })
 const { cart, remove, clear } = useCart()
+const { logoUrl } = useBrandApi()
 
 const cartBrands = computed(() =>
   cart.value
@@ -11,12 +20,12 @@ const cartBrands = computed(() =>
     .filter((b): b is NonNullable<typeof b> => b !== undefined),
 )
 
-function removeFromCart(id: string) {
-  remove(id)
-}
+const totalAssets = computed(() =>
+  cartBrands.value.reduce((sum, b) => sum + b.assetCount, 0),
+)
 
-function clearCart() {
-  clear()
+function brandBg(brandId: string): string {
+  return brandIndex[brandId]?.primaryColor ?? '#f5f5f5'
 }
 
 const packConfig = ref({
@@ -25,6 +34,31 @@ const packConfig = ref({
   metadata: 'compact' as string,
   folderLayout: 'by-brand' as string,
 })
+
+const metadataOptions = [
+  { label: 'None', value: 'none' },
+  { label: 'Compact', value: 'compact' },
+  { label: 'Complete', value: 'complete' },
+]
+
+const folderLayoutOptions = [
+  { label: 'Flat', value: 'flat' },
+  { label: 'Grouped by brand', value: 'by-brand' },
+]
+
+const formatOptions: { label: string; value: string }[] = [
+  { label: 'SVG', value: 'svg' },
+  { label: 'PNG', value: 'png' },
+  { label: 'WebP', value: 'webp' },
+]
+
+function toggleFormat(value: string, checked: boolean) {
+  if (checked) {
+    if (!packConfig.value.formats.includes(value)) packConfig.value.formats.push(value)
+  } else {
+    packConfig.value.formats = packConfig.value.formats.filter((f) => f !== value)
+  }
+}
 
 const packManifest = computed(() => {
   return JSON.stringify({
@@ -40,110 +74,249 @@ const packManifest = computed(() => {
   }, null, 2)
 })
 
+const creating = ref(false)
+
 async function createPack() {
+  creating.value = true
+  await new Promise((r) => setTimeout(r, 400))
+  creating.value = false
   alert('Pack creation requires the API to be running. In production, this would queue a pack build.')
 }
 </script>
 
 <template>
-  <div class="container cart-page">
-    <h1>Brand Cart</h1>
-    <p v-if="!cartBrands.length" class="empty">Your cart is empty. <RouterLink to="/brands">Browse brands</RouterLink> to add some.</p>
+  <div :class="bemm()" class="container">
+    <header :class="bemm('header')">
+      <h1>Brand Cart</h1>
+      <p v-if="cartBrands.length" :class="bemm('summary')">
+        {{ cartBrands.length }} {{ cartBrands.length === 1 ? 'brand' : 'brands' }} · {{ totalAssets }} assets
+      </p>
+    </header>
 
-    <template v-if="cartBrands.length">
-      <div class="cart-layout">
-        <div class="cart-items">
-          <div v-for="brand in cartBrands" :key="brand.id" class="card cart-item">
-            <RouterLink :to="`/brands/${brand.id}`" class="cart-item-name">{{ brand.name }}</RouterLink>
-            <span class="badge">{{ brand.assetCount }} assets</span>
-            <button class="btn" @click="removeFromCart(brand.id)">Remove</button>
-          </div>
-          <button class="btn" @click="clearCart">Clear cart</button>
+    <EmptyState
+      v-if="!cartBrands.length"
+      :class="bemm('empty')"
+      icon="cart"
+      title="Your cart is empty"
+      description="Browse brands and add the ones you need to build a download pack."
+      :action="{ label: 'Browse brands', action: () => $router.push('/brands') }"
+    />
+
+    <template v-else>
+      <div :class="bemm('layout')">
+        <div :class="bemm('items')">
+          <TransitionGroup name="cart-item" tag="div" :class="bemm('list')">
+            <div v-for="brand in cartBrands" :key="brand.id" :class="bemm('item')">
+              <RouterLink :to="`/brands/${brand.id}`" :class="bemm('item-thumb')">
+                <BrandTile
+                  :brand-id="brand.id"
+                  :name="brand.name"
+                  :bg="brandBg(brand.id)"
+                  :ink="inkOn(brandBg(brand.id))"
+                  :logo-url="logoUrl(brand.id)"
+                />
+              </RouterLink>
+              <RouterLink :to="`/brands/${brand.id}`" :class="bemm('item-name')">{{ brand.name }}</RouterLink>
+              <Badge variant="outline" size="small">{{ brand.assetCount }} assets</Badge>
+              <Button
+                variant="ghost"
+                size="small"
+                :aria-label="`Remove ${brand.name} from cart`"
+                @click="remove(brand.id)"
+              >
+                <Icon name="trash" size="small" />
+              </Button>
+            </div>
+          </TransitionGroup>
+          <Button variant="ghost" size="small" :class="bemm('clear')" @click="clear">
+            Clear cart
+          </Button>
         </div>
 
-        <div class="cart-config">
-          <h2>Pack Configuration</h2>
-          <div class="config-group">
-            <label>Formats</label>
-            <div class="checkbox-group">
-              <label><input type="checkbox" value="svg" v-model="packConfig.formats" /> SVG</label>
-              <label><input type="checkbox" value="png" v-model="packConfig.formats" /> PNG</label>
-              <label><input type="checkbox" value="webp" v-model="packConfig.formats" /> WebP</label>
+        <Card :class="bemm('config')" title="Pack configuration">
+          <div :class="bemm('config-group')">
+            <label :class="bemm('config-label')">Formats</label>
+            <div :class="bemm('checkbox-group')">
+              <InputCheckbox
+                v-for="format in formatOptions"
+                :key="format.value"
+                :label="format.label"
+                :model-value="packConfig.formats.includes(format.value)"
+                @update:model-value="(v) => toggleFormat(format.value, Boolean(v))"
+              />
             </div>
           </div>
-          <div class="config-group">
-            <label>Metadata</label>
-            <select v-model="packConfig.metadata" class="filter-select">
-              <option value="none">None</option>
-              <option value="compact">Compact</option>
-              <option value="complete">Complete</option>
-            </select>
-          </div>
-          <div class="config-group">
-            <label>Folder layout</label>
-            <select v-model="packConfig.folderLayout" class="filter-select">
-              <option value="flat">Flat</option>
-              <option value="by-brand">Grouped by brand</option>
-            </select>
-          </div>
-          <details class="manifest-preview">
+
+          <InputSelect
+            v-model="packConfig.metadata"
+            label="Metadata"
+            :options="metadataOptions"
+            :class="bemm('config-group')"
+          />
+
+          <InputSelect
+            v-model="packConfig.folderLayout"
+            label="Folder layout"
+            :options="folderLayoutOptions"
+            :class="bemm('config-group')"
+          />
+
+          <details :class="bemm('manifest')">
             <summary>Pack manifest</summary>
             <pre>{{ packManifest }}</pre>
           </details>
-          <button class="btn btn--primary" :disabled="!cartBrands.length" @click="createPack">
-            Create Pack ({{ cartBrands.length }} brands)
-          </button>
-        </div>
+
+          <Button
+            variant="primary"
+            block
+            :disabled="!cartBrands.length || creating"
+            @click="createPack"
+          >
+            {{ creating ? 'Preparing…' : `Create pack (${cartBrands.length} brands)` }}
+          </Button>
+        </Card>
       </div>
     </template>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.cart-page { padding: 2rem 0 4rem; }
-.empty { padding: 3rem 0; text-align: center; color: var(--ob-text-muted); }
-.cart-layout {
-  display: grid;
-  grid-template-columns: 1fr 350px;
-  gap: 2rem;
-  @media (max-width: 768px) { grid-template-columns: 1fr; }
+<style lang="scss">
+.cart-page {
+  padding: var(--space-l) 0 var(--space-xl);
+
+  &__header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space);
+    margin-bottom: var(--space-l);
+    flex-wrap: wrap;
+  }
+
+  &__summary {
+    color: color-mix(in srgb, var(--color-foreground), transparent 40%);
+  }
+
+  &__empty {
+    margin: var(--space-xl) 0;
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--space-l);
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space);
+    padding: var(--space-s);
+    border-radius: var(--border-radius);
+    background: var(--color-background-alt);
+    transition: background var(--transition-fast);
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-background-alt), var(--color-foreground) 4%);
+    }
+  }
+
+  &__item-thumb {
+    display: block;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+
+    .brand-tile {
+      width: 100%;
+      height: 100%;
+      padding: var(--space-xs);
+      border-radius: var(--border-radius-s);
+    }
+
+    // name label is redundant next to the row label, hide the tile's own
+    .brand-tile__name {
+      display: none;
+    }
+  }
+
+  &__item-name {
+    flex: 1;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-foreground);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__clear {
+    align-self: flex-start;
+    margin-top: var(--space-s);
+  }
+
+  &__config-group {
+    margin-bottom: var(--space);
+  }
+
+  &__config-label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-size-s);
+    color: color-mix(in srgb, var(--color-foreground), transparent 40%);
+  }
+
+  &__checkbox-group {
+    display: flex;
+    gap: var(--space);
+    flex-wrap: wrap;
+  }
+
+  &__manifest {
+    margin: var(--space) 0;
+
+    pre {
+      font-size: var(--font-size-xs);
+      background: var(--color-background-alt);
+      padding: var(--space-s);
+      border-radius: var(--border-radius);
+      overflow-x: auto;
+      max-height: 200px;
+    }
+  }
 }
-.cart-items { display: flex; flex-direction: column; gap: 0.5rem; }
-.cart-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+
+.cart-item-move,
+.cart-item-enter-active,
+.cart-item-leave-active {
+  transition: all 200ms ease;
 }
-.cart-item-name { font-weight: 600; flex: 1; }
-.cart-config {
-  h2 { font-size: 1.1rem; margin-bottom: 1rem; }
+
+.cart-item-enter-from,
+.cart-item-leave-to {
+  opacity: 0;
+  transform: translateX(8px);
 }
-.config-group {
-  margin-bottom: 1rem;
-  label { display: block; margin-bottom: 0.25rem; font-size: 0.875rem; color: var(--ob-text-muted); }
+
+.cart-item-leave-active {
+  position: absolute;
 }
-.checkbox-group {
-  display: flex;
-  gap: 1rem;
-  label { display: flex; align-items: center; gap: 0.25rem; cursor: pointer; }
-}
-.filter-select {
-  padding: 0.5rem;
-  border: 1px solid var(--ob-border);
-  border-radius: var(--ob-radius);
-  background: var(--ob-bg);
-  color: var(--ob-text);
-  width: 100%;
-}
-.manifest-preview {
-  margin: 1rem 0;
-  pre {
-    font-size: 0.75rem;
-    background: var(--ob-bg-alt);
-    padding: 0.75rem;
-    border-radius: var(--ob-radius);
-    overflow-x: auto;
-    max-height: 200px;
+
+@media (prefers-reduced-motion: reduce) {
+  .cart-item-move,
+  .cart-item-enter-active,
+  .cart-item-leave-active {
+    transition: none;
   }
 }
 </style>

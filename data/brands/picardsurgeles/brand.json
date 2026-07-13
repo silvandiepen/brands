@@ -1,15 +1,15 @@
 {
   "$schema": "../../../packages/schema/json-schema/brand.schema.json",
   "id": "picardsurgeles",
-  "name": "Picard Surgelés",
+  "name": "Picard Surgel\u00e9s",
   "aliases": [],
   "domains": [
     "picard.fr"
   ],
   "status": "active",
   "categories": [
-    "technology",
-    "automotive"
+    "consumer-goods",
+    "food-beverage"
   ],
   "tags": [],
   "colors": [
@@ -51,7 +51,7 @@
       "id": "src-1",
       "type": "community-reference",
       "url": "https://www.picard.fr",
-      "title": "Picard Surgelés (Simple Icons)",
+      "title": "Picard Surgel\u00e9s (Simple Icons)",
       "accessedAt": "2026-07-11"
     }
   ],
