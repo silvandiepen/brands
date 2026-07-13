@@ -60,6 +60,8 @@ const filtered = computed(() => {
 })
 
 const visibleCount = ref(48)
+const wall = ref<HTMLElement | null>(null)
+const wallOpacity = ref(1)
 const sentinel = ref<HTMLElement | null>(null)
 let observer: IntersectionObserver | null = null
 
@@ -69,13 +71,32 @@ function loadMore() {
 }
 watch(filtered, () => { visibleCount.value = 48 })
 
+function updateWallOpacity() {
+  if (!wall.value) {
+    wallOpacity.value = 1
+    return
+  }
+
+  const wallTop = wall.value.getBoundingClientRect().top + window.scrollY
+  const distance = Math.max(window.innerHeight * 1.8, 720)
+  const progress = Math.max(0, (window.scrollY - wallTop) / distance)
+  wallOpacity.value = Math.max(0.24, 1 - progress)
+}
+
 onMounted(() => {
   observer = new IntersectionObserver(entries => {
     if (entries[0]?.isIntersecting) loadMore()
   }, { rootMargin: '300px' })
   if (sentinel.value) observer.observe(sentinel.value)
+  updateWallOpacity()
+  window.addEventListener('scroll', updateWallOpacity, { passive: true })
+  window.addEventListener('resize', updateWallOpacity)
 })
-onUnmounted(() => observer?.disconnect())
+onUnmounted(() => {
+  observer?.disconnect()
+  window.removeEventListener('scroll', updateWallOpacity)
+  window.removeEventListener('resize', updateWallOpacity)
+})
 
 function submitSearch() {
   if (searchQuery.value.trim())
@@ -114,7 +135,11 @@ const brandCountLabel = new Intl.NumberFormat('en-US').format(releaseManifest.br
       </div>
     </section>
 
-    <div :class="[bemm('wall'), 'container']">
+    <div
+      ref="wall"
+      :class="[bemm('wall'), 'container']"
+      :style="{ opacity: wallOpacity }"
+    >
       <BrandTile
         v-for="brand in filtered.slice(0, visibleCount)"
         :key="brand.id"
