@@ -28,6 +28,26 @@ type Particle = LogoItem & {
   rotation: number
   spin: number
   image: HTMLImageElement | null
+  currentX: number
+  currentY: number
+  currentSize: number
+  hiddenUntil: number
+}
+
+type Burst = {
+  x: number
+  y: number
+  color: string
+  ink: string
+  startedAt: number
+  pieces: Array<{
+    angle: number
+    speed: number
+    size: number
+    spin: number
+    rotation: number
+    image: HTMLImageElement | null
+  }>
 }
 
 const reducedMotion = ref(false)
@@ -38,6 +58,7 @@ let height = 0
 let dpr = 1
 let scrollY = 0
 let particles: Particle[] = []
+let bursts: Burst[] = []
 let resizeObserver: ResizeObserver | null = null
 
 const seedItems = computed(() => props.items.slice(0, 38))
@@ -73,6 +94,10 @@ function buildParticles() {
       rotation: (unit(seed, 8) - 0.5) * 0.08,
       spin: (unit(seed, 9) - 0.5) * 0.00006,
       image,
+      currentX: -999,
+      currentY: -999,
+      currentSize: 0,
+      hiddenUntil: 0,
     }
   }).sort((a, b) => a.depth - b.depth)
 }
@@ -101,6 +126,11 @@ function drawLogo(p: Particle, time: number) {
   const size = p.size * (0.82 + p.depth * 0.26)
   const radius = Math.max(12, size * 0.18)
   const alpha = 0.28 + p.depth * 0.34
+  p.currentX = x
+  p.currentY = y
+  p.currentSize = size
+
+  if (time < p.hiddenUntil) return
 
   ctx.save()
   ctx.translate(x, y)
@@ -123,6 +153,57 @@ function drawLogo(p: Particle, time: number) {
     ctx.fillText(p.name.slice(0, 1), 0, 1)
   }
   ctx.restore()
+}
+
+function createBurst(p: Particle, x: number, y: number, time: number) {
+  const seed = hash(`${p.id}-${Math.round(time)}`)
+  bursts.push({
+    x,
+    y,
+    color: p.color,
+    ink: inkOn(p.color),
+    startedAt: time,
+    pieces: Array.from({ length: 18 }, (_, index) => ({
+      angle: (Math.PI * 2 * index) / 18 + (unit(seed, index) - 0.5) * 0.55,
+      speed: 80 + unit(seed, index + 20) * 180,
+      size: 4 + unit(seed, index + 40) * 14,
+      spin: (unit(seed, index + 60) - 0.5) * 5,
+      rotation: unit(seed, index + 80) * Math.PI,
+      image: index % 4 === 0 ? p.image : null,
+    })),
+  })
+  p.hiddenUntil = time + 520
+}
+
+function drawBursts(time: number) {
+  if (!ctx) return
+  bursts = bursts.filter((burst) => time - burst.startedAt < 760)
+  for (const burst of bursts) {
+    const age = (time - burst.startedAt) / 1000
+    const progress = Math.min(1, age / 0.76)
+    const fade = 1 - progress
+
+    for (const piece of burst.pieces) {
+      const distance = piece.speed * age
+      const gravity = 95 * age * age
+      const x = burst.x + Math.cos(piece.angle) * distance
+      const y = burst.y + Math.sin(piece.angle) * distance + gravity
+      const size = piece.size * (1 - progress * 0.28)
+
+      ctx.save()
+      ctx.translate(x, y)
+      ctx.rotate(piece.rotation + piece.spin * age)
+      ctx.globalAlpha = Math.max(0, fade)
+      if (piece.image?.complete && piece.image.naturalWidth > 0) {
+        ctx.drawImage(piece.image, -size, -size, size * 2, size * 2)
+      } else {
+        ctx.fillStyle = piece.size > 10 ? burst.color : burst.ink
+        roundedRect(-size / 2, -size / 2, size, size, Math.max(2, size * 0.25))
+        ctx.fill()
+      }
+      ctx.restore()
+    }
+  }
 }
 
 function roundedRect(x: number, y: number, w: number, h: number, r: number) {
@@ -157,11 +238,32 @@ function tick(time = 0) {
 
   const animationTime = reducedMotion.value ? 0 : time
   for (const particle of particles) drawLogo(particle, animationTime)
+  drawBursts(animationTime)
   frame = requestAnimationFrame(tick)
 }
 
 function onScroll() {
   scrollY = window.scrollY
+}
+
+function onClick(event: MouseEvent) {
+  if (reducedMotion.value) return
+  const rect = canvas.value?.getBoundingClientRect()
+  if (!rect) return
+
+  const x = event.clientX - rect.left
+  const y = event.clientY - rect.top
+  const hit = [...particles]
+    .reverse()
+    .find((particle) => {
+      const half = particle.currentSize / 2
+      return x >= particle.currentX - half
+        && x <= particle.currentX + half
+        && y >= particle.currentY - half
+        && y <= particle.currentY + half
+    })
+
+  if (hit) createBurst(hit, x, y, performance.now())
 }
 
 watch(seedItems, buildParticles, { deep: true })
@@ -188,6 +290,7 @@ onBeforeUnmount(() => {
     ref="canvas"
     :class="bemm()"
     aria-hidden="true"
+    @click="onClick"
   />
 </template>
 
@@ -197,6 +300,6 @@ onBeforeUnmount(() => {
   inset: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  pointer-events: auto;
 }
 </style>
