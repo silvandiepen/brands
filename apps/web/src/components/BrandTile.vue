@@ -15,7 +15,7 @@ const bemm = useBemm('brand-tile', { return: 'string', includeBaseClass: true })
 <template>
   <RouterLink
     :to="`/brands/${brandId}`"
-    :class="[bemm(), 'reveal']"
+    :class="bemm()"
     :style="{
       '--brand-tile-background': bg,
       '--brand-tile-ink': ink,
