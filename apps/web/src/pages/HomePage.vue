@@ -8,6 +8,7 @@ import { allBrands, releaseManifest, categories, brandIndex } from '../data/load
 import { inkOn, shuffle } from '../utils'
 import { useBrandApi } from '../stores/api'
 import BrandTile from '../components/BrandTile.vue'
+import LogoCanvasField from '../components/LogoCanvasField.vue'
 
 const bemm = useBemm('home')
 const router = useRouter()
@@ -16,6 +17,25 @@ const searchQuery = ref('')
 const selectedCategory = ref('')
 
 const topLevelCategories = categories.categories.filter(c => c.parentId === null)
+
+function canvasRank(id: string) {
+  let value = 0
+  for (let i = 0; i < id.length; i++) value = (value * 33 + id.charCodeAt(i)) >>> 0
+  return value
+}
+
+const canvasBrands = computed(() =>
+  allBrands
+    .filter(b => b.assetCount > 0 && b.primaryColor)
+    .sort((a, b) => canvasRank(a.id) - canvasRank(b.id))
+    .slice(0, 42)
+    .map(b => ({
+      id: b.id,
+      name: b.name,
+      color: b.primaryColor ?? '#f5f5f5',
+      logoUrl: logoUrl(b.id),
+    })),
+)
 
 function brandBg(brandId: string): string {
   return brandIndex[brandId]?.primaryColor ?? '#f5f5f5'
@@ -66,32 +86,35 @@ const brandCountLabel = new Intl.NumberFormat('en-US').format(releaseManifest.br
 </script>
 
 <template>
-  <div :class="[bemm(), 'container']">
+  <div :class="bemm()">
     <section :class="bemm('hero')">
-      <h1 :class="[bemm('title'), 'fade-up']">The open source<br /><span :class="bemm('title-accent')">brand asset</span> library</h1>
-      <p :class="[bemm('tagline'), 'fade-up']" style="animation-delay: 80ms">{{ brandCountLabel }} brand logos and color palettes. Free, versioned, and one API call away.</p>
+      <LogoCanvasField :items="canvasBrands" :class="bemm('canvas')" />
+      <div :class="[bemm('hero-copy'), 'container']">
+        <h1 :class="[bemm('title'), 'fade-up']">The open source<br /><span :class="bemm('title-accent')">brand asset</span> library</h1>
+        <p :class="[bemm('tagline'), 'fade-up']" style="animation-delay: 80ms">{{ brandCountLabel }} brand logos and color palettes. Free, versioned, and one API call away.</p>
 
-      <div :class="[bemm('search'), 'fade-up']" style="animation-delay: 160ms">
-        <InputSearch
-          v-model="searchQuery"
-          placeholder="Search brands, aliases, domains…"
-          block
-          @search="submitSearch"
-        />
-      </div>
+        <div :class="[bemm('search'), 'fade-up']" style="animation-delay: 160ms">
+          <InputSearch
+            v-model="searchQuery"
+            placeholder="Search brands, aliases, domains…"
+            block
+            @search="submitSearch"
+          />
+        </div>
 
-      <div :class="[bemm('categories'), 'fade-up']" style="animation-delay: 240ms">
-        <Button
-          v-for="cat in topLevelCategories"
-          :key="cat.id"
-          size="small"
-          :variant="selectedCategory === cat.id ? 'primary' : 'outline'"
-          @click="selectedCategory = selectedCategory === cat.id ? '' : cat.id"
-        >{{ cat.label }}</Button>
+        <div :class="[bemm('categories'), 'fade-up']" style="animation-delay: 240ms">
+          <Button
+            v-for="cat in topLevelCategories"
+            :key="cat.id"
+            size="small"
+            :variant="selectedCategory === cat.id ? 'primary' : 'outline'"
+            @click="selectedCategory = selectedCategory === cat.id ? '' : cat.id"
+          >{{ cat.label }}</Button>
+        </div>
       </div>
     </section>
 
-    <div :class="bemm('wall')">
+    <div :class="[bemm('wall'), 'container']">
       <BrandTile
         v-for="brand in filtered.slice(0, visibleCount)"
         :key="brand.id"
@@ -103,7 +126,7 @@ const brandCountLabel = new Intl.NumberFormat('en-US').format(releaseManifest.br
       />
     </div>
 
-    <div ref="sentinel" :class="bemm('sentinel')">
+    <div ref="sentinel" :class="[bemm('sentinel'), 'container']">
       <span v-if="visibleCount < filtered.length">Loading more…</span>
     </div>
   </div>
@@ -114,10 +137,35 @@ const brandCountLabel = new Intl.NumberFormat('en-US').format(releaseManifest.br
   padding-bottom: var(--space-xl);
 
   &__hero {
+    position: relative;
+    overflow: clip;
     text-align: center;
-    padding: calc(var(--app-header-height) + var(--space-l)) 0 var(--space-l);
-    max-width: 720px;
-    margin: 0 auto;
+    min-height: min(78vh, 760px);
+    display: grid;
+    place-items: center;
+    padding: calc(var(--app-header-height) + var(--space-xl)) 0 clamp(var(--space-xl), 8vw, 7rem);
+    isolation: isolate;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--color-background), transparent 8%) 0%, color-mix(in srgb, var(--color-background), transparent 24%) 28%, transparent 58%),
+        linear-gradient(180deg, color-mix(in srgb, var(--color-background), transparent 0%) 0%, transparent 24%, transparent 72%, var(--color-background) 100%);
+    }
+  }
+
+  &__canvas {
+    z-index: 0;
+  }
+
+  &__hero-copy {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
   }
 
   &__title {
