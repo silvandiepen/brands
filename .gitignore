@@ -13,3 +13,4 @@ coverage/
 .wrangler/
 .opencode/
 packages/data/generated/
+packages/tooling/audit-report.json

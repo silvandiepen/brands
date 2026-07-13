@@ -1,10 +1,26 @@
-import { getIndex } from './data.js'
+import { getIndex, getBrand } from './data.js'
 import { corsHeaders } from './http.js'
 import type { Env } from './env.js'
 import allSvgsData from '../../../packages/data/generated/all-svgs.json'
 
 const indexData = getIndex()
 const bundledSvgs = allSvgsData as Record<string, string>
+
+// Resolves the asset id to serve for a requested logo `type`, honoring the
+// brand's actual manifest instead of guessing at filenames — an asset's id
+// doesn't always match its type, and untyped guesses previously fell back
+// to the brand's default asset regardless of what type was requested.
+function resolveAsset(brandId: string, type: string): { id: string; file: string } | null {
+  const brand = getBrand(brandId)
+  if (!brand) return null
+
+  const byType = brand.assets.filter((a) => a.type === type)
+  const match = byType.find((a) => a.current) ?? byType[0]
+  if (match) return { id: match.id, file: match.file }
+
+  const fallback = brand.assets.find((a) => a.current) ?? brand.assets[0]
+  return fallback ? { id: fallback.id, file: fallback.file } : null
+}
 
 function findBrandByDomain(domain: string): string | null {
   const lk = domain.toLowerCase().replace(/^www\./, '')
@@ -67,17 +83,8 @@ const svgHeaders = {
   ...corsHeaders(),
 }
 
-function getBundledSvg(brandId: string, type: string): string | null {
-  const keys = [
-    `${brandId}/${type}`,
-    `${brandId}/icon`,
-    `${brandId}/symbol`,
-    `${brandId}/wordmark`,
-  ]
-  for (const k of keys) {
-    if (bundledSvgs[k]) return bundledSvgs[k]
-  }
-  return null
+function getBundledSvg(brandId: string, assetId: string): string | null {
+  return bundledSvgs[`${brandId}/${assetId}`] ?? null
 }
 
 export async function handleLogoCdn(path: string, url: URL, env: Env): Promise<Response> {
@@ -100,19 +107,18 @@ export async function handleLogoCdn(path: string, url: URL, env: Env): Promise<R
     return new Response(lettermark(baseName.charAt(0).toUpperCase() || '?'), { headers: svgHeaders })
   }
 
+  const asset = resolveAsset(brandId, type)
   let svg: string | null = null
 
-  // 1. Try R2
-  if (env.PUBLIC_ASSETS) {
-    const fileNames = [`${type}.svg`, `${brandId}.svg`, `${brandId}_${type}.svg`, `${brandId}_icon.svg`]
-    for (const f of fileNames) {
-      const obj = await env.PUBLIC_ASSETS.get(`releases/current/brands/${brandId}/${f}`)
-      if (obj) { svg = await obj.text(); break }
-    }
+  // 1. Try R2 — using the asset's real filename from the manifest, not a guess
+  if (env.PUBLIC_ASSETS && asset) {
+    const fileName = asset.file.replace(/^assets\//, '')
+    const obj = await env.PUBLIC_ASSETS.get(`releases/current/brands/${brandId}/${fileName}`)
+    if (obj) svg = await obj.text()
   }
 
   // 2. Fall back to bundled SVG data
-  if (!svg) svg = getBundledSvg(brandId, type)
+  if (!svg && asset) svg = getBundledSvg(brandId, asset.id)
 
   // 3. Lettermark fallback
   if (!svg) {

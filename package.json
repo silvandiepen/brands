@@ -12,6 +12,7 @@
     "check:contribution": "node packages/tooling/scripts/check-contribution-pr.mjs",
     "test:contribution-guard": "node packages/tooling/scripts/test-contribution-guard.mjs",
     "generate": "tsx packages/tooling/scripts/generate-data.mjs",
+    "audit:brands": "tsx packages/tooling/scripts/audit-brands.mjs",
     "lint": "eslint .",
     "typecheck": "pnpm -r --if-present typecheck",
     "test": "pnpm -r --if-present test",
