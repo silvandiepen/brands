@@ -55,7 +55,7 @@ function unit(seed: number, offset: number) {
 }
 
 function buildParticles() {
-  particles = seedItems.value.map((item, index) => {
+  particles = seedItems.value.map((item) => {
     const seed = hash(item.id)
     const image = new Image()
     image.crossOrigin = 'anonymous'
@@ -68,11 +68,11 @@ function buildParticles() {
       y: unit(seed, 2),
       size: 42 + unit(seed, 3) * 86,
       depth: 0.45 + unit(seed, 4) * 0.9,
-      speed: 0.14 + unit(seed, 5) * 0.32,
-      drift: (unit(seed, 6) - 0.5) * 52,
+      speed: 0.018 + unit(seed, 5) * 0.038,
+      drift: (unit(seed, 6) - 0.5) * 34,
       phase: unit(seed, 7) * Math.PI * 2,
-      rotation: (unit(seed, 8) - 0.5) * 0.22,
-      spin: (unit(seed, 9) - 0.5) * 0.0018,
+      rotation: (unit(seed, 8) - 0.5) * 0.08,
+      spin: (unit(seed, 9) - 0.5) * 0.00006,
       image,
     }
   }).sort((a, b) => a.depth - b.depth)
@@ -93,19 +93,21 @@ function resize() {
 
 function drawLogo(p: Particle, time: number) {
   if (!ctx) return
-  const scrollInfluence = scrollY * p.speed
-  const orbit = Math.sin(time * 0.0012 + p.phase)
-  const parallaxX = pointer.active ? (pointer.x - 0.5) * 42 * p.depth : 0
-  const parallaxY = pointer.active ? (pointer.y - 0.5) * 30 * p.depth : 0
-  const x = ((p.x * width + p.drift * orbit + parallaxX) % (width + 180)) - 90
-  const y = ((p.y * height + scrollInfluence + parallaxY) % (height + 180)) - 90
+  const laneWidth = width + 180
+  const rainHeight = height + 260
+  const sway = Math.sin(time * 0.0007 + p.phase) * p.drift
+  const parallaxX = pointer.active ? (pointer.x - 0.5) * 24 * p.depth : 0
+  const parallaxY = pointer.active ? (pointer.y - 0.5) * 16 * p.depth : 0
+  const x = (p.x * laneWidth) - 90 + sway + parallaxX
+  const fall = p.y * rainHeight + time * p.speed + scrollY * p.depth * 0.18 + parallaxY
+  const y = (fall % rainHeight) - 130
   const size = p.size * (0.82 + p.depth * 0.26)
   const radius = Math.max(12, size * 0.18)
   const alpha = 0.28 + p.depth * 0.34
 
   ctx.save()
   ctx.translate(x, y)
-  ctx.rotate(p.rotation + time * p.spin)
+  ctx.rotate(p.rotation + Math.sin(time * 0.00045 + p.phase) * 0.035 + time * p.spin)
   ctx.globalAlpha = alpha
   ctx.fillStyle = p.color
   roundedRect(-size / 2, -size / 2, size, size, radius)
